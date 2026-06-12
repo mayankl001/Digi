@@ -1,16 +1,56 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, User, Mail, Store, Phone, MapPin, Loader2 } from "lucide-react";
 import { AnimateIn } from "./AnimateIn";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+
+// FIREBASE IMPORTS
+import { db } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export function Waitlist() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [salonName, setSalonName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
   const [type, setType] = useState<"customer" | "salon">("customer");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state add ki h
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    setLoading(true);
+
+    try {
+      // Data object taiyar kar rahe hain
+      const waitlistData = {
+        name,
+        email,
+        type,
+        // Agar salon hai tabhi ye fields jayengi, nahi toh null
+        salonName: type === "salon" ? salonName : null,
+        phone: type === "salon" ? phone : null,
+        city: type === "salon" ? city : null,
+        timestamp: serverTimestamp() // Firebase ka server time tracking ke liye
+      };
+
+      // Firestore me 'waitlist' naam ke collection me data insert kar rahe hain
+      await addDoc(collection(db, "waitlist"), waitlistData);
+      
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Firebase me data save karne me error aaya: ", error);
+      alert("Kuch dikkat aayi! Kripya dobara prayas karein.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleTypeChange = (selectedType: "customer" | "salon") => {
+    setType(selectedType);
+    setSalonName("");
+    setPhone("");
+    setCity("");
   };
 
   return (
@@ -45,6 +85,18 @@ export function Waitlist() {
             </span>
           </div>
 
+          <p>
+            <div
+              className="inline-block px-4 py-2 rounded-full mb-6"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                color: "#fff",
+              }}
+            >
+              ⏳ Only First 500 Users Get Premium Benefits
+            </div>
+          </p>
+
           <h2
             className="mb-4"
             style={{
@@ -63,7 +115,7 @@ export function Waitlist() {
             className="mb-10 max-w-xl mx-auto"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.78)", fontSize: "1.1rem", lineHeight: 1.7 }}
           >
-            Join 250+ early users and 150+ salon partners already on the waitlist. Be the first to experience DigiSaloon when we launch in Ranchi.
+            Join 150+ early users and 50+ salon partners already on the waitlist. Be the first to experience DigiSaloon when we launch in Ranchi.
           </p>
         </AnimateIn>
 
@@ -78,9 +130,10 @@ export function Waitlist() {
                 {(["customer", "salon"] as const).map((t) => (
                   <motion.button
                     key={t}
-                    onClick={() => setType(t)}
+                    disabled={loading}
+                    onClick={() => handleTypeChange(t)}
                     layout
-                    className="px-5 py-2 rounded-full text-sm relative"
+                    className="px-5 py-2 rounded-full text-sm relative disabled:opacity-50"
                     style={{
                       fontFamily: "'Plus Jakarta Sans', sans-serif",
                       fontWeight: 600,
@@ -94,32 +147,130 @@ export function Waitlist() {
                 ))}
               </div>
 
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={type === "customer" ? "Enter your email to join waitlist" : "Enter your business email"}
-                  required
-                  className="flex-1 px-5 py-3.5 rounded-full outline-none text-sm"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
-                />
-                <motion.button
-                  type="submit"
-                  whileHover={{ y: -1, boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}
-                  whileTap={{ scale: 0.97 }}
-                  className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontWeight: 700,
-                    background: "#fff",
-                    color: "#991B1B",
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-                  }}
-                >
-                  {type === "customer" ? "Join Waitlist" : "Partner With Us"}
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+              {/* Form Layout */}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-xl mx-auto">
+                
+                {/* 1. NAME FIELD */}
+                <div className="relative flex items-center">
+                  <User className="absolute left-4 w-4 h-4 text-gray-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    disabled={loading}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={type === "customer" ? "Your Full Name" : "Owner's Full Name"}
+                    required
+                    className="w-full pl-11 pr-5 py-3.5 rounded-full outline-none text-sm disabled:opacity-75"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
+                  />
+                </div>
+
+                {/* 2. SALON SPECIFIC FIELDS */}
+                {type === "salon" && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -10 }} 
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex flex-col gap-4 w-full"
+                  >
+                    {/* Salon Name */}
+                    <div className="relative flex items-center">
+                      <Store className="absolute left-4 w-4 h-4 text-gray-400 pointer-events-none" />
+                      <input
+                        type="text"
+                        disabled={loading}
+                        value={salonName}
+                        onChange={(e) => setSalonName(e.target.value)}
+                        placeholder="Salon Name"
+                        required={type === "salon"}
+                        className="w-full pl-11 pr-5 py-3.5 rounded-full outline-none text-sm disabled:opacity-75"
+                        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
+                      />
+                    </div>
+
+                    {/* Contact Number & City */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Contact Number */}
+                      <div className="relative flex items-center">
+                        <Phone className="absolute left-4 w-4 h-4 text-gray-400 pointer-events-none" />
+                        <input
+                          type="tel"
+                          disabled={loading}
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="Contact Number"
+                          required={type === "salon"}
+                          className="w-full pl-11 pr-5 py-3.5 rounded-full outline-none text-sm disabled:opacity-75"
+                          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
+                        />
+                      </div>
+
+                      {/* City */}
+                      <div className="relative flex items-center">
+                        <MapPin className="absolute left-4 w-4 h-4 text-gray-400 pointer-events-none" />
+                        <input
+                          type="text"
+                          disabled={loading}
+                          value={city}
+                          onChange={(e) => setCity(e.target.value)}
+                          placeholder="City (e.g. Ranchi)"
+                          required={type === "salon"}
+                          className="w-full pl-11 pr-5 py-3.5 rounded-full outline-none text-sm disabled:opacity-75"
+                          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 3. EMAIL FIELD */}
+                <div className="relative flex items-center">
+                  <Mail className="absolute left-4 w-4 h-4 text-gray-400 pointer-events-none" />
+                  <input
+                    type="email"
+                    disabled={loading}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={type === "customer" ? "Enter your email address" : "Business Email Address"}
+                    required
+                    className="w-full pl-11 pr-5 py-3.5 rounded-full outline-none text-sm disabled:opacity-75"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "rgba(255,255,255,0.95)", color: "#111827", border: "none" }}
+                  />
+                </div>
+                
+                {/* 4. ACTION BUTTON */}
+                <div className="mt-2">
+                  <motion.button
+                    type="submit"
+                    disabled={loading}
+                    whileHover={loading ? {} : { y: -2, boxShadow: "0 8px 24px rgba(0,0,0,0.3)" }}
+                    whileTap={loading ? {} : { scale: 0.98 }}
+                    className="flex items-center justify-center gap-2 px-7 py-4 rounded-full text-base font-bold w-full disabled:opacity-80 disabled:cursor-not-allowed"
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 700,
+                      background: "#fff",
+                      color: "#991B1B",
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Saving...
+                      </>
+                    ) : type === "customer" ? (
+                      <>
+                        Join Waitlist
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    ) : (
+                      <>
+                        Partner With Us
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </motion.button>
+                </div>
               </form>
 
               <p className="mt-4 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.55)" }}>
@@ -144,10 +295,14 @@ export function Waitlist() {
                 <CheckCircle className="w-8 h-8 text-white" />
               </motion.div>
               <h3 className="mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.4rem", color: "#fff" }}>
-                You're on the list! 🎉
+                {type === "customer" ? `Welcome aboard, ${name}! 🎉` : `Registration Successful, ${name}! 🏢`}
               </h3>
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.75)", fontSize: "0.95rem" }}>
-                We'll email you at <strong className="text-white">{email}</strong> when we launch. Stay tuned!
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", lineHeight: 1.6 }}>
+                {type === "customer" ? (
+                  <>You're on the list! We'll email you at <strong className="text-white">{email}</strong> when we launch DigiSaloon. Stay tuned!</>
+                ) : (
+                  <>Thank you for partnering with us. We have registered <strong className="text-white">{salonName}</strong> ({city}). Our team will connect with you soon on <strong className="text-white">{phone}</strong> or via email.</>
+                )}
               </p>
             </motion.div>
           )}

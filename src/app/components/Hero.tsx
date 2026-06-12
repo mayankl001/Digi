@@ -1,8 +1,7 @@
-import { ArrowRight, Star, MapPin, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, Star, Clock, CheckCircle } from "lucide-react";
 import { motion } from "motion/react";
 
-const SALON_IMG = "https://images.unsplash.com/photo-1675034743339-0b0747047727?w=600&h=700&fit=crop&auto=format";
-const SPA_IMG = "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=300&fit=crop&auto=format";
+
 
 function FloatingCard({
   children,
@@ -145,6 +144,8 @@ export function Hero() {
               </motion.a>
             </motion.div>
 
+            
+
             {/* Social proof */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -177,11 +178,13 @@ export function Hero() {
                   <span className="text-sm ml-1" style={{ color: "#111827", fontWeight: 700 }}>4.9</span>
                 </div>
                 <p className="text-xs" style={{ color: "#6B7280", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  250+ early users joined
+                  150+ early users joined
                 </p>
               </div>
             </motion.div>
           </div>
+
+          
 
           {/* Right: App mockup */}
           <motion.div
@@ -198,78 +201,20 @@ export function Hero() {
             >
               {/* Main phone mockup */}
               <div
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
+                className="relative p-3 rounded-[45px] shadow-2xl"
                 style={{
-                  width: 280,
-                  height: 560,
                   background: "#111827",
-                  border: "8px solid #1F2937",
-                  boxShadow: "0 32px 80px rgba(153,27,27,0.25), 0 8px 32px rgba(0,0,0,0.2)",
+                  width: 320,
+                  maxWidth: "100%",
+                  boxShadow:
+                    "0 32px 80px rgba(153,27,27,0.25), 0 8px 32px rgba(0,0,0,0.2)",
                 }}
               >
-                {/* Status bar */}
-                <div className="h-8 flex items-center justify-between px-5" style={{ background: "#111827" }}>
-                  <span className="text-white text-xs" style={{ fontWeight: 600 }}>9:41</span>
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-1.5 rounded-sm bg-white opacity-70" />
-                    <div className="w-1 h-1.5 rounded-sm bg-white opacity-70" />
-                  </div>
-                </div>
-
-                {/* App content */}
-                <div className="h-full" style={{ background: "#FAFAFA" }}>
-                  {/* App header */}
-                  <div className="px-4 pt-3 pb-2" style={{ background: "#991B1B" }}>
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <p className="text-white text-xs opacity-80">Good morning</p>
-                        <p className="text-white text-sm" style={{ fontWeight: 700 }}>DigiSaloon</p>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                        <span className="text-white text-xs" style={{ fontWeight: 700 }}>P</span>
-                      </div>
-                    </div>
-                    <div className="rounded-xl px-3 py-2 flex items-center gap-2" style={{ background: "rgba(255,255,255,0.2)" }}>
-                      <MapPin className="w-3 h-3 text-white opacity-70" />
-                      <span className="text-white text-xs opacity-80">Search salons in Ranchi...</span>
-                    </div>
-                  </div>
-
-                  {/* Salon cards inside phone */}
-                  <div className="p-3 space-y-2">
-                    <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>Nearby Salons</p>
-                    {[
-                      { name: "Luxe Beauty Studio", rating: "4.9", time: "Now open", img: SALON_IMG },
-                      { name: "Glow & Radiance Spa", rating: "4.8", time: "Slots available", img: SPA_IMG },
-                    ].map((s, i) => (
-                      <div
-                        key={i}
-                        className="rounded-xl overflow-hidden flex"
-                        style={{ background: "#fff", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
-                      >
-                        <img src={s.img} alt={s.name} className="w-14 h-14 object-cover" />
-                        <div className="p-2 flex-1">
-                          <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>{s.name}</p>
-                          <div className="flex items-center gap-1 mt-0.5">
-                            <Star className="w-2.5 h-2.5 fill-current" style={{ color: "#F59E0B" }} />
-                            <span className="text-xs" style={{ color: "#F59E0B", fontWeight: 600 }}>{s.rating}</span>
-                          </div>
-                          <div className="flex items-center gap-1 mt-1">
-                            <CheckCircle className="w-2.5 h-2.5" style={{ color: "#16A34A" }} />
-                            <span className="text-xs" style={{ color: "#16A34A", fontWeight: 500 }}>{s.time}</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    <div
-                      className="rounded-xl p-2.5 mt-2"
-                      style={{ background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)" }}
-                    >
-                      <p className="text-white text-xs" style={{ fontWeight: 700 }}>Book Now →</p>
-                      <p className="text-white text-xs opacity-70 mt-0.5">Skip the queue, book instantly</p>
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="/homepage.png"
+                  alt="DigiSaloon App"
+                  className="w-full rounded-[35px]"
+                />
               </div>
             </motion.div>
 
@@ -317,7 +262,7 @@ export function Hero() {
                     </div>
                     <div>
                       <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>Booking confirmed!</p>
-                      <p className="text-xs" style={{ color: "#6B7280" }}>Luxe Beauty Studio</p>
+                      <p className="text-xs" style={{ color: "#6B7280" }}>Looks salon</p>
                     </div>
                   </div>
                 </FloatingCard>
@@ -336,7 +281,7 @@ export function Hero() {
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
               >
                 <FloatingCard>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star key={s} className="w-3 h-3 fill-current" style={{ color: "#F59E0B" }} />
                     ))}

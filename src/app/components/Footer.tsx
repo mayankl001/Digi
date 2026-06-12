@@ -1,4 +1,4 @@
-import { Scissors, Instagram, Twitter, Facebook, Linkedin, Mail } from "lucide-react";
+import { Scissors, Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -10,20 +10,23 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)" }}
-              >
-                <Scissors className="w-4.5 h-4.5 text-white" strokeWidth={2} />
-              </div>
-              <span
-                className="text-xl tracking-tight"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, color: "#fff" }}
-              >
-                Digi<span style={{ color: "#E8B4B8" }}>Saloon</span>
-              </span>
-            </div>
+            <div className="flex items-center gap-3">
+  <img
+      src="/logo.png"
+      alt="DigiSaloon Logo"
+      className="w-8 h-8 object-contain"
+  />
+
+  <div>
+    <h3 className="text-xl font-bold text-white">
+      Digi<span className="text-red-500">Saloon</span>
+    </h3>
+
+    <p className="text-xs text-gray-400 tracking-[3px] uppercase">
+      Luxury You Aspire
+    </p>
+  </div>
+</div>
             <p
               className="max-w-xs mb-6"
               style={{
@@ -33,14 +36,27 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              The premium salon & spa booking platform for Ranchi. Connecting beauty enthusiasts with verified salon professionals.
+             DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
             </p>
+
+            <div
+  className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-4 mb-5"
+  style={{
+    background: "rgba(34,197,94,0.15)",
+    color: "#22C55E",
+    fontSize: "12px",
+    fontWeight: 600,
+  }}
+>
+  🟢 Launching Soon in Ranchi
+</div>
+
             <div className="flex items-center gap-4">
               {[
-                { icon: Instagram, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Facebook, href: "#" },
-                { icon: Linkedin, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/digisaloonn?igsh=MWlkYmdodXU0eGh0OQ==" },
+                { icon: Twitter, href: "https://x.com/Digiisaloon" },
+                { icon: Facebook, href: "https://www.facebook.com/share/1BB96mdqzT/?mibextid=wwXIfr" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/digisaloon-undefined-bb663b415?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
@@ -60,6 +76,13 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            <p
+  className="mt-4 text-sm"
+  style={{ color: "#9CA3AF" }}
+>
+  🚀 150+ Users • 50+ Salon Partners Joined
+</p>
           </div>
 
           {/* Links */}
@@ -71,7 +94,7 @@ export function Footer() {
               Company
             </p>
             <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Press"].map((l) => (
+              {["About Us", "Features", "How It Works", "For Salons", "FAQ"].map((l) => (
                 <li key={l}>
                   <a
                     href="#"
@@ -104,24 +127,56 @@ export function Footer() {
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  hello@digisaloon.in
+                  info@digisaloon.in
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:partners@digisaloon.in"
+                  href="tel:8809972414"
                   className="text-sm flex items-center gap-2 transition-colors duration-200"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                 >
-                  <Mail className="w-3.5 h-3.5" />
-                  partners@digisaloon.in
+                  <Phone className="w-3.5 h-3.5" />
+                  8809972414
                 </a>
               </li>
+
+             <div className="mt-6">
+  <p className="text-xs text-gray-400 mb-3">
+    Coming Soon On
+  </p>
+
+  <div className="flex flex-col gap-3">
+    <div className="relative w-fit">
+      <img
+        src="/google-play.png"
+        alt="Google Play"
+        className="h-10"
+      />
+      <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">
+        Soon
+      </span>
+    </div>
+
+    <div className="relative w-fit">
+      <img
+        src="/app-store.png"
+        alt="App Store"
+        className="h-10"
+      />
+      <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">
+        Soon
+      </span>
+    </div>
+  </div>
+</div>
             </ul>
           </div>
         </div>
+
+        
 
         {/* Bottom bar */}
         <div
@@ -132,19 +187,23 @@ export function Footer() {
             className="text-xs"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}
           >
-            © 2025 DigiSaloon. All rights reserved. Made with ❤️ in Ranchi, India.
+            © 2025 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((l) => (
+            {[
+              { label: "Privacy Policy", href: "https://digi-saloon-legal.vercel.app" },
+              { label: "Terms of Service", href: "https://digi-saloon-legal.vercel.app/" },
+              { label: "Cookie Policy", href: "#" }
+            ].map((l) => (
               <a
-                key={l}
-                href="#"
+                key={l.label}
+                href={l.href}
                 className="text-xs transition-colors duration-200"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
               >
-                {l}
+                {l.label}
               </a>
             ))}
           </div>

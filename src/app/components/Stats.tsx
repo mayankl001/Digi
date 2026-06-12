@@ -3,9 +3,9 @@ import { StaggerChildren } from "./AnimateIn";
 import { AnimateIn } from "./AnimateIn";
 
 const stats = [
-  { icon: Users,    value: "250+",   label: "Early Users",            sub: "and growing" },
-  { icon: Store,    value: "150+",   label: "Verified Salons",        sub: "in Ranchi" },
-  { icon: Calendar, value: "1000+",  label: "Expected Bookings",      sub: "at launch" },
+  { icon: Users,    value: "150+",   label: "Early Users",            sub: "and growing" },
+  { icon: Store,    value: "50+",   label: "Verified Salons",        sub: "in Ranchi" },
+  { icon: Calendar, value: "500+",  label: "Expected Bookings",      sub: "at launch" },
   { icon: Star,     value: "4.9★",   label: "Customer Satisfaction",  sub: "goal" },
 ];
 

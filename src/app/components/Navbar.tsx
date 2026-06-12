@@ -33,20 +33,39 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)" }}
-            >
-              <Scissors className="w-4.5 h-4.5 text-white" strokeWidth={2} />
-            </div>
-            <span
-              className="text-xl tracking-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, color: "#111827" }}
-            >
-              Digi<span style={{ color: "#991B1B" }}>Saloon</span>
-            </span>
-          </div>
+          <a
+  href="/"
+  className="flex items-center gap-3 cursor-pointer"
+>
+  <img
+    src="/logo.png"
+    alt="DigiSaloon Logo"
+    className="w-12 h-12 md:w-14 md:h-14 object-contain"
+  />
+
+  <div className="flex flex-col">
+    <span
+      className="text-xl leading-none"
+      style={{
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontWeight: 800,
+        color: "#111827",
+      }}
+    >
+      Digi<span style={{ color: "#991B1B" }}>Saloon</span>
+    </span>
+
+    <span
+      className="text-[10px] tracking-[3px] uppercase"
+      style={{
+        color: "#6B7280",
+        fontWeight: 500,
+      }}
+    >
+      Luxury You Aspire
+    </span>
+  </div>
+</a>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
@@ -66,26 +85,20 @@ export function Navbar() {
 
           {/* CTAs */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#partner"
-              className="text-sm px-4 py-2 rounded-full border transition-all duration-200"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 600,
-                borderColor: "#991B1B",
-                color: "#991B1B",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#991B1B";
-                e.currentTarget.style.color = "#fff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#991B1B";
-              }}
-            >
-              Partner With Us
-            </a>
+
+            <div
+  className="hidden lg:flex items-center px-3 py-1 rounded-full"
+  style={{
+    background: "rgba(153,27,27,0.08)",
+    color: "#991B1B",
+    fontSize: "12px",
+    fontWeight: 600,
+  }}
+>
+  🚀 Launching Soon
+</div>
+
+            
             <a
               href="#waitlist"
               className="text-sm px-5 py-2 rounded-full text-white transition-all duration-200"
@@ -98,7 +111,7 @@ export function Navbar() {
               onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-1px)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
             >
-              Join Waitlist
+              Get Early Access 
             </a>
           </div>
 
@@ -142,11 +155,11 @@ export function Navbar() {
                 className="text-center text-sm px-5 py-3 rounded-full text-white"
                 style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)",
                 }}
               >
-                Join Waitlist
+                Get Early Access 
               </a>
               <a
                 href="#partner"
