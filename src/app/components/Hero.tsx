@@ -237,7 +237,7 @@ export function Hero() {
                     </div>
                     <div>
                       <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>Live Slots</p>
-                      <p className="text-xs" style={{ color: "#6B7280" }}>12 available now</p>
+                      <p className="text-xs" style={{ color: "#6B7280" }}>11 available now</p>
                     </div>
                   </div>
                 </FloatingCard>
