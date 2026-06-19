@@ -139,7 +139,7 @@ export function Footer() {
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  8809972414
+                  +91-8809972414
                 </a>
               </li>
 
