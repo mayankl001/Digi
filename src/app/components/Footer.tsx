@@ -191,9 +191,9 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6">
             {[
-              { label: "Privacy Policy", href: "https://digi-saloon-legal.vercel.app" },
-              { label: "Terms of Service", href: "https://digi-saloon-legal.vercel.app/" },
-              { label: "Cookie Policy", href: "#" }
+              { label: "Privacy Policy", href: "https://policies.digisaloon.in/" },
+              { label: "Terms of Service", href: "https://policies.digisaloon.in/#section3" },
+              { label: "Cookie Policy", href: "https://policies.digisaloon.in/#section5" }
             ].map((l) => (
               <a
                 key={l.label}
