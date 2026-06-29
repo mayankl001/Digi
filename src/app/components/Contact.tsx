@@ -33,7 +33,6 @@ export function ContactPage() {
         timestamp: serverTimestamp(),
       });
 
-      // 🛑 English Success Message Here
       setStatus({
         type: "success",
         msg: "🎉 Thank you! Your message has been sent successfully. Our team will get back to you shortly.",
@@ -42,7 +41,6 @@ export function ContactPage() {
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
       console.error("Firebase Submit Error:", error);
-      // 🛑 English Error Message Here
       setStatus({
         type: "error",
         msg: "❌ Something went wrong. Please check your connection and try again.",
@@ -90,28 +88,43 @@ export function ContactPage() {
             >
               <h3 className="text-xl font-bold text-[#111827]">Contact Information</h3>
               
+              {/* Phone info (WORKING LINK) */}
               <div className="flex gap-4 items-start">
                 <div className="p-3 rounded-2xl bg-red-50 text-[#991B1B]">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Call Us</h4>
-                  <p className="text-base font-bold text-[#374151] mt-1">+91 98765 43210</p>
+                  <a 
+                    href="tel:+919876543210" 
+                    className="block text-base font-bold text-[#374151] mt-1 transition-colors duration-200 hover:text-[#991B1B]"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    +91 98765 43210
+                  </a>
                   <p className="text-xs text-gray-400 mt-0.5">Mon-Sat from 9am to 7pm</p>
                 </div>
               </div>
 
+              {/* Email info (WORKING LINK) */}
               <div className="flex gap-4 items-start">
                 <div className="p-3 rounded-2xl bg-red-50 text-[#991B1B]">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Email Us</h4>
-                  <p className="text-base font-bold text-[#374151] mt-1">support@digisaloon.in</p>
+                  <a 
+                    href="mailto:support@digisaloon.in" 
+                    className="block text-base font-bold text-[#374151] mt-1 transition-colors duration-200 hover:text-[#991B1B]"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    support@digisaloon.in
+                  </a>
                   <p className="text-xs text-gray-400 mt-0.5">We reply within 24 hours</p>
                 </div>
               </div>
 
+              {/* Location info */}
               <div className="flex gap-4 items-start">
                 <div className="p-3 rounded-2xl bg-red-50 text-[#991B1B]">
                   <MapPin className="w-6 h-6" />
@@ -123,6 +136,7 @@ export function ContactPage() {
                 </div>
               </div>
 
+              {/* Business Hours */}
               <div className="pt-6 border-t border-gray-100 flex gap-4 items-start">
                 <div className="p-3 rounded-2xl bg-red-50 text-[#991B1B]">
                   <Clock className="w-6 h-6" />
