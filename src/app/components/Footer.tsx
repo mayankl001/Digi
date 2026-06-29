@@ -1,4 +1,5 @@
 import { Scissors, Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom"; // 👈 React Router Link import kiya
 
 export function Footer() {
   return (
@@ -11,7 +12,7 @@ export function Footer() {
           
           {/* 1. Brand & Logo Section */}
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity" style={{ textDecoration: 'none' }}>
+            <Link to="/" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity" style={{ textDecoration: 'none' }}>
               <img
                 src="/logo.png"
                 alt="DigiSaloon Logo"
@@ -25,7 +26,7 @@ export function Footer() {
                   Luxury You Aspire
                 </p>
               </div>
-            </a>
+            </Link>
             
             <p
               className="max-w-xs mb-6 mt-4"
@@ -85,7 +86,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* 2. Company Links (UPDATED 'FOR SALONS' TO PAGE LINK) */}
+          {/* 2. Company Links (FIXED WITH CLIENT-SIDE ROUTING) */}
           <div>
             <p
               className="mb-4 text-xs uppercase tracking-widest"
@@ -95,22 +96,36 @@ export function Footer() {
             </p>
             <ul className="space-y-3 p-0 list-none">
               {[
-                { label: "About Us", link: "#about" },
-                { label: "Features", link: "#features" },
-                { label: "How It Works", link: "#how-it-works" },
-                { label: "For Salons", link: "#for-salons" }, // FIXED: Ab ye seedhe page par le jayega
-                { label: "FAQ", link: "#faq" }
+                { label: "About", link: "/about", isPage: true },
+                { label: "Features", link: "/#features", isPage: false },      // Home page scroll ke liye / lagaya
+                { label: "How It Works", link: "/#how-it-works", isPage: false },
+                { label: "For Salons", link: "/for-salons", isPage: true },
+                { label: "FAQ", link: "/#faq", isPage: false }
               ].map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.link}
-                    className="text-sm transition-colors duration-200 block"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-                  >
-                    {item.label}
-                  </a>
+                  {item.isPage ? (
+                    /* Alag pages ke liye <Link> component */
+                    <Link
+                      to={item.link}
+                      className="text-sm transition-colors duration-200 block"
+                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    /* Home page sections ke scroll ke liye anchor tag */
+                    <a
+                      href={item.link}
+                      className="text-sm transition-colors duration-200 block"
+                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
