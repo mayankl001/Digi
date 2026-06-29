@@ -8,27 +8,27 @@ export function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
+          
+          {/* 1. Brand & Logo Section */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
-  <img
-      src="/logo.png"
-      alt="DigiSaloon Logo"
-      className="w-8 h-8 object-contain"
-  />
-
-  <div>
-    <h3 className="text-xl font-bold text-white">
-      Digi<span className="text-red-500">Saloon</span>
-    </h3>
-
-    <p className="text-xs text-gray-400 tracking-[3px] uppercase">
-      Luxury You Aspire
-    </p>
-  </div>
-</div>
+            <a href="#" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity" style={{ textDecoration: 'none' }}>
+              <img
+                src="/logo.png"
+                alt="DigiSaloon Logo"
+                className="w-8 h-8 object-contain"
+              />
+              <div>
+                <h3 className="text-xl font-bold text-white m-0">
+                  Digi<span className="text-red-500">Saloon</span>
+                </h3>
+                <p className="text-xs text-gray-400 tracking-[3px] uppercase m-0">
+                  Luxury You Aspire
+                </p>
+              </div>
+            </a>
+            
             <p
-              className="max-w-xs mb-6"
+              className="max-w-xs mb-6 mt-4"
               style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 color: "rgba(255,255,255,0.5)",
@@ -36,21 +36,22 @@ export function Footer() {
                 lineHeight: 1.7,
               }}
             >
-             DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
+              DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
             </p>
 
             <div
-  className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-4 mb-5"
-  style={{
-    background: "rgba(34,197,94,0.15)",
-    color: "#22C55E",
-    fontSize: "12px",
-    fontWeight: 600,
-  }}
->
-  🟢 Launching Soon in Ranchi
-</div>
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-2 mb-5"
+              style={{
+                background: "rgba(34,197,94,0.15)",
+                color: "#22C55E",
+                fontSize: "12px",
+                fontWeight: 600,
+              }}
+            >
+              🟢 Launching Soon in Ranchi
+            </div>
 
+            {/* Social Media Links */}
             <div className="flex items-center gap-4">
               {[
                 { icon: Instagram, href: "https://www.instagram.com/digisaloonn?igsh=MWlkYmdodXU0eGh0OQ==" },
@@ -61,6 +62,8 @@ export function Footer() {
                 <a
                   key={i}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
                   style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.5)" }}
                   onMouseEnter={(e) => {
@@ -77,15 +80,12 @@ export function Footer() {
               ))}
             </div>
 
-            <p
-  className="mt-4 text-sm"
-  style={{ color: "#9CA3AF" }}
->
-  🚀 150+ Users • 50+ Salon Partners Joined
-</p>
+            <p className="mt-4 text-sm" style={{ color: "#9CA3AF" }}>
+              🚀 150+ Users • 50+ Salon Partners Joined
+            </p>
           </div>
 
-          {/* Links */}
+          {/* 2. Company Links (UPDATED 'FOR SALONS' TO PAGE LINK) */}
           <div>
             <p
               className="mb-4 text-xs uppercase tracking-widest"
@@ -93,23 +93,30 @@ export function Footer() {
             >
               Company
             </p>
-            <ul className="space-y-3">
-              {["About Us", "Features", "How It Works", "For Salons", "FAQ"].map((l) => (
-                <li key={l}>
+            <ul className="space-y-3 p-0 list-none">
+              {[
+                { label: "About Us", link: "#about" },
+                { label: "Features", link: "#features" },
+                { label: "How It Works", link: "#how-it-works" },
+                { label: "For Salons", link: "#for-salons" }, // FIXED: Ab ye seedhe page par le jayega
+                { label: "FAQ", link: "#faq" }
+              ].map((item) => (
+                <li key={item.label}>
                   <a
-                    href="#"
-                    className="text-sm transition-colors duration-200"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)" }}
+                    href={item.link}
+                    className="text-sm transition-colors duration-200 block"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                   >
-                    {l}
+                    {item.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* 3. Contact & App Badges */}
           <div>
             <p
               className="mb-4 text-xs uppercase tracking-widest"
@@ -117,12 +124,12 @@ export function Footer() {
             >
               Contact
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-3 p-0 list-none">
               <li>
                 <a
-                  href="mailto:hello@digisaloon.in"
+                  href="mailto:info@digisaloon.in"
                   className="text-sm flex items-center gap-2 transition-colors duration-200"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)" }}
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                 >
@@ -134,7 +141,7 @@ export function Footer() {
                 <a
                   href="tel:8809972414"
                   className="text-sm flex items-center gap-2 transition-colors duration-200"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)" }}
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                 >
@@ -143,51 +150,33 @@ export function Footer() {
                 </a>
               </li>
 
-             <div className="mt-6">
-  <p className="text-xs text-gray-400 mb-3">
-    Coming Soon On
-  </p>
-
-  <div className="flex flex-col gap-3">
-    <div className="relative w-fit">
-      <img
-        src="/google-play.png"
-        alt="Google Play"
-        className="h-10"
-      />
-      <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">
-        Soon
-      </span>
-    </div>
-
-    <div className="relative w-fit">
-      <img
-        src="/app-store.png"
-        alt="App Store"
-        className="h-10"
-      />
-      <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">
-        Soon
-      </span>
-    </div>
-  </div>
-</div>
+              {/* App Stores */}
+              <div className="mt-6">
+                <p className="text-xs text-gray-400 mb-3">
+                  Coming Soon On
+                </p>
+                <div className="flex flex-col gap-3">
+                  <div className="relative w-fit">
+                    <img src="/google-play.png" alt="Google Play" className="h-10" />
+                    <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">Soon</span>
+                  </div>
+                  <div className="relative w-fit">
+                    <img src="/app-store.png" alt="App Store" className="h-10" />
+                    <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">Soon</span>
+                  </div>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
 
-        
-
-        {/* Bottom bar */}
+        {/* 4. Bottom Footer Bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
-          <p
-            className="text-xs"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}
-          >
-            © 2025 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
+          <p className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}>
+            © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
           </p>
           <div className="flex items-center gap-6">
             {[
@@ -198,8 +187,10 @@ export function Footer() {
               <a
                 key={l.label}
                 href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs transition-colors duration-200"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)", textDecoration: 'none' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
               >

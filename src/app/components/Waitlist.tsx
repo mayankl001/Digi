@@ -85,7 +85,8 @@ export function Waitlist() {
             </span>
           </div>
 
-          <p>
+          {/* FIXED: Changed <p> to <div> to resolve validateDOMNesting warning */}
+          <div>
             <div
               className="inline-block px-4 py-2 rounded-full mb-6"
               style={{
@@ -95,7 +96,7 @@ export function Waitlist() {
             >
               ⏳ Only First 500 Users Get Premium Benefits
             </div>
-          </p>
+          </div>
 
           <h2
             className="mb-4"
