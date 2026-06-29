@@ -56,7 +56,7 @@ export function Footer() {
                 { icon: Instagram, href: "https://www.instagram.com/digisaloonn?igsh=MWlkYmdodXU0eGh0OQ==" },
                 { icon: Twitter, href: "https://x.com/Digiisaloon" },
                 { icon: Facebook, href: "https://www.facebook.com/share/1BB96mdqzT/?mibextid=wwXIfr" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/digisaloon-undefined-bb663b415?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/digi-saloon/" },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
