@@ -17,59 +17,49 @@ const solutions = [
 
 export function ProblemSolution() {
   return (
-    <section className="py-20 lg:py-28" style={{ background: "#FAFAFA" }}>
+    <section className="py-20 lg:py-28 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section header */}
         <AnimateIn direction="up" className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4"
-            style={{ background: "rgba(153,27,27,0.07)", border: "1px solid rgba(153,27,27,0.12)" }}
-          >
-            <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, color: "#991B1B" }}>
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4 bg-[#991B1B]/10 border border-[#991B1B]/15">
+            <span className="text-sm font-semibold text-[#991B1B] font-sans">
               The Problem & Our Fix
             </span>
           </div>
-          <h2
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-              color: "#111827",
-              letterSpacing: "-0.02em",
-            }}
-          >
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight leading-tight font-sans">
             The old way is broken.{" "}
-            <span style={{ color: "#991B1B" }}>We fixed it.</span>
+            <span className="text-[#991B1B]">We fixed it.</span>
           </h2>
-          <p
-            className="mt-4 max-w-xl mx-auto"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B7280", fontSize: "1.05rem", lineHeight: 1.7 }}
-          >
-            Getting a salon appointment shouldn't be a chore. DigiSaloon reimagines the entire booking experience.
+          
+          <p className="mt-4 max-w-xl mx-auto text-base text-[#6B7280] leading-relaxed font-sans">
+            Getting a salon appointment shouldn't be a chore. DigiSaloon reimagines the entire booking experience in Ranchi.
           </p>
         </AnimateIn>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        {/* Cards Grid */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 font-sans">
+          
+          {/* Left Card: The Old Way */}
           <AnimateIn direction="left" delay={0.1}>
-            <div
-              className="rounded-2xl p-8 lg:p-10 h-full"
-              style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.06)", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}
-            >
+            <div className="rounded-2xl p-8 lg:p-10 h-full bg-white border border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-red-200 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "#FEF2F2" }}>
-                  <X className="w-5 h-5" style={{ color: "#DC2626" }} />
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-red-50">
+                  <X className="w-5 h-5 text-red-600" />
                 </div>
-                <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#111827" }}>
+                <h3 className="text-lg font-bold text-[#111827]">
                   The Old Way
                 </h3>
               </div>
+              
               <ul className="space-y-4">
                 {problems.map((p, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style={{ background: "#FEF2F2" }}>
-                      <X className="w-3 h-3" style={{ color: "#DC2626" }} />
+                  <li key={i} className="flex items-start gap-3 group">
+                    <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5 bg-red-50 group-hover:bg-red-100 transition-colors">
+                      <X className="w-3 h-3 text-red-600" />
                     </div>
-                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#374151", lineHeight: 1.6 }}>
+                    <span className="text-[#374151] leading-relaxed">
                       {p.text}
                     </span>
                   </li>
@@ -78,26 +68,25 @@ export function ProblemSolution() {
             </div>
           </AnimateIn>
 
+          {/* Right Card: The DigiSaloon Way */}
           <AnimateIn direction="right" delay={0.2}>
-            <div
-              className="rounded-2xl p-8 lg:p-10 h-full"
-              style={{ background: "linear-gradient(160deg, #991B1B 0%, #7F1D1D 100%)", boxShadow: "0 16px 48px rgba(153,27,27,0.25)" }}
-            >
+            <div className="rounded-2xl p-8 lg:p-10 h-full bg-gradient-to-br from-[#991B1B] to-[#7F1D1D] shadow-[0_16px_48px_rgba(153,27,27,0.22)] hover:scale-[1.01] transition-transform duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)" }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-sm">
                   <Check className="w-5 h-5 text-white" />
                 </div>
-                <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#fff" }}>
+                <h3 className="text-lg font-bold text-white">
                   The DigiSaloon Way
                 </h3>
               </div>
+              
               <ul className="space-y-4">
                 {solutions.map((s, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style={{ background: "rgba(255,255,255,0.2)" }}>
+                  <li key={i} className="flex items-start gap-3 group">
+                    <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5 bg-white/20 group-hover:bg-white/30 transition-colors">
                       <Check className="w-3 h-3 text-white" />
                     </div>
-                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>
+                    <span className="text-white/90 leading-relaxed font-medium">
                       {s.text}
                     </span>
                   </li>
@@ -105,6 +94,7 @@ export function ProblemSolution() {
               </ul>
             </div>
           </AnimateIn>
+
         </div>
       </div>
     </section>

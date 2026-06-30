@@ -1,18 +1,15 @@
-import { Scissors, Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
-import { Link } from "react-router-dom"; // 👈 React Router Link import kiya
+import { Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <footer
-      className="py-12 lg:py-16"
-      style={{ background: "#111827", borderTop: "1px solid rgba(255,255,255,0.06)" }}
-    >
+    <footer className="py-12 lg:py-16 bg-[#111827] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           
           {/* 1. Brand & Logo Section */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity" style={{ textDecoration: 'none' }}>
+            <Link to="/" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity no-underline">
               <img
                 src="/logo.png"
                 alt="DigiSaloon Logo"
@@ -28,27 +25,11 @@ export function Footer() {
               </div>
             </Link>
             
-            <p
-              className="max-w-xs mb-6 mt-4"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "0.875rem",
-                lineHeight: 1.7,
-              }}
-            >
+            <p className="max-w-xs mb-6 mt-4 text-white/50 text-sm Alain leading-relaxed font-sans">
               DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
             </p>
 
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-2 mb-5"
-              style={{
-                background: "rgba(34,197,94,0.15)",
-                color: "#22C55E",
-                fontSize: "12px",
-                fontWeight: 600,
-              }}
-            >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-2 mb-5 bg-green-500/15 text-[#22C55E] text-xs font-semibold">
               🟢 Launching Soon in Ranchi
             </div>
 
@@ -65,63 +46,43 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
-                  style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.5)" }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "#991B1B";
-                    (e.currentTarget as HTMLElement).style.color = "#fff";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)";
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)";
-                  }}
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
 
-            <p className="mt-4 text-sm" style={{ color: "#9CA3AF" }}>
+            <p className="mt-4 text-sm text-[#9CA3AF]">
               🚀 150+ Users • 50+ Salon Partners Joined
             </p>
           </div>
 
-          {/* 2. Company Links (FIXED WITH CLIENT-SIDE ROUTING) */}
+          {/* 2. Company Links */}
           <div>
-            <p
-              className="mb-4 text-xs uppercase tracking-widest"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, color: "rgba(255,255,255,0.3)" }}
-            >
+            <p className="mb-4 text-xs uppercase tracking-widest font-bold text-white/30 font-sans">
               Company
             </p>
             <ul className="space-y-3 p-0 list-none">
               {[
                 { label: "About", link: "/about", isPage: true },
-                { label: "Features", link: "/#features", isPage: false },      // Home page scroll ke liye / lagaya
+                { label: "Features", link: "/#features", isPage: false },
                 { label: "How It Works", link: "/#how-it-works", isPage: false },
                 { label: "For Salons", link: "/for-salons", isPage: true },
                 { label: "FAQ", link: "/#faq", isPage: false }
               ].map((item) => (
                 <li key={item.label}>
                   {item.isPage ? (
-                    /* Alag pages ke liye <Link> component */
                     <Link
                       to={item.link}
-                      className="text-sm transition-colors duration-200 block"
-                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                      className="text-sm text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 block no-underline font-sans"
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    /* Home page sections ke scroll ke liye anchor tag */
                     <a
                       href={item.link}
-                      className="text-sm transition-colors duration-200 block"
-                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                      className="text-sm text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 block no-underline font-sans"
                     >
                       {item.label}
                     </a>
@@ -133,20 +94,14 @@ export function Footer() {
 
           {/* 3. Contact & App Badges */}
           <div>
-            <p
-              className="mb-4 text-xs uppercase tracking-widest"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, color: "rgba(255,255,255,0.3)" }}
-            >
+            <p className="mb-4 text-xs uppercase tracking-widest font-bold text-white/30 font-sans">
               Contact
             </p>
             <ul className="space-y-3 p-0 list-none">
               <li>
                 <a
                   href="mailto:info@digisaloon.in"
-                  className="text-sm flex items-center gap-2 transition-colors duration-200"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                  className="text-sm flex items-center gap-2 text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   info@digisaloon.in
@@ -155,10 +110,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:8809972414"
-                  className="text-sm flex items-center gap-2 transition-colors duration-200"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.5)", textDecoration: 'none' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                  className="text-sm flex items-center gap-2 text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   +91-8809972414
@@ -186,11 +138,8 @@ export function Footer() {
         </div>
 
         {/* 4. Bottom Footer Bar */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-        >
-          <p className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
+          <p className="text-xs text-white/30 font-sans">
             © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
           </p>
           <div className="flex items-center gap-6">
@@ -204,10 +153,7 @@ export function Footer() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs transition-colors duration-200"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "rgba(255,255,255,0.3)", textDecoration: 'none' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#E8B4B8")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
+                className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
               >
                 {l.label}
               </a>

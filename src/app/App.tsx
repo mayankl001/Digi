@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async"; // 👈 SEO meta tags handle karne ke liye
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
@@ -12,9 +13,9 @@ import { FAQ } from "./components/FAQ";
 import { Waitlist } from "./components/Waitlist";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
-import { ContactPage } from "./components/Contact"; // 👈 Naya Contact page import kiya
+import { ContactPage } from "./components/Contact";
 
-// Main Landing Page Component (Yahan saare home sections ek sath hain)
+// Main Landing Page Component
 function HomePage() {
   return (
     <>
@@ -24,7 +25,10 @@ function HomePage() {
       <Features />
       <AppShowcase />
       <HowItWorks />
-      <ForSalons />
+      {/* ForSalons yahan section ke roop me chalega, iska alag se duplicate page nahi banayenge */}
+      <div id="for-salons">
+        <ForSalons />
+      </div>
       <Testimonials />
       <FAQ />
       <Waitlist />
@@ -34,32 +38,30 @@ function HomePage() {
 
 export default function App() {
   return (
-    <Router>
-      <div
-        className="min-h-screen"
-        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#FAFAFA" }}
-      >
-        {/* Navbar hamesha top par rahega har page me */}
-        <Navbar />
-        
-        {/* URL ke hisab se sahi page dikhane ke liye Routes */}
-        <Routes>
-          {/* Main Home Route */}
-          <Route path="/" element={<HomePage />} />
+    <HelmetProvider> {/* 👈 Poori App ko wrap kiya taaki har page apna SEO Title set kar sake */}
+      <Router>
+        <div className="min-h-screen bg-[#FAFAFA] font-sans">
+          {/* Navbar hamesha top par rahega */}
+          <Navbar />
           
-          {/* Dedicated About Us Page Route */}
-          <Route path="/about" element={<AboutUs />} />
+          {/* Main Content Area: Semantic SEO ke liye <main> tag lagana zaroori hai */}
+          <main>
+            <Routes>
+              {/* Main Home Route */}
+              <Route path="/" element={<HomePage />} />
+              
+              {/* Dedicated About Us Page Route */}
+              <Route path="/about" element={<AboutUs />} />
+              
+              {/* Dedicated Contact Us Page Route */}
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </main>
           
-          {/* Dedicated For Salons Page Route */}
-          <Route path="/for-salons" element={<ForSalons />} />
-
-          {/* Dedicated Contact Us Page Route */}
-          <Route path="/contact" element={<ContactPage />} /> {/* 👈 Naya Contact Route add kiya */}
-        </Routes>
-        
-        {/* Footer hamesha bottom par rahega har page me */}
-        <Footer />
-      </div>
-    </Router>
+          {/* Footer hamesha bottom par rahega */}
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }

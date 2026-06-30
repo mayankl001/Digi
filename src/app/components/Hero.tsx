@@ -1,27 +1,18 @@
+import React from "react";
 import { ArrowRight, Star, Clock, CheckCircle } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; 
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async"; // 👈 Step 1 ke liye helmet import kiya
 
-
-
-function FloatingCard({
-  children,
-  className,
-  style,
-}: {
+interface FloatingCardProps {
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
-}) {
+}
+
+function FloatingCard({ children, className = "" }: FloatingCardProps) {
   return (
     <div
-      className={`absolute rounded-2xl px-4 py-3 ${className}`}
-      style={{
-        background: "rgba(255,255,255,0.92)",
-        backdropFilter: "blur(20px)",
-        boxShadow: "0 8px 32px rgba(153,27,27,0.12)",
-        border: "1px solid rgba(232,180,184,0.3)",
-        ...style,
-      }}
+      className={`absolute rounded-2xl px-4 py-3 bg-white/92 backdrop-blur-[20px] shadow-[0_8px_32px_rgba(153,27,27,0.12)] border border-[#E8B4B8]/30 ${className}`}
     >
       {children}
     </div>
@@ -30,269 +21,216 @@ function FloatingCard({
 
 export function Hero() {
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-20"
-      style={{ background: "linear-gradient(160deg, #FAFAFA 0%, #FDF2F2 40%, #FEF0F0 100%)" }}
-    >
-      {/* Background decorative blobs */}
-      <motion.div
-        className="absolute top-20 right-0 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, #E8B4B8 0%, transparent 70%)", opacity: 0.2, translateX: "30%", translateY: "-20%" }}
-        animate={{ scale: [1, 1.08, 1], opacity: [0.18, 0.25, 0.18] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, #991B1B 0%, transparent 70%)", opacity: 0.12, translateX: "-40%", translateY: "30%" }}
-        animate={{ scale: [1, 1.12, 1], opacity: [0.1, 0.18, 0.1] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
+    <>
+      {/* 🌐 TECHNICAL SEO HEAD INJECTION START */}
+      <Helmet>
+        <title>DigiSaloon | Best Salon & Spa Booking Platform in Ranchi</title>
+        <meta 
+          name="description" 
+          content="Book top hair, luxury beauty, and spa appointments at premium salons in Ranchi instantly. Compare prices, check live slot availability, and enjoy effortless bookings with DigiSaloon." 
+        />
+        <link rel="canonical" href="https://digisaloon.in/" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Text */}
-          <div className="relative z-10">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-              style={{ background: "rgba(153,27,27,0.08)", border: "1px solid rgba(153,27,27,0.15)" }}
-            >
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#991B1B" }} />
-              <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, color: "#991B1B" }}>
-                Now launching in Ranchi, India
-              </span>
-            </motion.div>
+        {/* Open Graph / Facebook / LinkedIn */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="DigiSaloon | Smart Salon & Spa Booking Platform in Ranchi" />
+        <meta property="og:description" content="Discover verified premium salons in Ranchi, compare pricing, and book your styling slots instantly." />
+        <meta property="og:image" content="https://digisaloon.in/og-image.png" />
+        <meta property="og:url" content="https://digisaloon.in/" />
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-6 leading-tight"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2.2rem, 5vw, 3.75rem)",
-                color: "#111827",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Book Salon & Spa{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 60%, #E8B4B8 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Appointments Instantly.
-              </span>{" "}
-              No Waiting.
-            </motion.h1>
+        {/* Twitter Share Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DigiSaloon | Premium Salon Experience in Ranchi" />
+        <meta name="twitter:description" content="Skip the salon queues. Book trusted salon and spa treatments instantly across Ranchi in just a few taps." />
+        <meta name="twitter:image" content="https://digisaloon.in/og-image.png" />
+      </Helmet>
+      {/* 🌐 TECHNICAL SEO HEAD INJECTION END */}
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 max-w-xl"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400, fontSize: "1.125rem", color: "#4B5563", lineHeight: 1.7 }}
-            >
-              Discover verified salons, check live availability, compare prices, and book in seconds — all in one premium app.
-            </motion.p>
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#FAFAFA] via-[#FDF2F2] to-[#FEF0F0]">
+        
+        {/* Background decorative blobs */}
+        <motion.div
+          className="absolute top-20 right-0 w-96 h-96 rounded-full pointer-events-none bg-[radial-gradient(circle,#E8B4B8_0%,transparent_70%)] opacity-20 translate-x-[30%] -translate-y-[20%]"
+          animate={{ scale: [1, 1.08, 1], opacity: [0.18, 0.25, 0.18] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none bg-[radial-gradient(circle,#991B1B_0%,transparent_70%)] opacity-12 -translate-x-[40%] translate-y-[30%]"
+          animate={{ scale: [1, 1.12, 1], opacity: [0.1, 0.18, 0.1] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-wrap gap-4 mb-10"
-            >
-              <motion.a
-                href="#waitlist"
-                whileHover={{ y: -2, boxShadow: "0 10px 32px rgba(153,27,27,0.45)" }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-base"
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontWeight: 700,
-                  background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)",
-                  boxShadow: "0 6px 24px rgba(153,27,27,0.35)",
-                  textDecoration: "none",
-                }}
-              >
-                Join Waitlist
-                <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="#partner"
-                whileHover={{ background: "#991B1B", color: "#fff" }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border text-base"
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontWeight: 600,
-                  borderColor: "#991B1B",
-                  color: "#991B1B",
-                  background: "rgba(153,27,27,0.04)",
-                  textDecoration: "none",
-                }}
-              >
-                Partner With Us
-              </motion.a>
-            </motion.div>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-0">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
+            {/* Left: Text Content */}
+            <div className="relative z-10 font-sans">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 bg-[#991B1B]/10 border border-[#991B1B]/15"
+              >
+                <div className="w-2 h-2 rounded-full animate-pulse bg-[#991B1B]" />
+                <span className="text-sm font-semibold text-[#991B1B]">
+                  Premium Salon Experience
+                </span>
+              </motion.div>
 
-            {/* Social proof */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-6 flex-wrap"
-            >
-              <div className="flex -space-x-2">
-                {["1706943262459-3ef6ce03305c", "1533128361669-69c065857a13", "1496813146940-1601b02f81a4"].map((id, i) => (
-                  <img
-                    key={i}
-                    src={`https://images.unsplash.com/photo-${id}?w=40&h=40&fit=crop&auto=format`}
-                    alt="Early user"
-                    className="w-9 h-9 rounded-full border-2 object-cover"
-                    style={{ borderColor: "#FAFAFA" }}
-                  />
-                ))}
-                <div
-                  className="w-9 h-9 rounded-full border-2 flex items-center justify-center text-xs"
-                  style={{ borderColor: "#FAFAFA", background: "#991B1B", color: "#fff", fontWeight: 700 }}
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#111827] tracking-tight leading-tight mb-6"
+              >
+                Book Salon & Spa{" "}
+                <span className="bg-gradient-to-r from-[#991B1B] via-[#B91C1C] to-[#E8B4B8] bg-clip-text text-transparent">
+                  Appointments Instantly
+                </span>{" "}
+                in Ranchi.
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="text-lg text-[#4B5563] leading-relaxed mb-8 max-w-xl"
+              >
+                Discover verified salons in Ranchi, check live availability, compare prices, and book your styling session in seconds.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-wrap gap-4 mb-10"
+              >
+                <Link
+                  to="/#waitlist"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-base font-bold bg-gradient-to-r from-[#991B1B] to-[#B91C1C] shadow-[0_6px_24px_rgba(153,27,27,0.35)] hover:shadow-[0_10px_32px_rgba(153,27,27,0.45)] hover:-translateY-0.5 active:scale-[0.97] transition-all duration-200 no-underline"
                 >
-                  +
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center gap-1 mb-0.5">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-3.5 h-3.5 fill-current" style={{ color: "#F59E0B" }} />
+                  Join Waitlist
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                
+                <Link
+                  to="/#waitlist"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#991B1B] text-base font-semibold text-[#991B1B] bg-[#991B1B]/5 hover:bg-[#991B1B] hover:text-white active:scale-[0.97] transition-all duration-200 no-underline"
+                >
+                  Partner With Us
+                </Link>
+              </motion.div>
+
+              {/* Social proof */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-6 flex-wrap"
+              >
+                <div className="flex -space-x-2">
+                  {["1706943262459-3ef6ce03305c", "1533128361669-69c065857a13", "1496813146940-1601b02f81a4"].map((id, i) => (
+                    <img
+                      key={i}
+                      src={`https://images.unsplash.com/photo-${id}?w=40&h=40&fit=crop&auto=format`}
+                      alt="DigiSaloon Early User"
+                      className="w-9 h-9 rounded-full border-2 border-[#FAFAFA] object-cover"
+                    />
                   ))}
-                  <span className="text-sm ml-1" style={{ color: "#111827", fontWeight: 700 }}>4.9</span>
+                  <div className="w-9 h-9 rounded-full border-2 border-[#FAFAFA] flex items-center justify-center text-xs bg-[#991B1B] text-white font-bold">
+                    +
+                  </div>
                 </div>
-                <p className="text-xs" style={{ color: "#6B7280", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  150+ early users joined
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          
-
-          {/* Right: App mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center lg:justify-end"
-          >
-            {/* Subtle float animation on the phone */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              {/* Main phone mockup */}
-              <div
-                className="relative p-3 rounded-[45px] shadow-2xl"
-                style={{
-                  background: "#111827",
-                  width: 320,
-                  maxWidth: "100%",
-                  boxShadow:
-                    "0 32px 80px rgba(153,27,27,0.25), 0 8px 32px rgba(0,0,0,0.2)",
-                }}
-              >
-                <img
-                  src="/homepage.png"
-                  alt="DigiSaloon App"
-                  className="w-full rounded-[35px]"
-                />
-              </div>
-            </motion.div>
-
-            {/* Floating cards with staggered entrance */}
-            <motion.div
-              initial={{ opacity: 0, x: -20, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute"
-              style={{ top: "10%", left: "-5%", zIndex: 10 }}
-            >
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
-                <FloatingCard>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "#FEF2F2" }}>
-                      <Clock className="w-4 h-4" style={{ color: "#991B1B" }} />
-                    </div>
-                    <div>
-                      <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>Live Slots</p>
-                      <p className="text-xs" style={{ color: "#6B7280" }}>11 available now</p>
-                    </div>
+                <div>
+                  <div className="flex items-center gap-1 mb-0.5">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star key={s} className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+                    ))}
+                    <span className="text-sm ml-1 font-bold text-[#111827]">4.9</span>
                   </div>
-                </FloatingCard>
+                  <p className="text-xs text-[#6B7280]">
+                    150+ Ranchi salon partners & users joined
+                  </p>
+                </div>
               </motion.div>
-            </motion.div>
+            </div>
 
+            {/* Right: App Mockup */}
             <motion.div
-              initial={{ opacity: 0, x: -20, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute"
-              style={{ bottom: "18%", left: "-8%", zIndex: 10 }}
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex justify-center lg:justify-end"
             >
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
               >
-                <FloatingCard>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "#F0FDF4" }}>
-                      <CheckCircle className="w-4 h-4" style={{ color: "#16A34A" }} />
-                    </div>
-                    <div>
-                      <p className="text-xs" style={{ fontWeight: 700, color: "#111827" }}>Booking confirmed!</p>
-                      <p className="text-xs" style={{ color: "#6B7280" }}>Looks salon</p>
-                    </div>
+                {/* Main phone mockup */}
+                <div className="relative p-3 rounded-[45px] bg-[#111827] w-[320px] max-w-full shadow-[0_32px_80px_rgba(153,27,27,0.25),0_8px_32px_rgba(0,0,0,0.2)]">
+                  <img
+                    src="/homepage.png"
+                    alt="DigiSaloon App Interface - Best Salon App in Ranchi"
+                    className="w-full rounded-[35px]"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Floating cards */}
+              <FloatingCard className="top-[10%] left-[-5%] z-10">
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#FEF2F2]">
+                    <Clock className="w-4 h-4 text-[#991B1B]" />
                   </div>
-                </FloatingCard>
-              </motion.div>
-            </motion.div>
+                  <div>
+                    <p className="text-xs font-bold text-[#111827]">Live Slots</p>
+                    <p className="text-xs text-[#6B7280]">11 available now</p>
+                  </div>
+                </motion.div>
+              </FloatingCard>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute"
-              style={{ top: "35%", right: "-5%", zIndex: 10 }}
-            >
-              <motion.div
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-              >
-                <FloatingCard>
+              <FloatingCard className="bottom-[18%] left-[-8%] z-10">
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#F0FDF4]">
+                    <CheckCircle className="w-4 h-4 text-[#16A34A]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#111827]">Booking confirmed!</p>
+                    <p className="text-xs text-[#6B7280]">Looks salon</p>
+                  </div>
+                </motion.div>
+              </FloatingCard>
+
+              <FloatingCard className="top-[35%] right-[-5%] z-10">
+                <motion.div
+                  animate={{ y: [0, -7, 0] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                >
                   <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="w-3 h-3 fill-current" style={{ color: "#F59E0B" }} />
+                      <Star key={s} className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
                     ))}
                   </div>
-                  <p className="text-xs mt-1" style={{ fontWeight: 600, color: "#111827" }}>4.9 ★ Rating</p>
-                </FloatingCard>
-              </motion.div>
+                  <p className="text-xs mt-1 font-semibold text-[#111827]">4.9 ★ Rating</p>
+                </motion.div>
+              </FloatingCard>
+
             </motion.div>
-          </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

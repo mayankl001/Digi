@@ -1,88 +1,69 @@
 import { Search, BarChart2, CalendarCheck, Sparkles } from "lucide-react";
-import { AnimateIn, StaggerChildren } from "./AnimateIn";
-import { motion } from "motion/react";
+import { AnimateIn } from "./AnimateIn";
 
 const steps = [
-  { num: "01", icon: Search,        title: "Search",  desc: "Browse verified salons and spas near you in Ranchi. Filter by service, price, rating, and availability.", color: "#991B1B" },
-  { num: "02", icon: BarChart2,     title: "Compare", desc: "Compare services, pricing, reviews, and live slot availability across multiple salons side by side.",     color: "#D97706" },
-  { num: "03", icon: CalendarCheck, title: "Book",    desc: "Pick your preferred time slot and confirm in seconds. No waiting, no phone calls, no friction.",          color: "#16A34A" },
-  { num: "04", icon: Sparkles,      title: "Enjoy",   desc: "Walk in and enjoy your appointment. Leave a review after and earn loyalty points for next time.",          color: "#7C3AED" },
+  { num: "01", icon: Search,        title: "Search",  desc: "Browse verified salons and spas near you in Ranchi. Filter by service, price, rating, and availability." },
+  { num: "02", icon: BarChart2,     title: "Compare", desc: "Compare services, pricing, reviews, and live slot availability across multiple salons side by side." },
+  { num: "03", icon: CalendarCheck, title: "Book",    desc: "Pick your preferred time slot and confirm in seconds. No waiting, no phone calls, no friction." },
+  { num: "04", icon: Sparkles,      title: "Enjoy",   desc: "Walk in and enjoy your appointment. Leave a review after and earn loyalty points for next time." },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 lg:py-28" style={{ background: "#fff" }}>
+    <section id="how-it-works" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
         <AnimateIn direction="up" className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4"
-            style={{ background: "rgba(153,27,27,0.07)", border: "1px solid rgba(153,27,27,0.12)" }}
-          >
-            <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, color: "#991B1B" }}>
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4 bg-[#991B1B]/10 border border-[#991B1B]/15">
+            <span className="text-sm font-semibold text-[#991B1B] font-sans">
               How It Works
             </span>
           </div>
-          <h2
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-              color: "#111827",
-              letterSpacing: "-0.02em",
-            }}
-          >
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight leading-tight font-sans">
             From search to appointment{" "}
-            <span style={{ color: "#991B1B" }}>in 4 easy steps</span>
+            <span className="text-[#991B1B]">in 4 easy steps</span>
           </h2>
         </AnimateIn>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {/* Connector line (desktop only) */}
-          <AnimateIn
-            direction="fade"
-            className="absolute top-16 left-[12.5%] right-[12.5%] h-0.5 hidden lg:block"
-            style={{ background: "linear-gradient(90deg, #991B1B22 0%, #991B1B44 50%, #991B1B22 100%)" }}
-          />
+        {/* Steps Workflow Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative font-sans">
+          
+          {/* Subtle Desktop Connector Line */}
+          <div className="absolute top-12 left-[12.5%] right-[12.5%] h-[2px] hidden lg:block bg-gradient-to-r from-[#991B1B]/5 via-[#991B1B]/20 to-[#991B1B]/5 pointer-events-none" />
 
+          {/* Sequential Step Cards Loop */}
           {steps.map((step, i) => (
-            <AnimateIn key={i} direction="up" delay={i * 0.12}>
-              <motion.div
-                whileHover={{ y: -6, boxShadow: "0 20px 48px rgba(0,0,0,0.07)", background: "#fff" }}
-                className="relative flex flex-col items-center text-center p-6 rounded-2xl transition-colors duration-200"
-                style={{ background: "#FAFAFA", border: "1px solid rgba(0,0,0,0.06)" }}
-              >
-                {/* Step number bubble */}
-                <div
-                  className="relative w-14 h-14 rounded-full flex items-center justify-center mb-5 z-10"
-                  style={{
-                    background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)",
-                    boxShadow: "0 8px 24px rgba(153,27,27,0.25)",
-                  }}
-                >
-                  <step.icon className="w-6 h-6 text-white" />
-                  <div
-                    className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{ background: "#fff", border: "2px solid #991B1B" }}
-                  >
-                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: "0.55rem", color: "#991B1B" }}>
+            <AnimateIn key={i} direction="up" delay={i * 0.12} className="h-full">
+              <div className="relative flex flex-col items-center text-center p-6 h-full rounded-2xl bg-[#FAFAFA] border border-gray-200/60 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_20px_48px_rgba(153,27,27,0.06)] hover:border-[#991B1B]/20 group">
+                
+                {/* Step Icon & Floating Number Badge */}
+                <div className="relative w-14 h-14 rounded-full flex items-center justify-center mb-5 z-10 bg-gradient-to-br from-[#991B1B] to-[#B91C1C] shadow-[0_8px_24px_rgba(153,27,27,0.2)] group-hover:scale-105 transition-transform duration-300">
+                  <step.icon className="w-5 h-5 text-white" />
+                  
+                  {/* Absolute Top-Right Counter Dot */}
+                  <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center bg-white border-2 border-[#991B1B] shadow-sm">
+                    <span className="text-[10px] font-extrabold text-[#991B1B] leading-none">
                       {step.num}
                     </span>
                   </div>
                 </div>
 
-                <h3
-                  className="mb-3"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#111827" }}
-                >
+                {/* Typography Layer */}
+                <h3 className="text-lg font-bold text-[#111827] mb-2.5">
                   {step.title}
                 </h3>
-                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B7280", lineHeight: 1.65, fontSize: "0.875rem" }}>
+                
+                <p className="text-sm text-[#6B7280] leading-relaxed">
                   {step.desc}
                 </p>
-              </motion.div>
+                
+              </div>
             </AnimateIn>
           ))}
         </div>
+        
       </div>
     </section>
   );
