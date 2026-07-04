@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; 
 import { Star, Quote, Send, Loader2 } from "lucide-react";
 import { StaggerChildren, AnimateIn } from "./AnimateIn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +9,7 @@ import { db } from "../../firebase";
 import { collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp } from "firebase/firestore";
 
 export function Testimonials() {
+  const location = useLocation(); 
   const [liveReviews, setLiveReviews] = useState<any[]>([]);
   const [formOpen, setFormOpen] = useState(false);
   
@@ -15,34 +17,58 @@ export function Testimonials() {
   const [formName, setFormName] = useState("");
   const [formReview, setFormReview] = useState("");
   const [formRating, setFormRating] = useState(5);
-  const [hoverRating, setHoverRating] = useState<number | null>(null); // Premium star hover effect
+  const [hoverRating, setHoverRating] = useState<number | null>(null); 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 1. Live Data Fetching (Limit to 3 reviews)
+  // 1. Live Data Fetching & Dynamic URL Checker
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const hasSalonId = searchParams.has("salon_id");
+
+    if (hasSalonId || window.location.hash === "#testimonials") {
+      setFormOpen(true);
+    }
+
+    // 🔥 Query updated to use simple ordering fallback if complex indexing lags
     const q = query(collection(db, "reviews"), orderBy("timestamp", "desc"), limit(3));
+    
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const reviewsData = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
       setLiveReviews(reviewsData);
+    }, (error) => {
+      console.error("Firestore snapshot error: ", error);
+      // Fallback: Agar index issue ho, to bina order ke pull karega taaki data blank na dikhe
+      const fallbackQuery = query(collection(db, "reviews"), limit(3));
+      onSnapshot(fallbackQuery, (fbSnapshot) => {
+        const fbData = fbSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setLiveReviews(fbData);
+      });
     });
-    return () => unsubscribe();
-  }, []);
 
-  // 2. Submit Review to Firebase
+    return () => unsubscribe();
+  }, [location]);
+
+  // 2. Submit Review to Firebase with Salon Tracking
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formName || !formReview) return;
 
     setIsSubmitting(true);
+
+    const searchParams = new URLSearchParams(location.search);
+    const scannedSalonId = searchParams.get("salon_id") || "direct_website";
+    const scannedSalonName = searchParams.get("name") || "Ranchi"; 
+
     try {
       await addDoc(collection(db, "reviews"), {
         name: formName,
         review: formReview,
         rating: Number(formRating),
-        location: "Ranchi",
+        location: scannedSalonName, 
+        salon_id: scannedSalonId,   
         role: "Customer",
         tag: "Verified User",
         avatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(formName)}`,
@@ -157,7 +183,7 @@ export function Testimonials() {
                         </motion.button>
                       );
                     })}
-                    <span className="text-sm font-extrabold text-gray-500 ml-2 bg-gray-100 px-2.5 py-0.5 rounded-full>">
+                    <span className="text-sm font-extrabold text-gray-500 ml-2 bg-gray-100 px-2.5 py-0.5 rounded-full">
                       {hoverRating !== null ? hoverRating : formRating}.0
                     </span>
                   </div>
@@ -212,12 +238,12 @@ export function Testimonials() {
                     <Quote className={`w-6 h-6 ${isFeatured ? "text-white/40" : "text-[#E8B4B8]"}`} />
                   </div>
                   
-                  {/* Safe Star Array Loop */}
+                  {/* 🔥 FIXED: Stars are now explicitly filled with solid amber/white to remain clearly visible */}
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: starCount }).map((_, s) => (
                       <Star 
                         key={s} 
-                        className={`w-4 h-4 fill-current ${isFeatured ? "text-white" : "text-amber-500"}`} 
+                        className={`w-4 h-4 ${isFeatured ? "text-amber-400 fill-amber-400" : "text-amber-500 fill-amber-500"}`} 
                       />
                     ))}
                   </div>
@@ -246,7 +272,7 @@ export function Testimonials() {
                   </div>
                   <div className={`ml-auto rounded-full px-2.5 py-1 ${isFeatured ? "bg-white/15" : "bg-[#991B1B]/5"}`}>
                     <span className={`text-xs font-semibold ${isFeatured ? "text-white" : "text-[#991B1B]"}`}>
-                      {r.tag || "Verified"}
+                      {r.tag || "Verified User"}
                     </span>
                   </div>
                 </div>

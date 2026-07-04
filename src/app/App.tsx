@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async"; // 👈 Schema markup inject karne ke liye
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -15,8 +16,49 @@ import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
 import { ContactPage } from "./components/Contact";
 import { BlogPage } from "./components/BlogPage.tsx";
+
+// 🚀 SCANNER REDIRECTION COMPONENT
+// Jab customer salon me QR code scan karega, toh yeh component handle karega
+function ReviewRedirect() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // URL se query parameters (salon_id, name) ko parse karega
+    const searchParams = location.search;
+    
+    // Seedhe home page par bhejega query parameters aur #testimonials hash ke sath
+    navigate(`/${searchParams}#testimonials`, { replace: true });
+  }, [navigate, location]);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#FAFAFA]">
+      <div className="text-center space-y-3">
+        {/* Fixed: JSX Comment Formatted Properly */}
+        <div className="w-8 h-8 border-4 border-[#8C1D2A] border-t-transparent rounded-full animate-spin mx-auto"></div>
+        {/* Fixed: Changed 'class' to 'className' */}
+        <p className="text-xs font-semibold tracking-widest text-stone-400 uppercase">
+          Connecting to DigiSaloon Network...
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // Main Landing Page Component
 function HomePage() {
+  useEffect(() => {
+    // Agar URL me #testimonials ka hash laga hai, toh smoothly scroll karega niche
+    if (window.location.hash === "#testimonials") {
+      const element = document.getElementById("testimonials");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 400); // 400ms delay taaki page completely render ho jaye pehle
+      }
+    }
+  }, []);
+
   return (
     <>
       {/* 🌐 GOOGLE DECODER: HOMEPAGE SCHEMA MARKUP */}
@@ -72,13 +114,19 @@ function HomePage() {
       <div id="for-salons">
         <ForSalons />
       </div>
-      <Testimonials />
+
+      {/* 🎯 ID Wrapper taaki scanner direct isi section par customer ko le aaye */}
+      <div id="testimonials" className="scroll-mt-20">
+        <Testimonials />
+      </div>
+
       <FAQ />
       <Waitlist />
     </>
   );
 }
 
+// 📦 MAIN APPLICATION COMPONENT
 export default function App() {
   return (
     <Router>
@@ -91,6 +139,9 @@ export default function App() {
           <Routes>
             {/* Main Home Route */}
             <Route path="/" element={<HomePage />} />
+            
+            {/* 🔥 NEW QR SCANNER ROUTER */}
+            <Route path="/review" element={<ReviewRedirect />} />
             
             {/* Dedicated About Us Page Route */}
             <Route path="/about" element={<AboutUs />} />
