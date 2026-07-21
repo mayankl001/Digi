@@ -113,7 +113,7 @@ export function Footer() {
                   className="text-sm flex items-center gap-2 text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  +91-8809972414
+                  +91-9973499471
                 </a>
               </li>
 
