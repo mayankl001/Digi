@@ -100,7 +100,7 @@ export function Navbar() {
                 Digi<span className="text-[#991B1B]">Saloon</span>
               </span>
               <span className="text-[10px] tracking-[3px] uppercase text-[#6B7280] font-medium mt-1">
-                Luxury You Aspire
+                Luxury Your Aspire
               </span>
             </div>
           </Link>
