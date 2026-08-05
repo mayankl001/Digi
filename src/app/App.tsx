@@ -53,6 +53,38 @@ function ReviewRedirect() {
   );
 }
 
+// 🏢 DEDICATED PARTNER PAGE COMPONENT (Seedha top par khulega)
+function PartnerPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-red-950 via-[#991B1B] to-red-700 py-16 flex items-center justify-center">
+      <Helmet>
+        <title>Partner With DigiSaloon | Grow Your Salon in Ranchi</title>
+        <meta name="description" content="Register your salon or spa with DigiSaloon for zero commission early access and automated queue management in Ranchi." />
+        <link rel="canonical" href="https://digisaloon.in/partner" />
+      </Helmet>
+
+      <div className="w-full max-w-3xl px-4">
+        <div className="text-center text-white mb-6 space-y-2">
+          <span className="text-xs font-bold bg-white/15 border border-white/25 px-3 py-1 rounded-full uppercase tracking-widest">
+            Salon Partner Portal
+          </span>
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+            Grow Your Salon with DigiSaloon
+          </h1>
+          <p className="text-white/80 text-sm md:text-base max-w-lg mx-auto">
+            Register your salon in Ranchi for zero commission early access and automated queue management.
+          </p>
+        </div>
+        <Waitlist initialType="salon" />
+      </div>
+    </div>
+  );
+}
+
 // Main Landing Page Component
 function HomePage() {
   useEffect(() => {
@@ -134,7 +166,6 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
-      {/* 👈 ScrollToTop component har route change par top par bhej dega */}
       <ScrollToTop />
       
       <div className="min-h-screen bg-[#FAFAFA] font-sans">
@@ -156,6 +187,9 @@ export default function App() {
 
             {/* Local SEO Blog Route */}
             <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
+
+            {/* 🏢 Salon Partner Dedicated Route */}
+            <Route path="/partner" element={<PartnerPage />} />
 
             {/* 🔒 Legal Pages Routes */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
