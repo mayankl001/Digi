@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, CheckCircle, Sparkles, User, Mail, Store, Phone, MapPin, Loader2 } from "lucide-react";
 import { AnimateIn } from "./AnimateIn";
 import { motion } from "framer-motion";
+import { useSearchParams } from "react-router-dom"; // 👈 URL params read karne ke liye
 
 // FIREBASE IMPORTS
 import { db } from "../../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export function Waitlist() {
+  const [searchParams] = useSearchParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [salonName, setSalonName] = useState("");
@@ -17,18 +19,26 @@ export function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // 🔍 URL me agar ?type=salon ho toh automatically salon tab select ho jayega
+  useEffect(() => {
+    const mode = searchParams.get("type");
+    if (mode === "salon") {
+      setType("salon");
+    }
+  }, [searchParams]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       const waitlistData = {
-        name,
-        email,
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
         type,
-        salonName: type === "salon" ? salonName : null,
-        phone: type === "salon" ? phone : null,
-        city: type === "salon" ? city : null,
+        salonName: type === "salon" ? salonName.trim() : null,
+        phone: type === "salon" ? phone.trim() : null,
+        city: type === "salon" ? city.trim() : null,
         timestamp: serverTimestamp()
       };
 
@@ -38,7 +48,7 @@ export function Waitlist() {
       console.error("Firebase data saving error: ", error);
       alert("Kuch dikkat aayi! Kripya dobara prayas karein.");
     } finally {
-      loading && setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -52,7 +62,7 @@ export function Waitlist() {
   return (
     <section
       id="waitlist"
-      className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-red-950 via-[#991B1B] to-red-700 font-sans"
+      className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-red-950 via-[#991B1B] to-red-700 font-sans scroll-mt-10"
     >
       {/* Ambient Animated Background Blobs */}
       <motion.div
@@ -107,6 +117,7 @@ export function Waitlist() {
                   <button
                     key={t}
                     disabled={loading}
+                    type="button"
                     onClick={() => handleTypeChange(t)}
                     className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 relative disabled:opacity-50 ${
                       type === t 
