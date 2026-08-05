@@ -65,8 +65,22 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
   return (
     <section
       id="waitlist"
-      className="py-12 lg:py-16 relative overflow-hidden font-sans"
+      className="py-16 lg:py-24 relative overflow-hidden bg-gradient-to-br from-red-950 via-[#991B1B] to-red-700 font-sans"
     >
+      {/* Ambient Animated Background Blobs */}
+      <motion.div
+        className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none translate-x-[30%] -translate-y-[30%]"
+        style={{ background: "radial-gradient(circle, rgba(232,180,184,0.22) 0%, transparent 70%)" }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.7, 0.9, 0.7] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none -translate-x-[40%] translate-y-[40%]"
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)" }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.8, 0.6] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <AnimateIn direction="up">
           {initialType === "customer" && (
