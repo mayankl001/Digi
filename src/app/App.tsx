@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // 👈 Schema markup inject karne ke liye
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
@@ -15,28 +15,36 @@ import { Waitlist } from "./components/Waitlist";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
 import { ContactPage } from "./components/Contact";
-import { BlogPage } from "./components/BlogPage.tsx";
+import { BlogPage } from "./components/BlogPage";
+import { PrivacyPolicy } from "./components/PrivacyPolicy"; 
+import { TermsOfService } from "./components/TermsOfService";
+import { CookiePolicy } from "./components/CookiePolicy";
+
+// ⬆️ SCROLL TO TOP HELPER COMPONENT (Page change hone par top par le jayega)
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 // 🚀 SCANNER REDIRECTION COMPONENT
-// Jab customer salon me QR code scan karega, toh yeh component handle karega
 function ReviewRedirect() {
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    // URL se query parameters (salon_id, name) ko parse karega
     const searchParams = location.search;
-    
-    // Seedhe home page par bhejega query parameters aur #testimonials hash ke sath
     navigate(`/${searchParams}#testimonials`, { replace: true });
   }, [navigate, location]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FAFAFA]">
       <div className="text-center space-y-3">
-        {/* Fixed: JSX Comment Formatted Properly */}
         <div className="w-8 h-8 border-4 border-[#8C1D2A] border-t-transparent rounded-full animate-spin mx-auto"></div>
-        {/* Fixed: Changed 'class' to 'className' */}
         <p className="text-xs font-semibold tracking-widest text-stone-400 uppercase">
           Connecting to DigiSaloon Network...
         </p>
@@ -48,26 +56,23 @@ function ReviewRedirect() {
 // Main Landing Page Component
 function HomePage() {
   useEffect(() => {
-    // Agar URL me #testimonials ka hash laga hai, toh smoothly scroll karega niche
     if (window.location.hash === "#testimonials") {
       const element = document.getElementById("testimonials");
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 400); // 400ms delay taaki page completely render ho jaye pehle
+        }, 400);
       }
     }
   }, []);
 
   return (
     <>
-      {/* 🌐 GOOGLE DECODER: HOMEPAGE SCHEMA MARKUP */}
       <Helmet>
         <title>DigiSaloon | Smart Salon & Spa Booking Platform in Ranchi</title>
         <meta name="description" content="Book hair, beauty, and spa appointments at premium salons in Ranchi instantly. Compare prices and check live slots." />
         <link rel="canonical" href="https://digisaloon.in/" />
 
-        {/* JSON-LD Schema: Google Search me Stars aur Ratings lane ke liye */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -115,7 +120,6 @@ function HomePage() {
         <ForSalons />
       </div>
 
-      {/* 🎯 ID Wrapper taaki scanner direct isi section par customer ko le aaye */}
       <div id="testimonials" className="scroll-mt-20">
         <Testimonials />
       </div>
@@ -130,31 +134,36 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
+      {/* 👈 ScrollToTop component har route change par top par bhej dega */}
+      <ScrollToTop />
+      
       <div className="min-h-screen bg-[#FAFAFA] font-sans">
-        {/* Navbar hamesha top par rahega */}
         <Navbar />
         
-        {/* Main Content Area: Semantic SEO ke liye <main> tag lagana zaroori hai */}
         <main>
           <Routes>
             {/* Main Home Route */}
             <Route path="/" element={<HomePage />} />
             
-            {/* 🔥 NEW QR SCANNER ROUTER */}
+            {/* QR Scanner Router */}
             <Route path="/review" element={<ReviewRedirect />} />
             
-            {/* Dedicated About Us Page Route */}
+            {/* About Us Route */}
             <Route path="/about" element={<AboutUs />} />
             
-            {/* Dedicated Contact Us Page Route */}
+            {/* Contact Us Route */}
             <Route path="/contact" element={<ContactPage />} />
 
-            {/* 🔥 High-Value Local SEO Blog Route */}
+            {/* Local SEO Blog Route */}
             <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
+
+            {/* 🔒 Legal Pages Routes */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
           </Routes>
         </main>
         
-        {/* Footer hamesha bottom par rahega */}
         <Footer />
       </div>
     </Router>

@@ -25,7 +25,7 @@ export function Footer() {
               </div>
             </Link>
             
-            <p className="max-w-xs mb-6 mt-4 text-white/50 text-sm Alain leading-relaxed font-sans">
+            <p className="max-w-xs mb-6 mt-4 text-white/50 text-sm leading-relaxed font-sans">
               DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
             </p>
 
@@ -68,7 +68,7 @@ export function Footer() {
                 { label: "About", link: "/about", isPage: true },
                 { label: "Features", link: "/#features", isPage: false },
                 { label: "How It Works", link: "/#how-it-works", isPage: false },
-                { label: "For Salons", link: "/for-salons", isPage: true },
+                { label: "For Salons", link: "/#for-salons", isPage: true },
                 { label: "FAQ", link: "/#faq", isPage: false }
               ].map((item) => (
                 <li key={item.label}>
@@ -109,11 +109,11 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:8809972414"
+                  href="tel:9973499471"
                   className="text-sm flex items-center gap-2 text-white/50 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  +91-9973499471
+                  +91-99734 99471
                 </a>
               </li>
 
@@ -137,29 +137,32 @@ export function Footer() {
           </div>
         </div>
 
-        {/* 4. Bottom Footer Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
-          <p className="text-xs text-white/30 font-sans">
-            © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
-          </p>
-          <div className="flex items-center gap-6">
-            {[
-              { label: "Privacy Policy", href: "https://policies.digisaloon.in/" },
-              { label: "Terms of Service", href: "https://policies.digisaloon.in/#section3" },
-              { label: "Cookie Policy", href: "https://policies.digisaloon.in/#section5" }
-            ].map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
+        {/* Bottom Footer Bar */}
+<div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
+  <p className="text-xs text-white/30 font-sans">
+    © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
+  </p>
+  <div className="flex items-center gap-6">
+    <Link
+      to="/privacy-policy"
+      className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+    >
+      Privacy Policy
+    </Link>
+    <Link
+    to="/terms-of-service"
+    className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+  >
+    Terms of Service
+  </Link>
+    <Link
+    to="/cookie-policy"
+    className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+  >
+    Cookie Policy
+  </Link>
+  </div>
+</div>
       </div>
     </footer>
   );

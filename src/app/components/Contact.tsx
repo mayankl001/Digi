@@ -112,12 +112,12 @@ export function ContactPage() {
                   <div>
                     <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Call Us</h4>
                     <a 
-                      href="tel:+919876543210" 
+                      href="tel:+919973499471" 
                       className="block text-base font-bold text-[#374151] mt-1 transition-colors duration-200 hover:text-[#991B1B] no-underline"
                     >
-                      +91 98765 43210
+                      +91 99734 99471
                     </a>
-                    <p className="text-xs text-gray-400 mt-0.5">Mon-Sat from 9am to 7pm</p>
+                    <p className="text-xs text-gray-400 mt-0.5">Mon-Sat from 9am to 5pm</p>
                   </div>
                 </div>
 
@@ -145,7 +145,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Location</h4>
-                    <p className="text-base font-bold text-[#374151] mt-1">Lalpur, Ranchi</p>
+                    <p className="text-base font-bold text-[#374151] mt-1">Angara, Ranchi</p>
                     <p className="text-xs text-gray-400 mt-0.5">Jharkhand, India</p>
                   </div>
                 </div>
