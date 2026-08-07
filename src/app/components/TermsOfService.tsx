@@ -105,17 +105,17 @@ export const TermsOfService: React.FC = () => {
               </p>
               <div className="bg-white p-5 rounded-2xl border border-slate-200/80 space-y-3">
                 <p>
-                  <strong>Grace Period (Late Arrival):</strong> Users are requested to arrive at the salon 5 to 10 minutes prior to the booked slot. Salons maintain a mandatory 15-minute grace period. Arriving more than 15 minutes late empowers the salon partner to reassign or cancel the slot for walk-in clients.
+                  <strong>Grace Period (Late Arrival):</strong> Users are requested to arrive at the salon 5 to 10 minutes prior to the booked slot. Salons maintain a mandatory 15-minute grace period. If a user arrives more than 15 minutes late, the salon partner reserves the right to reassign or cancel the appointment slot based on availability.
                 </p>
                 <p>
-                  <strong>Service Variations:</strong> If a user requests additional services at the salon counter beyond the original booking, availability and additional charges remain entirely at the salon manager's discretion.
+                  <strong>Service Variations:</strong> If a user requests additional services at the salon beyond the original booking, availability and additional charges remain entirely at the salon manager's discretion.
                 </p>
               </div>
             </div>
           </section>
 
           {/* 5. Cancellation & Refunds */}
-          <section className="space-y-4">
+          <section className="space-y-4"> 
             <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
               5. CANCELLATION, RESCHEDULING, AND REFUND POLICY
             </h2>
