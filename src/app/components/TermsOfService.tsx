@@ -87,7 +87,7 @@ export const TermsOfService: React.FC = () => {
               3. ACCOUNT ELIGIBILITY AND SECURITY
             </h2>
             <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 leading-relaxed">
-              <li><strong>Age Limit:</strong> You must be at least 13 years of age to register an account. Minors may use the platform solely under direct parental or legal guardian supervision.</li>
+              <li><strong>Age Limit:</strong> You must be at least 18 years of age to register an account. Minors may use the platform solely under direct parental or legal guardian supervision.</li>
               <li><strong>OTP Authentication:</strong> Registration requires a valid Indian mobile number verified via One-Time Password (OTP). You are solely responsible for all activities under your account.</li>
               <li><strong>Information Accuracy:</strong> You agree to provide current, full, and accurate personal details (Name, Gender, Email). Accounts with falsified identities may be terminated immediately.</li>
               <li><strong>Account Non-Transferability:</strong> Account credentials and promotional reward balances cannot be sold, transferred, or shared with third parties.</li>
