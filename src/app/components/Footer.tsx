@@ -138,31 +138,37 @@ export function Footer() {
         </div>
 
         {/* Bottom Footer Bar */}
-<div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
-  <p className="text-xs text-white/30 font-sans">
-    © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
-  </p>
-  <div className="flex items-center gap-6">
-    <Link
-      to="/privacy-policy"
-      className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
-    >
-      Privacy Policy
-    </Link>
-    <Link
-    to="/terms-of-service"
-    className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
-  >
-    Terms of Service
-  </Link>
-    <Link
-    to="/cookie-policy"
-    className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
-  >
-    Cookie Policy
-  </Link>
-  </div>
-</div>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
+          <p className="text-xs text-white/30 font-sans">
+            © 2026 DigiSaloon. All rights reserved. 🇮🇳 Proudly Built in India
+          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              to="/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-of-service"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              to="/cookie-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
+            >
+              Cookie Policy
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

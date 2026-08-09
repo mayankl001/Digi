@@ -20,7 +20,7 @@ import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { CookiePolicy } from "./components/CookiePolicy";
 
-// ⬆️ SCROLL TO TOP HELPER COMPONENT (Page change hone par top par le jayega)
+// ⬆️ SCROLL TO TOP HELPER COMPONENT
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -53,7 +53,7 @@ function ReviewRedirect() {
   );
 }
 
-// 🏢 DEDICATED PARTNER PAGE COMPONENT (Seedha top par khulega)
+// 🏢 DEDICATED PARTNER PAGE COMPONENT
 function PartnerPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -162,44 +162,59 @@ function HomePage() {
   );
 }
 
+// 🛡️ LAYOUT WRAPPER TO CONTROL HEADER & FOOTER VISIBILITY
+function AppContent() {
+  const location = useLocation();
+
+  // In paths par Navbar aur Footer show nahi honge
+  const hideHeaderFooter = [
+    "/privacy-policy",
+    "/terms-of-service",
+    "/cookie-policy"
+  ].includes(location.pathname);
+
+  return (
+    <div className="min-h-screen bg-[#FAFAFA] font-sans flex flex-col justify-between">
+      {!hideHeaderFooter && <Navbar />}
+      
+      <main className="flex-grow">
+        <Routes>
+          {/* Main Home Route */}
+          <Route path="/" element={<HomePage />} />
+          
+          {/* QR Scanner Router */}
+          <Route path="/review" element={<ReviewRedirect />} />
+          
+          {/* About Us Route */}
+          <Route path="/about" element={<AboutUs />} />
+          
+          {/* Contact Us Route */}
+          <Route path="/contact" element={<ContactPage />} />
+
+          {/* Local SEO Blog Route */}
+          <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
+
+          {/* Salon Partner Dedicated Route */}
+          <Route path="/partner" element={<PartnerPage />} />
+
+          {/* 🔒 Legal Pages Routes (Header/Footer Hidden) */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+        </Routes>
+      </main>
+      
+      {!hideHeaderFooter && <Footer />}
+    </div>
+  );
+}
+
 // 📦 MAIN APPLICATION COMPONENT
 export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      
-      <div className="min-h-screen bg-[#FAFAFA] font-sans">
-        <Navbar />
-        
-        <main>
-          <Routes>
-            {/* Main Home Route */}
-            <Route path="/" element={<HomePage />} />
-            
-            {/* QR Scanner Router */}
-            <Route path="/review" element={<ReviewRedirect />} />
-            
-            {/* About Us Route */}
-            <Route path="/about" element={<AboutUs />} />
-            
-            {/* Contact Us Route */}
-            <Route path="/contact" element={<ContactPage />} />
-
-            {/* Local SEO Blog Route */}
-            <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
-
-            {/* 🏢 Salon Partner Dedicated Route */}
-            <Route path="/partner" element={<PartnerPage />} />
-
-            {/* 🔒 Legal Pages Routes */}
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/cookie-policy" element={<CookiePolicy />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }
