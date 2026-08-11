@@ -16,6 +16,7 @@ import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
 import { ContactPage } from "./components/Contact";
 import { BlogPage } from "./components/BlogPage";
+import { PolicyHub } from "./components/PolicyHub";
 import { PrivacyPolicy } from "./components/PrivacyPolicy"; 
 import { TermsOfService } from "./components/TermsOfService";
 import { CookiePolicy } from "./components/CookiePolicy";
@@ -166,8 +167,8 @@ function HomePage() {
 function AppContent() {
   const location = useLocation();
 
-  // In paths par Navbar aur Footer show nahi honge
-  const hideHeaderFooter = [
+  // In paths par Navbar aur Footer show nahi honge (/policy aur uske sabhi sub-paths ke liye bhi)
+  const hideHeaderFooter = location.pathname.startsWith("/policy") || [
     "/privacy-policy",
     "/terms-of-service",
     "/cookie-policy"
@@ -197,7 +198,11 @@ function AppContent() {
           {/* Salon Partner Dedicated Route */}
           <Route path="/partner" element={<PartnerPage />} />
 
-          {/* 🔒 Legal Pages Routes (Header/Footer Hidden) */}
+          {/* 🔒 Centralized Policy Hub Route with Dynamic Sub-path */}
+          <Route path="/policy/:policyType" element={<PolicyHub />} />
+          <Route path="/policy" element={<PolicyHub />} />
+
+          {/* Legacy Legal Routes (Optional Direct Fallbacks) */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />

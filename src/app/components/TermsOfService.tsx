@@ -2,295 +2,523 @@ import React from "react";
 
 export const TermsOfService: React.FC = () => {
   return (
-    <div className="bg-slate-50 text-slate-700 antialiased min-h-screen py-10 md:py-16">
+    <div className="text-slate-700 antialiased space-y-10">
       
-      {/* 🔙 Back to Home Navigation Button */}
-      <div className="max-w-4xl mx-auto px-4 md:px-8 mb-6">
-        <a 
-          href="/" 
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-700 transition-colors bg-white border border-slate-200 px-4 py-2 rounded-full shadow-xs"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Home
-        </a>
+      {/* Header Section */}
+      <div className="border-b border-slate-200 pb-6 space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
+            Legal Agreement
+          </span>
+          <span className="text-xs text-slate-400">Last Updated: 11 August 2026</span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          TERMS & CONDITIONS
+        </h1>
+        <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
+          Welcome to DigiSaloon.
+        </p>
+        <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+          These Terms & Conditions ("Terms") govern your access to and use of DigiSaloon's website, mobile applications, partner platforms and related services.
+        </p>
+        <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+          By accessing, registering for or using DigiSaloon, you agree to these Terms. If you do not agree with these Terms, you should not use the applicable DigiSaloon services.
+        </p>
       </div>
 
-      <main className="max-w-4xl mx-auto px-4 md:px-8 space-y-12">
+      {/* Sections with IDs for ScrollSpy */}
+      <div className="space-y-8 text-sm text-slate-600 leading-relaxed">
         
-        {/* Header Section */}
-        <div className="border-b border-slate-200 pb-8 space-y-3">
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
-              Legal Framework & User Agreement
-            </span>
-            <span className="text-xs text-slate-400">Effective Date: June 2026</span>
+        {/* 1. About DigiSaloon */}
+        <section id="t-1" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            1. About DigiSaloon
+          </h2>
+          <p>DigiSaloon is a technology platform that enables customers to discover participating salons, view available services and make appointments.</p>
+          <p>DigiSaloon may provide:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Customer mobile application</li>
+            <li>Website</li>
+            <li>Salon Partner App</li>
+            <li>Salon Partner Web App</li>
+            <li>Manage Web App</li>
+            <li>Administrative systems</li>
+            <li>Booking and appointment management</li>
+            <li>Payment and settlement functionality</li>
+            <li>Customer reviews and ratings</li>
+            <li>Notifications and communication services</li>
+          </ul>
+        </section>
+
+        {/* 2. Eligibility */}
+        <section id="t-2" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            2. Eligibility
+          </h2>
+          <p>DigiSaloon services are intended for individuals aged 18 years or older.</p>
+          <p>By using DigiSaloon, you confirm that you meet the applicable age requirement and are legally capable of entering into these Terms.</p>
+        </section>
+
+        {/* 3. Account Registration */}
+        <section id="t-3" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            3. Account Registration
+          </h2>
+          <p>Certain DigiSaloon features require an account.</p>
+          <p>You agree to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Provide accurate information</li>
+            <li>Keep your information updated</li>
+            <li>Maintain the security of your account</li>
+            <li>Not share your account credentials with unauthorized persons</li>
+            <li>Notify DigiSaloon if you suspect unauthorized access</li>
+          </ul>
+          <p>DigiSaloon may take reasonable action where account information is false, misleading or associated with misuse.</p>
+        </section>
+
+        {/* 4. Customer Services */}
+        <section id="t-4" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            4. Customer Services
+          </h2>
+          <p>Customers may use DigiSaloon to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Discover salons</li>
+            <li>View salon information</li>
+            <li>View services and prices</li>
+            <li>Select available appointment times</li>
+            <li>Make bookings</li>
+            <li>Make eligible online payments</li>
+            <li>Choose Pay-at-Salon where available</li>
+            <li>Cancel bookings</li>
+            <li>Submit eligible reviews and ratings</li>
+          </ul>
+          <p>Availability of specific features may vary by salon, location and platform functionality.</p>
+        </section>
+
+        {/* 5. Salon Services */}
+        <section id="t-5" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            5. Salon Services
+          </h2>
+          <p>Salons listed on DigiSaloon are independent service providers unless expressly stated otherwise.</p>
+          <p>The salon is responsible for:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Providing the booked service</li>
+            <li>Maintaining accurate service information</li>
+            <li>Maintaining accurate pricing</li>
+            <li>Maintaining salon availability</li>
+            <li>Providing the service at the agreed appointment</li>
+            <li>Maintaining appropriate service standards</li>
+            <li>Managing its authorized staff</li>
+          </ul>
+          <p>DigiSaloon provides the technology platform for discovery and booking but does not directly provide the salon service.</p>
+        </section>
+
+        {/* 6. Salon Information */}
+        <section id="t-6" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            6. Salon Information
+          </h2>
+          <p>Salon partners are responsible for ensuring that information provided to DigiSaloon is accurate, including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Salon name</li>
+            <li>Address</li>
+            <li>Services</li>
+            <li>Prices</li>
+            <li>Operating hours</li>
+            <li>Availability</li>
+            <li>Contact information</li>
+            <li>Images and business information</li>
+          </ul>
+          <p>DigiSaloon may update, restrict or remove information where reasonably necessary.</p>
+        </section>
+
+        {/* 7. Booking and Appointment */}
+        <section id="t-7" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            7. Booking and Appointment
+          </h2>
+          <p>A booking is considered confirmed only when the applicable booking status is successfully generated by DigiSaloon.</p>
+          <p>A payment attempt alone does not guarantee a confirmed appointment.</p>
+          <p>Appointment availability may change due to salon operations, technical issues or other circumstances.</p>
+        </section>
+
+        {/* 8. Customer Cancellation */}
+        <section id="t-8" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            8. Customer Cancellation
+          </h2>
+          <p>Customers may cancel eligible bookings according to DigiSaloon's Cancellation & Refund Policy.</p>
+          <p>The first five eligible customer cancellations are not subject to a cancellation fee.</p>
+          <p>From the sixth eligible cancellation onward, a 3% cancellation charge may apply according to the applicable cancellation rules.</p>
+        </section>
+
+        {/* 9. Salon Cancellation */}
+        <section id="t-9" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            9. Salon Cancellation
+          </h2>
+          <p>If a salon cancels a confirmed paid booking, the customer is entitled to a 100% refund of the amount paid, subject to payment verification and applicable refund-processing procedures.</p>
+          <p>Repeated or unreasonable salon cancellations may result in action under DigiSaloon's Partner Terms.</p>
+        </section>
+
+        {/* 10. Payments */}
+        <section id="t-10" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            10. Payments
+          </h2>
+          <p>Customers may have the option to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Pay online at the time of booking; or</li>
+            <li>Pay at the salon, where available.</li>
+          </ul>
+          <p>Online payments may be processed through authorized payment providers such as Razorpay.</p>
+          <p>Payment processing is subject to applicable payment-provider procedures.</p>
+        </section>
+
+        {/* 11. Salon Commission */}
+        <section id="t-11" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            11. Salon Commission
+          </h2>
+          <p>Under DigiSaloon's current commercial arrangement, DigiSaloon does not charge commission on salon bookings.</p>
+          <p>DigiSaloon may modify its commercial arrangements in accordance with applicable partner agreements and notice requirements.</p>
+        </section>
+
+        {/* 12. Salon Settlement */}
+        <section id="t-12" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            12. Salon Settlement
+          </h2>
+          <p>Eligible online booking amounts may be settled to participating salons on a same-day or next-day basis, subject to successful payment confirmation, reconciliation, refund status, banking processes and other applicable conditions.</p>
+        </section>
+
+        {/* 13. Refunds */}
+        <section id="t-13" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            13. Refunds
+          </h2>
+          <p>Refunds will be handled according to DigiSaloon's Cancellation & Refund Policy.</p>
+          <p>Refund processing times may depend on the applicable payment provider, bank, UPI provider, card network or other financial institution.</p>
+        </section>
+
+        {/* 14. Reviews and Ratings */}
+        <section id="t-14" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            14. Reviews and Ratings
+          </h2>
+          <p>Customers may be permitted to submit ratings and reviews after eligible bookings.</p>
+          <p>Reviews must represent genuine customer experiences.</p>
+          <p>Users must not:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Submit fake reviews</li>
+            <li>Manipulate ratings</li>
+            <li>Create accounts for review manipulation</li>
+            <li>Threaten or harass others through reviews</li>
+            <li>Submit unlawful or abusive content</li>
+          </ul>
+          <p>DigiSaloon may remove or restrict content that violates its Review & Rating Policy.</p>
+        </section>
+
+        {/* 15. User Content */}
+        <section id="t-15" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            15. User Content
+          </h2>
+          <p>Users and salon partners may submit content such as:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Reviews</li>
+            <li>Ratings</li>
+            <li>Images</li>
+            <li>Service descriptions</li>
+            <li>Business information</li>
+          </ul>
+          <p>The person submitting content remains responsible for ensuring that they have the necessary rights to submit it.</p>
+          <p>By submitting content, you grant DigiSaloon the permission reasonably necessary to host, display and use the content for operating, improving and promoting the applicable DigiSaloon service, subject to applicable law.</p>
+        </section>
+
+        {/* 16. Prohibited Activities */}
+        <section id="t-16" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            16. Prohibited Activities
+          </h2>
+          <p>You must not use DigiSaloon to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Commit fraud</li>
+            <li>Create fake bookings</li>
+            <li>Abuse refunds</li>
+            <li>Manipulate reviews</li>
+            <li>Gain unauthorized access</li>
+            <li>Scrape or copy platform data without authorization</li>
+            <li>Disrupt platform operations</li>
+            <li>Upload malicious software</li>
+            <li>Impersonate another person or DigiSaloon</li>
+            <li>Misuse customer information</li>
+            <li>Circumvent security controls</li>
+            <li>Engage in unlawful activities</li>
+          </ul>
+        </section>
+
+        {/* 17. Partner and Staff Access */}
+        <section id="t-17" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            17. Partner and Staff Access
+          </h2>
+          <p>Salon partners and authorized staff may only access information and functionality for which they are authorized.</p>
+          <p>They must not access another salon's information or customer data without authorization.</p>
+          <p>Use of the Manage Web App is limited to legitimate salon appointment and operational activities.</p>
+        </section>
+
+        {/* 18. Customer Information */}
+        <section id="t-18" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            18. Customer Information
+          </h2>
+          <p>Salon partners and authorized staff may receive customer information necessary to fulfill and manage appointments.</p>
+          <p>Such information must not be:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Sold</li>
+            <li>Misused</li>
+            <li>Shared without authorization</li>
+            <li>Used for unrelated purposes</li>
+            <li>Used for spam or harassment</li>
+          </ul>
+        </section>
+
+        {/* 19. Location Services */}
+        <section id="t-19" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            19. Location Services
+          </h2>
+          <p>DigiSaloon may use location information where the relevant permission has been granted to support features such as:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Nearby salon discovery</li>
+            <li>Distance information</li>
+            <li>Salon location</li>
+            <li>Directions</li>
+            <li>Location-based search</li>
+          </ul>
+          <p>Location use is also subject to DigiSaloon's Privacy Policy and Location Services Policy.</p>
+        </section>
+
+        {/* 20. Notifications and Communications */}
+        <section id="t-20" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            20. Notifications and Communications
+          </h2>
+          <p>DigiSaloon may communicate with users through:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Push notifications</li>
+            <li>SMS</li>
+            <li>WhatsApp</li>
+            <li>Email</li>
+            <li>In-app notifications</li>
+          </ul>
+          <p>Communications may include booking confirmations, reminders, cancellations, payment information, refunds, security alerts and promotional communications where applicable.</p>
+        </section>
+
+        {/* 21. Intellectual Property */}
+        <section id="t-21" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            21. Intellectual Property
+          </h2>
+          <p>DigiSaloon's name, logo, software, website, application design, user interface, original content and other proprietary materials are protected by applicable intellectual property laws.</p>
+          <p>Except where expressly permitted, you must not copy, reproduce, modify, distribute, reverse engineer or commercially exploit DigiSaloon's proprietary materials.</p>
+        </section>
+
+        {/* 22. Third-Party Services */}
+        <section id="t-22" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            22. Third-Party Services
+          </h2>
+          <p>DigiSaloon may integrate or rely on third-party services including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Payment providers</li>
+            <li>Cloud services</li>
+            <li>Mapping services</li>
+            <li>Communication providers</li>
+            <li>Analytics services</li>
+            <li>Authentication services</li>
+            <li>Security services</li>
+          </ul>
+          <p>Third-party services may have their own terms and privacy policies.</p>
+        </section>
+
+        {/* 23. Razorpay and Payment Processing */}
+        <section id="t-23" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            23. Razorpay and Payment Processing
+          </h2>
+          <p>Where Razorpay is used for online payment processing, payment transactions may be subject to Razorpay's applicable terms and procedures.</p>
+          <p>DigiSaloon may use payment-provider dashboards and merchant tools for legitimate purposes such as transaction verification, reconciliation, refunds and settlement management.</p>
+        </section>
+
+        {/* 24. Platform Availability */}
+        <section id="t-24" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            24. Platform Availability
+          </h2>
+          <p>DigiSaloon aims to maintain reliable services but does not guarantee that the platform will always be:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Available</li>
+            <li>Error-free</li>
+            <li>Uninterrupted</li>
+            <li>Completely secure</li>
+            <li>Free from technical problems</li>
+          </ul>
+          <p>Temporary interruptions may occur due to maintenance, technical failures, network problems, third-party services or other circumstances.</p>
+        </section>
+
+        {/* 25. Account Suspension or Termination */}
+        <section id="t-25" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            25. Account Suspension or Termination
+          </h2>
+          <p>DigiSaloon may suspend, restrict or terminate an account where reasonably necessary due to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Fraud</li>
+            <li>Security concerns</li>
+            <li>Policy violations</li>
+            <li>Abuse</li>
+            <li>Fake bookings</li>
+            <li>Review manipulation</li>
+            <li>Payment abuse</li>
+            <li>Unauthorized access</li>
+            <li>Unlawful activity</li>
+          </ul>
+          <p>Where appropriate, DigiSaloon may provide notice before taking action, subject to the circumstances.</p>
+        </section>
+
+        {/* 26. Account Deletion */}
+        <section id="t-26" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            26. Account Deletion
+          </h2>
+          <p>Users may delete their account through the available account-deletion functionality in the User App.</p>
+          <p>Deletion does not necessarily require immediate deletion of every historical record.</p>
+          <p>Certain information may be retained for legal, accounting, payment, security, fraud-prevention or dispute-resolution purposes.</p>
+        </section>
+
+        {/* 27. Privacy */}
+        <section id="t-27" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            27. Privacy
+          </h2>
+          <p>DigiSaloon's collection and use of personal information is governed by its Privacy Policy.</p>
+          <p>By using DigiSaloon, you acknowledge that applicable information may be processed as described in that policy.</p>
+        </section>
+
+        {/* 28. Disclaimer */}
+        <section id="t-28" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            28. Disclaimer
+          </h2>
+          <p>DigiSaloon is a technology platform connecting customers with participating salons.</p>
+          <p>Unless expressly stated otherwise, DigiSaloon does not directly provide salon services and does not employ the independent salon personnel providing those services.</p>
+          <p>Information supplied by salons may change and DigiSaloon does not guarantee that every salon-provided detail will always be completely accurate or current.</p>
+        </section>
+
+        {/* 29. Limitation of Liability */}
+        <section id="t-29" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            29. Limitation of Liability
+          </h2>
+          <p>To the extent permitted by applicable law, DigiSaloon will not be responsible for losses arising solely from:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Actions or omissions of independent salon partners</li>
+            <li>Third-party payment or banking failures</li>
+            <li>Internet or network failures</li>
+            <li>Third-party service interruptions</li>
+            <li>Information inaccurately provided by users or salons</li>
+            <li>Unauthorized actions outside DigiSaloon's reasonable control</li>
+          </ul>
+          <p>Nothing in these Terms is intended to exclude liability that cannot legally be excluded.</p>
+        </section>
+
+        {/* 30. Indemnification */}
+        <section id="t-30" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            30. Indemnification
+          </h2>
+          <p>To the extent permitted by applicable law, a user or partner may be responsible for losses, claims or expenses arising from their:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Violation of these Terms</li>
+            <li>Unlawful use of DigiSaloon</li>
+            <li>Fraudulent activity</li>
+            <li>Unauthorized use of another person's information</li>
+            <li>Infringement of third-party rights</li>
+          </ul>
+        </section>
+
+        {/* 31. Changes to Services */}
+        <section id="t-31" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            31. Changes to Services
+          </h2>
+          <p>DigiSaloon may add, modify, suspend or discontinue features of its services.</p>
+          <p>Certain changes may be necessary because of:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Technical development</li>
+            <li>Security requirements</li>
+            <li>Business decisions</li>
+            <li>Third-party service changes</li>
+            <li>Legal or regulatory requirements</li>
+          </ul>
+        </section>
+
+        {/* 32. Changes to These Terms */}
+        <section id="t-32" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            32. Changes to These Terms
+          </h2>
+          <p>DigiSaloon may update these Terms from time to time.</p>
+          <p>The updated version may be published through the DigiSaloon website or application.</p>
+          <p>Your continued use of DigiSaloon after an applicable update may constitute acceptance of the updated Terms, subject to applicable law.</p>
+        </section>
+
+        {/* 33. Governing Law */}
+        <section id="t-33" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            33. Governing Law
+          </h2>
+          <p>These Terms shall be governed by the applicable laws of India.</p>
+          <p>Subject to applicable law, disputes relating to DigiSaloon may be subject to the jurisdiction of the appropriate courts in Ranchi, Jharkhand, India.</p>
+        </section>
+
+        {/* 34. Severability */}
+        <section id="t-34" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            34. Severability
+          </h2>
+          <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue to apply to the extent permitted by law.</p>
+        </section>
+
+        {/* 35. Entire Agreement */}
+        <section id="t-35" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            35. Entire Agreement
+          </h2>
+          <p>These Terms, together with applicable DigiSaloon policies and agreements, form the applicable terms governing use of DigiSaloon services.</p>
+          <p>Where a separate written agreement exists with a salon partner, the specific partner agreement may apply to matters covered by that agreement.</p>
+        </section>
+
+        {/* 36. Contact Us */}
+        <section id="t-36" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            36. Contact Us
+          </h2>
+          <p>For questions regarding these Terms:</p>
+          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-2 text-xs md:text-sm">
+            <p className="font-bold text-white text-base">DigiSaloon</p>
+            <p><strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline font-mono">support@digisaloon.in</a></p>
+            <p><strong>Phone:</strong> 9973499471</p>
+            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand – 835103</p>
+            <p><strong>Website:</strong> digisaloon.in</p>
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Terms of Service
-          </h1>
-          <div className="bg-amber-50 border border-amber-200/80 p-4 rounded-xl text-xs text-amber-900 font-mono leading-relaxed mt-4">
-            THIS IS AN ELECTRONIC RECORD IN TERMS OF THE INFORMATION TECHNOLOGY ACT, 2000 AND RULES THEREUNDER. THIS DOCUMENT IS PUBLISHED IN ACCORDANCE WITH THE PROVISIONS OF RULE 3 (1) OF THE INFORMATION TECHNOLOGY (INTERMEDIARIES GUIDELINES AND DIGITAL MEDIA ETHICS CODE) RULES, 2011.
-          </div>
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
-            Welcome to DigiSaloon. By downloading, registering, accessing, or using our mobile application ("App"), website, or backend services, you agree to be legally bound by these Terms of Service ("Terms"). Please read them carefully before making any service bookings.
-          </p>
-        </div>
+        </section>
 
-        {/* Extended Terms Clauses */}
-        <div className="space-y-12">
-          
-          {/* 1. Definitions */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              1. DEFINITIONS AND INTERPRETATION
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-1">
-                <strong className="text-sm text-slate-900 block">1.1 Company / Platform</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Refers to DigiSaloon, its parent entities, subsidiaries, mobile applications, websites, and technical infrastructure.
-                </p>
-              </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-1">
-                <strong className="text-sm text-slate-900 block">1.2 Partner / Merchant</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Refers to third-party independent salons, beauty parlors, spas, barbershops, and stylists listed on the platform.
-                </p>
-              </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-1">
-                <strong className="text-sm text-slate-900 block">1.3 User / Customer</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Refers to any individual registering, searching, or booking salon appointments through DigiSaloon.
-                </p>
-              </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-1">
-                <strong className="text-sm text-slate-900 block">1.4 Services</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Refers to the digital booking enablement, queue estimation, and payment processing tools provided by DigiSaloon.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* 2. Intermediary Status */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              2. ROLE OF DIGISALOON (AGGREGATOR INTERMEDIARY)
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              DigiSaloon operates strictly as a technology marketplace aggregator connecting Users with independent Partner salons.
-            </p>
-            <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Non-Service Provider:</strong> DigiSaloon does not operate salons, employ barbers or stylists, or directly render grooming and beauty treatments.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Independent Contract:</strong> Any agreement for service fulfillment, quality guarantee, or pricing is executed directly between the User and the respective Salon Partner.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Intermediary Protection:</strong> DigiSaloon claims safe harbor protection under Section 79 of the Information Technology Act, 2000 for third-party merchant content and listings.
-              </div>
-            </div>
-          </section>
-
-          {/* 3. Account Security */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              3. ACCOUNT ELIGIBILITY AND SECURITY
-            </h2>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 leading-relaxed">
-              <li><strong>Age Limit:</strong> You must be at least 18 years of age to register an account. Minors may use the platform solely under direct parental or legal guardian supervision.</li>
-              <li><strong>OTP Authentication:</strong> Registration requires a valid Indian mobile number verified via One-Time Password (OTP). You are solely responsible for all activities under your account.</li>
-              <li><strong>Information Accuracy:</strong> You agree to provide current, full, and accurate personal details (Name, Gender, Email). Accounts with falsified identities may be terminated immediately.</li>
-              <li><strong>Account Non-Transferability:</strong> Account credentials and promotional reward balances cannot be sold, transferred, or shared with third parties.</li>
-            </ul>
-          </section>
-
-          {/* 4. Booking & Slot Rules */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              4. APPOINTMENT SCHEDULING AND ARRIVAL TIMELINES
-            </h2>
-            <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
-              <p>
-                <strong>Booking Confirmation:</strong> A booking is finalized only upon receipt of an in-app confirmation banner and confirmation SMS/WhatsApp notification.
-              </p>
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 space-y-3">
-                <p>
-                  <strong>Grace Period (Late Arrival):</strong> Users are requested to arrive at the salon 5 to 10 minutes prior to the booked slot. Salons maintain a mandatory 15-minute grace period. If a user arrives more than 15 minutes late, the salon partner reserves the right to reassign or cancel the appointment slot based on availability.
-                </p>
-                <p>
-                  <strong>Service Variations:</strong> If a user requests additional services at the salon beyond the original booking, availability and additional charges remain entirely at the salon manager's discretion.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* 5. Cancellation & Refunds */}
-          <section className="space-y-4"> 
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              5. CANCELLATION, RESCHEDULING, AND REFUND POLICY
-            </h2>
-            <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80">
-                  <strong className="text-slate-900 block mb-1">Free Cancellation Window</strong>
-                  <p className="text-xs text-slate-600">
-                    Bookings cancelled up to <strong>2 hours prior</strong> to the appointment time qualify for a 100% full refund of any online advance payments made.
-                  </p>
-                </div>
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80">
-                  <strong className="text-slate-900 block mb-1">Late Cancellation / No-Show</strong>
-                  <p className="text-xs text-slate-600">
-                    Cancellations made within 2 hours of the slot, or failure to arrive at the salon without notice (No-Show), may result in forfeiture of advance payments or a convenience penalty.
-                  </p>
-                </div>
-              </div>
-              <p>
-                <strong>Partner Cancellations:</strong> If a salon partner cancels a booking due to emergency closures, power outages, or unavailability, DigiSaloon will process a complete 100% refund back to the original source account within 5-7 business days.
-              </p>
-            </div>
-          </section>
-
-          {/* 6. Pricing & Payments */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              6. PRICING, CONVENIENCE FEES, AND PAYMENT GATEWAYS
-            </h2>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 leading-relaxed">
-              <li><strong>Merchant Autonomy:</strong> Service rates, haircut charges, and spa package pricing displayed on the App are set autonomously by Partner salons.</li>
-              <li><strong>Convenience Fee:</strong> DigiSaloon reserves the right to levy a nominal platform convenience fee per booking to maintain technology infrastructure.</li>
-              <li><strong>Payment Encryption:</strong> Online payments are processed securely through PCI-DSS compliant payment aggregators (e.g., Razorpay/Stripe). DigiSaloon never records or stores full card numbers, net banking passwords, or UPI PINs.</li>
-            </ul>
-          </section>
-
-          {/* 7. Prohibited Acts */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              7. USER CONDUCT AND PROHIBITED PLATFORM MISUSE
-            </h2>
-            <p className="text-sm text-slate-600 mb-2">You explicitly agree NOT to engage in any of the following activities:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-red-700 block mb-1">Harassment & Abuse</strong>
-                Verbally abusing, threatening, or harassing salon staff, stylists, or customer support representatives.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-red-700 block mb-1">Fake Bookings</strong>
-                Creating multiple fake accounts or non-genuine bookings to occupy slots and disrupt salon business.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-red-700 block mb-1">Code Extraction</strong>
-                Decompiling, reverse engineering, scraping, or extracting source code or database schemas from the App.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-red-700 block mb-1">Defamatory Content</strong>
-                Posting fake, malicious, or unverified reviews designed to intentionally damage a salon's reputational standing.
-              </div>
-            </div>
-          </section>
-
-          {/* 8. Service Quality Disclaimer */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              8. SALON HYGIENE AND SERVICE QUALITY DISCLAIMER
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              While DigiSaloon conducts onboarding checks for partner salons, we do not directly supervise salon operations.
-            </p>
-            <div className="bg-white p-5 rounded-2xl border border-slate-200/80 space-y-2 text-sm text-slate-600">
-              <p>
-                <strong>Health & Allergic Reactions:</strong> DigiSaloon is not liable for skin sensitivities, chemical hair dye reactions, cuts, or physical injuries resulting from salon treatments. Users should communicate health conditions or chemical allergies directly to the stylist beforehand.
-              </p>
-              <p>
-                <strong>Personal Belongings:</strong> Users are solely responsible for their personal valuables (wallets, phones, jewelry) brought to partner premises.
-              </p>
-            </div>
-          </section>
-
-          {/* 9. Intellectual Property */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              9. INTELLECTUAL PROPERTY RIGHTS
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              All materials, brand logos, user interface designs, software code, graphic elements, and trademarks associated with DigiSaloon remain the exclusive intellectual property of DigiSaloon. You are granted a limited, non-transferable, revocable license to access the App strictly for personal, non-commercial use.
-            </p>
-          </section>
-
-          {/* 10. Limitation of Liability */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              10. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY
-            </h2>
-            <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
-              <p>
-                <strong>AS IS Basis:</strong> The platform services are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied.
-              </p>
-              <p>
-                <strong>Liability Cap:</strong> To the maximum extent permitted by Indian law, DigiSaloon’s maximum aggregate liability for any claims arising from a booking dispute shall not exceed the actual booking fee paid by the user for that specific appointment.
-              </p>
-            </div>
-          </section>
-
-          {/* 11. Indemnification */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              11. INDEMNIFICATION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              You agree to indemnify, defend, and hold harmless DigiSaloon, its officers, directors, employees, and agents from any claims, losses, damages, penalties, or legal fees resulting from your breach of these Terms, illegal acts, or violation of third-party rights.
-            </p>
-          </section>
-
-          {/* 12. Governing Law */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              12. GOVERNING LAW AND JURISDICTION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              These Terms shall be governed by, interpreted, and construed in accordance with the laws of India. Any legal action, suit, or proceeding arising out of or related to these Terms shall be subject to the exclusive jurisdiction of competent courts located in Ranchi, Jharkhand, India.
-            </p>
-          </section>
-
-          {/* 13. Modifications */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              13. MODIFICATIONS TO TERMS OF SERVICE
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              DigiSaloon reserves the right to modify, amend, or update these Terms at any time. Updated versions will be posted on this page with an updated "Effective Date". Your continued use of the platform following the posting of updates constitutes your binding acceptance of the revised Terms.
-            </p>
-          </section>
-
-          {/* 14. Grievance Redressal */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              14. GRIEVANCE REDRESSAL MECHANISM
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              In accordance with the Information Technology Act, 2000 and rules made thereunder, any user grievances or policy inquiries may be addressed to our designated Grievance Officer:
-            </p>
-            <div className="bg-slate-900 text-slate-200 p-6 rounded-2xl space-y-3 text-sm">
-              <p className="font-bold text-white text-base">Grievance Officer: Rishabh Kumar</p>
-              <p>
-                <strong>Email:</strong>{" "}
-                <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline font-mono">
-                  support@digisaloon.in
-                </a>
-              </p>
-              <p><strong>Helpline:</strong> +91-99734 99471</p>
-              <p><strong>Address:</strong> Angara, Ranchi, Jharkhand - 835103, India.</p>
-              <p className="text-xs text-slate-400 pt-2 border-t border-slate-800">
-                Official grievance complaints will be acknowledged within 36 hours and resolved within 30 days of receipt.
-              </p>
-            </div>
-          </section>
-
-        </div>
-      </main>
+      </div>
     </div>
   );
 };

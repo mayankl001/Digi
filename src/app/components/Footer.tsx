@@ -144,7 +144,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <Link
-              to="/privacy-policy"
+              to="/policy/privacy"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
@@ -152,7 +152,7 @@ export function Footer() {
               Privacy Policy
             </Link>
             <Link
-              to="/terms-of-service"
+              to="/policy/terms"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"
@@ -160,7 +160,7 @@ export function Footer() {
               Terms of Service
             </Link>
             <Link
-              to="/cookie-policy"
+              to="/policy/cookie"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-white/30 hover:text-[#E8B4B8] transition-colors duration-200 no-underline font-sans"

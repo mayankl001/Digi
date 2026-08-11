@@ -2,240 +2,485 @@ import React from "react";
 
 export const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="bg-slate-50 text-slate-700 antialiased min-h-screen py-10 md:py-16">
+    <div className="text-slate-700 antialiased space-y-10">
       
-      {/* 🔙 Back to Home Navigation Button */}
-      <div className="max-w-4xl mx-auto px-4 md:px-8 mb-6">
-        <a 
-          href="/" 
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-700 transition-colors bg-white border border-slate-200 px-4 py-2 rounded-full shadow-xs"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Home
-        </a>
+      {/* Header Section */}
+      <div className="border-b border-slate-200 pb-6 space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
+            Privacy Policy
+          </span>
+          <span className="text-xs text-slate-400">Last Updated: 11 August 2026</span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          PRIVACY POLICY
+        </h1>
+        <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
+          DigiSaloon ("DigiSaloon", "we", "us" or "our") respects your privacy and is committed to protecting the information processed through our website, applications and services.
+        </p>
+        <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+          This Privacy Policy explains what information DigiSaloon may collect, how we use it, how it may be shared, how we protect it and the choices available to you.
+        </p>
       </div>
 
-      <main className="max-w-4xl mx-auto px-4 md:px-8 space-y-12">
+      {/* Sections with IDs for ScrollSpy */}
+      <div className="space-y-8 text-sm text-slate-600 leading-relaxed">
         
-        {/* Header Section */}
-        <div className="border-b border-slate-200 pb-8 space-y-3">
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
-              Comprehensive Legal Documentation
-            </span>
-            <span className="text-xs text-slate-400">Effective Date: June 2026</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Privacy Policy & Data Protection
-          </h1>
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
-            At DigiSaloon ("We", "Our", "Us"), operated in Ranchi, Jharkhand, India, we are committed to upholding your privacy rights and protecting your personal information. This Privacy Policy details the policies and procedures on the collection, use, disclosure, transfer, and safeguarding of your data when you access or use our mobile application, web services, and merchant booking platform.
+        {/* 1. About DigiSaloon */}
+        <section id="sec-1" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            1. About DigiSaloon
+          </h2>
+          <p>
+            DigiSaloon provides a technology platform that connects customers with participating salons and enables salon appointment booking and management.
           </p>
-        </div>
+          <p>Our services may include:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>DigiSaloon User App</li>
+            <li>DigiSaloon website</li>
+            <li>Partner App</li>
+            <li>Partner Web App</li>
+            <li>Manage Web App</li>
+            <li>Admin Panel</li>
+            <li>Booking and appointment systems</li>
+            <li>Payment and settlement systems</li>
+            <li>Customer support services</li>
+          </ul>
+        </section>
 
-        {/* Extended Clauses Block */}
-        <div className="space-y-12">
+        {/* 2. Information We May Collect */}
+        <section id="sec-2" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            2. Information We May Collect
+          </h2>
+          <p>Depending on how you use DigiSaloon, we may collect or receive the following categories of information.</p>
           
-          {/* 1. Introduction & Acceptance */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              1. INTRODUCTION AND ACCEPTANCE OF TERMS
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              By downloading, installing, or using the DigiSaloon Mobile Application ("App") or accessing our platform services, you acknowledge that you have read, understood, and agreed to be bound by the terms outlined in this Privacy Policy. If you do not agree with any part of this policy, you must immediately cease accessing or using our services.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              This policy is drafted in accordance with applicable data protection laws in India, including the Information Technology Act, 2000, the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and the Digital Personal Data Protection (DPDP) Act.
-            </p>
-          </section>
-
-          {/* 2. Detailed Data Collection */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              2. INFORMATION WE COLLECT
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We collect information to deliver efficient salon booking experiences, manage customer-partner communications, and continuously improve platform services.
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
-                <strong className="text-sm text-slate-900 block">2.1 Personal Identification Information</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Full name, mobile phone number, email address, gender, date of birth, and profile picture provided during account setup or OTP verification.
-                </p>
-              </div>
-
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
-                <strong className="text-sm text-slate-900 block">2.2 Appointment & Transaction Details</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Services chosen, preferred stylists, slot timings, booking status, payment receipts, order history, and feedback/ratings left for salon partners.
-                </p>
-              </div>
-
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
-                <strong className="text-sm text-slate-900 block">2.3 Device & Technical Logs</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  IP address, unique device identifiers (IMEI/UUID), app crash reports, device brand and model, operating system version, and mobile network info.
-                </p>
-              </div>
-
-              <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
-                <strong className="text-sm text-slate-900 block">2.4 Location & GPS Data</strong>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Precise GPS coordinates collected with your permission while the app is in use to list nearby salons, calculate distances, and recommend local deals.
-                </p>
-              </div>
+          <div className="space-y-4 pt-2">
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.1 Account Information</strong>
+              <p className="text-xs">When you create an account, we may collect:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs">
+                <li>Name</li>
+                <li>Mobile number</li>
+                <li>Email address</li>
+                <li>Login/authentication information</li>
+                <li>Account preferences</li>
+              </ul>
             </div>
-          </section>
 
-          {/* 3. How We Use Your Data */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              3. HOW WE USE YOUR INFORMATION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Your data is utilized strictly for legitimately defined business purposes, including but not limited to:
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-              <li>Generating and authenticating your account via One-Time Passwords (OTP).</li>
-              <li>Facilitating seamless appointment scheduling and passing necessary booking details to partner salons.</li>
-              <li>Sending automated WhatsApp/SMS alerts for booking confirmations, slot reminders, and reschedule alerts.</li>
-              <li>Processing online payment transactions via secure, PCI-DSS compliant third-party payment gateways.</li>
-              <li>Providing real-time customer support, troubleshooting technical glitches, and resolving dispute claims.</li>
-              <li>Delivering personalized promotional discounts, salon offers, and loyalty rewards (opt-out available).</li>
-              <li>Analyzing app performance, user trends, and UI navigation flow to upgrade software quality.</li>
-            </ul>
-          </section>
-
-          {/* 4. Disclosure & Third-Party Sharing */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              4. DISCLOSURE AND DATA SHARING
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We strictly enforce a policy against selling or renting your personal information to third parties. Data sharing is limited to the following operational scenarios:
-            </p>
-            <div className="space-y-3 text-sm text-slate-600">
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Salon Partners:</strong> We share your name, phone number, and selected service details with the specific salon where you booked an appointment solely to fulfill your service request.
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Authorized Infrastructure Providers:</strong> Data is hosted on secure cloud platforms (e.g., Firebase, AWS, Render) and processed by verification APIs (Razorpay, Stripe, SMS Gateways).
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-slate-200/80">
-                <strong className="text-slate-900">Legal Enforcement:</strong> We may disclose information if required by court orders, government authorities, law enforcement investigations, or to protect the safety and rights of DigiSaloon users.
-              </div>
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.2 Booking Information</strong>
+              <p className="text-xs">When you make or manage a booking, we may process:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs">
+                <li>Booking ID</li>
+                <li>Selected salon</li>
+                <li>Selected service</li>
+                <li>Appointment date and time</li>
+                <li>Booking status</li>
+                <li>Cancellation information</li>
+                <li>Service-related information</li>
+              </ul>
             </div>
-          </section>
 
-          {/* 5. Payments & Security Standard */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              5. FINANCIAL DATA & PAYMENT SECURITY
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              DigiSaloon does NOT store or record your full Credit/Debit card numbers, UPI PINs, or banking passwords on our servers.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              All financial transactions are redirected and encrypted through RBI-approved Payment Aggregators (such as Razorpay or Cashfree) adhering to stringent PCI-DSS (Payment Card Industry Data Security Standard) guidelines. End-to-end SSL/TLS encryption shields your checkout sessions.
-            </p>
-          </section>
-
-          {/* 6. Location Permissions */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              6. LOCATION PERMISSIONS & TRACKING
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              To discover salons nearby, DigiSaloon requests access to your mobile device's foreground location services. You retain full control over location access and can disable GPS permissions via your device settings at any time. However, disabling location services may require you to manually enter your city or PIN code to find salons.
-            </p>
-          </section>
-
-          {/* 7. Cookies & Local Storage */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              7. COOKIES AND LOCAL STORAGE
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Our web applications and mobile webviews utilize essential cookies and local browser storage to maintain active session tokens, remember preferences, and analyze web traffic using standard tools like Google Analytics. You can instruct your web browser to block all cookies, though certain interactive features may cease functioning properly.
-            </p>
-          </section>
-
-          {/* 8. Data Security Protocol */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              8. DATA SECURITY AND RETENTION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We employ administrative, technical, and physical safeguards (including database firewalling, encrypted tokens, and strict access controls) to prevent unauthorized access, loss, or alteration of your information.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We retain your personal data only for as long as your account remains active or as required to comply with Indian accounting, tax, and legal obligations.
-            </p>
-          </section>
-
-          {/* 9. User Rights & Account Deletion */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              9. YOUR DATA RIGHTS & ACCOUNT DELETION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Under Indian DPDP laws, you possess distinct rights regarding your personal data:
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-              <li><strong>Right to Access & Review:</strong> You can request a copy of the personal information stored in our system.</li>
-              <li><strong>Right to Correction:</strong> You can update incomplete or inaccurate information directly through the App Profile settings.</li>
-              <li><strong>Right to Account Erasure:</strong> You can request complete deletion of your account and purge active data records at any time.</li>
-            </ul>
-            <div className="bg-red-50 border border-red-200 p-4 rounded-xl text-xs md:text-sm text-red-900 mt-2">
-              <strong>Account Erasure Method:</strong> Navigate to App Settings &gt; Profile &gt; Delete Account, or send an email request with your registered mobile number to <span className="font-mono underline">support@digisaloon.in</span>. Data will be purged from active databases within 7-14 business days.
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.3 Payment Information</strong>
+              <p className="text-xs">For online payments, DigiSaloon may receive transaction-related information such as:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs mb-2">
+                <li>Transaction ID</li>
+                <li>Payment status</li>
+                <li>Payment amount</li>
+                <li>Refund status</li>
+                <li>Payment reference information</li>
+              </ul>
+              <p className="text-xs">Online payment processing may be handled by authorized third-party payment providers such as Razorpay.</p>
+              <p className="text-xs font-medium text-slate-700">DigiSaloon does not intend to store sensitive payment credentials such as UPI PINs, card PINs or banking passwords.</p>
             </div>
-          </section>
 
-          {/* 10. Children's Privacy */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              10. CHILDREN'S PRIVACY
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              DigiSaloon services are not directed at individuals under 13 years of age. We do not knowingly collect personal identifiable information from children. If a parent or guardian discovers that a child has created an account without consent, please contact us immediately for account termination.
-            </p>
-          </section>
-
-          {/* 11. Policy Modifications */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              11. CHANGES TO THIS PRIVACY POLICY
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              We reserve the right to revise or update this Privacy Policy as our features evolve or legal guidelines change. Updates will be published on this page with a refreshed "Effective Date". Continued use of DigiSaloon services following any updates signifies acceptance of the amended policy.
-            </p>
-          </section>
-
-          {/* 12. Grievance Officer & Contact */}
-          <section className="space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2">
-              12. GRIEVANCE OFFICER & CONTACT INFORMATION
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              In accordance with the Information Technology Act 2000 and rules made thereunder, the contact details of the Grievance Redressal Cell for DigiSaloon are provided below:
-            </p>
-            <div className="bg-slate-900 text-slate-200 p-6 rounded-2xl space-y-3 text-sm">
-              <p className="font-bold text-white text-base">DigiSaloon Support & Grievance Cell</p>
-              <p><strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline font-mono">support@digisaloon.in</a></p>
-              <p><strong>Helpline:</strong> +91-99734 99471</p>
-              <p><strong>Address:</strong> Angara, Ranchi, Jharkhand - 835103, India.</p>
-              <p className="text-xs text-slate-400 pt-2 border-t border-slate-800">
-                We endeavor to address and resolve any privacy complaints within 30 days of official receipt.
-              </p>
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.4 Location Information</strong>
+              <p className="text-xs">Where location functionality is enabled and permission is granted, DigiSaloon may process location information to provide features such as:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs mb-2">
+                <li>Nearby salon discovery</li>
+                <li>Salon location display</li>
+                <li>Distance information</li>
+                <li>Directions</li>
+                <li>Location-based search</li>
+              </ul>
+              <p className="text-xs">Users may manage location permissions through their device settings.</p>
             </div>
-          </section>
 
-        </div>
-      </main>
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.5 Device and Technical Information</strong>
+              <p className="text-xs">We may automatically receive technical information such as:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs">
+                <li>Device type</li>
+                <li>Operating system</li>
+                <li>App version</li>
+                <li>IP address</li>
+                <li>Browser information</li>
+                <li>Network information</li>
+                <li>Device identifiers where applicable</li>
+                <li>Error and diagnostic information</li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.6 Reviews and Ratings</strong>
+              <p className="text-xs">If you submit a review or rating after an eligible booking, we may process:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs">
+                <li>Rating</li>
+                <li>Review content</li>
+                <li>Related booking information</li>
+                <li>Information associated with the submitted review</li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-1">
+              <strong className="text-slate-900 block font-semibold">2.7 Communication Information</strong>
+              <p className="text-xs">If you contact DigiSaloon, we may process information included in your communication, such as:</p>
+              <ul className="list-disc pl-5 space-y-0.5 text-xs">
+                <li>Support requests</li>
+                <li>Emails</li>
+                <li>Messages</li>
+                <li>Complaint details</li>
+                <li>Screenshots or documents voluntarily provided</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Partner Information */}
+        <section id="sec-3" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            3. Partner Information
+          </h2>
+          <p>Salon partners may provide information including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Salon/business name</li>
+            <li>Owner or authorized representative information</li>
+            <li>Contact details</li>
+            <li>Salon address</li>
+            <li>Services</li>
+            <li>Prices</li>
+            <li>Working hours</li>
+            <li>Business information</li>
+            <li>Bank/settlement information</li>
+            <li>Verification information</li>
+            <li>Staff/barber information</li>
+          </ul>
+          <p className="text-xs text-slate-500 pt-1">Partners are responsible for ensuring that information they provide is accurate and that they have appropriate authority to provide it.</p>
+        </section>
+
+        {/* 4. How We Use Information */}
+        <section id="sec-4" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            4. How We Use Information
+          </h2>
+          <p>DigiSaloon may use information for purposes including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Creating and managing accounts</li>
+            <li>Providing salon discovery</li>
+            <li>Processing bookings</li>
+            <li>Managing appointments</li>
+            <li>Processing payments</li>
+            <li>Processing refunds</li>
+            <li>Managing salon partner accounts</li>
+            <li>Managing barber/staff access</li>
+            <li>Sending appointment notifications</li>
+            <li>Providing customer support</li>
+            <li>Processing reviews and ratings</li>
+            <li>Preventing fraud and abuse</li>
+            <li>Protecting platform security</li>
+            <li>Troubleshooting technical issues</li>
+            <li>Improving services</li>
+            <li>Maintaining business records</li>
+            <li>Complying with applicable legal obligations</li>
+          </ul>
+        </section>
+
+        {/* 5. Booking and Appointment Information */}
+        <section id="sec-5" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            5. Booking and Appointment Information
+          </h2>
+          <p>
+            Information relating to a booking may be shared with the relevant salon and authorized salon staff where reasonably necessary to fulfill and manage the appointment.
+          </p>
+          <p>
+            For example, the salon may receive information necessary to identify and manage a customer's booking.
+          </p>
+        </section>
+
+        {/* 6. Customer Information and Salon Partners */}
+        <section id="sec-6" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            6. Customer Information and Salon Partners
+          </h2>
+          <p>
+            Salon partners may receive customer information necessary for legitimate appointment and service operations.
+          </p>
+          <p>Partners must not misuse customer information.</p>
+          <p>They must not sell, improperly share or use customer information for unrelated purposes.</p>
+        </section>
+
+        {/* 7. Payment Providers */}
+        <section id="sec-7" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            7. Payment Providers
+          </h2>
+          <p>
+            DigiSaloon may use third-party payment providers such as Razorpay to process online payments and related transactions.
+          </p>
+          <p>
+            Payment providers may process information according to their own privacy policies, terms and applicable requirements.
+          </p>
+        </section>
+
+        {/* 8. Communication Providers */}
+        <section id="sec-8" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            8. Communication Providers
+          </h2>
+          <p>DigiSaloon may use third-party service providers for:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>SMS</li>
+            <li>WhatsApp</li>
+            <li>Email</li>
+            <li>Push notifications</li>
+          </ul>
+          <p>These providers may process the information necessary to deliver the relevant communication.</p>
+        </section>
+
+        {/* 9. Notifications */}
+        <section id="sec-9" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            9. Notifications
+          </h2>
+          <p>We may send:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Booking confirmations</li>
+            <li>Appointment reminders</li>
+            <li>Payment notifications</li>
+            <li>Refund updates</li>
+            <li>Cancellation notifications</li>
+            <li>Security alerts</li>
+            <li>Important service communications</li>
+            <li>Promotional communications where applicable</li>
+          </ul>
+          <p>Users may be able to control certain notification or promotional preferences.</p>
+        </section>
+
+        {/* 10. Location Information */}
+        <section id="sec-10" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            10. Location Information
+          </h2>
+          <p>Where applicable, location information may be used to provide location-based functionality.</p>
+          <p>DigiSaloon does not intend to continuously track a user's location unless a specific feature requires such functionality and the applicable permissions and requirements are satisfied.</p>
+        </section>
+
+        {/* 11. Cookies and Similar Technologies */}
+        <section id="sec-11" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            11. Cookies and Similar Technologies
+          </h2>
+          <p>Our website and web applications may use cookies and similar technologies for purposes including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Authentication</li>
+            <li>Session management</li>
+            <li>Security</li>
+            <li>Preferences</li>
+            <li>Analytics</li>
+            <li>Performance</li>
+          </ul>
+          <p>Further information is available in our Cookie Policy.</p>
+        </section>
+
+        {/* 12. Analytics */}
+        <section id="sec-12" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            12. Analytics
+          </h2>
+          <p>DigiSaloon may use analytics and technical tools to understand platform usage and improve performance.</p>
+          <p>Such tools may process information such as device, browser, usage and technical data.</p>
+        </section>
+
+        {/* 13. How We Share Information */}
+        <section id="sec-13" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            13. How We Share Information
+          </h2>
+          <p>DigiSaloon may share information where reasonably necessary with:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Relevant salon partners</li>
+            <li>Authorized salon staff</li>
+            <li>Payment providers</li>
+            <li>Hosting and cloud providers</li>
+            <li>SMS/WhatsApp/email providers</li>
+            <li>Analytics providers</li>
+            <li>Security providers</li>
+            <li>Customer support providers</li>
+            <li>Other service providers supporting DigiSaloon operations</li>
+          </ul>
+          <p>We may also disclose information where required or permitted by applicable law.</p>
+        </section>
+
+        {/* 14. Legal and Security Disclosures */}
+        <section id="sec-14" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            14. Legal and Security Disclosures
+          </h2>
+          <p>Information may be disclosed where reasonably necessary to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Comply with legal obligations</li>
+            <li>Respond to lawful requests</li>
+            <li>Investigate fraud</li>
+            <li>Prevent security threats</li>
+            <li>Protect users</li>
+            <li>Protect DigiSaloon's rights</li>
+            <li>Resolve disputes</li>
+            <li>Enforce applicable terms</li>
+          </ul>
+        </section>
+
+        {/* 15. Data Security */}
+        <section id="sec-15" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            15. Data Security
+          </h2>
+          <p>DigiSaloon uses reasonable technical and organizational measures intended to protect information against unauthorized access, misuse, alteration, disclosure or loss.</p>
+          <p>However, no internet-based system can be guaranteed to be completely secure.</p>
+        </section>
+
+        {/* 16. Data Retention */}
+        <section id="sec-16" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            16. Data Retention
+          </h2>
+          <p>DigiSaloon may retain information for as long as reasonably necessary for purposes including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Providing services</li>
+            <li>Booking records</li>
+            <li>Payment and settlement</li>
+            <li>Refunds</li>
+            <li>Customer support</li>
+            <li>Security</li>
+            <li>Fraud prevention</li>
+            <li>Accounting</li>
+            <li>Legal compliance</li>
+            <li>Dispute resolution</li>
+          </ul>
+          <p>Information that is no longer required may be deleted, anonymized or de-identified where appropriate.</p>
+        </section>
+
+        {/* 17. Account Deletion */}
+        <section id="sec-17" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            17. Account Deletion
+          </h2>
+          <p>Users can request account deletion through the account-deletion functionality available in the User App.</p>
+          <p>Certain information may continue to be retained after deletion where required or reasonably necessary for legal, security, accounting, payment, dispute-resolution or fraud-prevention purposes.</p>
+        </section>
+
+        {/* 18. Children's Privacy */}
+        <section id="sec-18" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            18. Children's Privacy
+          </h2>
+          <p>DigiSaloon services are intended for individuals aged 18 years or older.</p>
+          <p>We do not knowingly intend to provide services to persons below the applicable minimum age.</p>
+          <p>If we become aware that information has been submitted by a person who does not meet the applicable age requirement, we may take appropriate steps to address the situation.</p>
+        </section>
+
+        {/* 19. Data Rights and Requests */}
+        <section id="sec-19" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            19. Data Rights and Requests
+          </h2>
+          <p>Subject to applicable law, users may contact DigiSaloon regarding requests relating to their personal information.</p>
+          <p>Depending on the circumstances and applicable requirements, requests may include:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Access to information</li>
+            <li>Correction of inaccurate information</li>
+            <li>Deletion of information</li>
+            <li>Other applicable privacy requests</li>
+          </ul>
+          <p>Requests can be sent to:</p>
+          <p><a href="mailto:support@digisaloon.in" className="text-red-700 font-mono hover:underline">support@digisaloon.in</a></p>
+        </section>
+
+        {/* 20. Account and Data Security Requests */}
+        <section id="sec-20" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            20. Account and Data Security Requests
+          </h2>
+          <p>If you believe your account has been compromised or your information has been accessed without authorization, contact DigiSaloon promptly at:</p>
+          <p><a href="mailto:support@digisaloon.in" className="text-red-700 font-mono hover:underline">support@digisaloon.in</a></p>
+          <div className="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-900 font-mono">
+            Do not include passwords, OTPs, UPI PINs or other confidential authentication credentials in your communication.
+          </div>
+        </section>
+
+        {/* 21. Third-Party Services */}
+        <section id="sec-21" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            21. Third-Party Services
+          </h2>
+          <p>DigiSaloon may depend on third-party services for:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Payments</li>
+            <li>Cloud hosting</li>
+            <li>Maps</li>
+            <li>Communications</li>
+            <li>Analytics</li>
+            <li>Authentication</li>
+            <li>Security</li>
+            <li>Other technical functionality</li>
+          </ul>
+          <p>Third-party providers may process information according to their own terms and privacy policies.</p>
+        </section>
+
+        {/* 22. International or External Processing */}
+        <section id="sec-22" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            22. International or External Processing
+          </h2>
+          <p>Depending on the service providers used by DigiSaloon, information may be processed or stored in locations outside the user's immediate location, subject to applicable law and contractual or technical safeguards where required.</p>
+        </section>
+
+        {/* 23. Changes to This Privacy Policy */}
+        <section id="sec-23" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            23. Changes to This Privacy Policy
+          </h2>
+          <p>DigiSaloon may update this Privacy Policy from time to time to reflect changes in:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
+            <li>Services</li>
+            <li>Applications</li>
+            <li>Data practices</li>
+            <li>Third-party providers</li>
+            <li>Security practices</li>
+            <li>Applicable laws and requirements</li>
+          </ul>
+          <p>The updated policy will be published through the DigiSaloon website or applicable applications.</p>
+        </section>
+
+        {/* 24. Contact Us */}
+        <section id="sec-24" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
+            24. Contact Us
+          </h2>
+          <p>For privacy-related questions, requests or complaints:</p>
+          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-2 text-xs md:text-sm">
+            <p className="font-bold text-white text-base">DigiSaloon</p>
+            <p><strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline font-mono">support@digisaloon.in</a></p>
+            <p><strong>Phone:</strong> 9973499471</p>
+            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand – 835103</p>
+            <p><strong>Website:</strong> digisaloon.in</p>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 };
