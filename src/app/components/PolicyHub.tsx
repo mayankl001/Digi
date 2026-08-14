@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Shield, FileText, Cookie, RefreshCcw, CreditCard, AlertCircle, LifeBuoy, Calendar, Star, Tag, User, MapPin, ShieldCheck, Store, UserCheck, CalendarCheck, Wallet, Users, ShieldAlert, Database, AlertTriangle, Share2 } from "lucide-react";
+import { Shield, FileText, Cookie, RefreshCcw, CreditCard, AlertCircle, LifeBuoy, Calendar, Star, Tag, User, MapPin, ShieldCheck, Store, UserCheck, CalendarCheck, Wallet, Users, ShieldAlert, Database, AlertTriangle, Share2, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+import { useParams, useNavigate } from "react-router-dom";
 import { PrivacyPolicy } from "./PrivacyPolicy";
 import { TermsOfService } from "./TermsOfService";
 import { CookiePolicy } from "./CookiePolicy";
@@ -23,8 +24,26 @@ import { DataProtectionPolicy } from "./DataProtectionPolicy";
 import { SecurityIncidentPolicy } from "./SecurityIncidentPolicy";
 import { ThirdPartyPolicy } from "./ThirdPartyPolicy";
 
+type PolicyType = 
+  | "privacy" | "terms" | "cookie" | "cancellation" | "payment" 
+  | "disclaimer" | "grievance" | "booking" | "review" | "offers" 
+  | "user" | "location" | "acceptable" | "partner" | "onboarding" 
+  | "partnerservice" | "partnerpayout" | "staff" | "adminsecurity" 
+  | "dataprotection" | "incidentresponse" | "thirdparty";
+
 export function PolicyHub() {
-const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "cancellation" | "payment" | "disclaimer" | "grievance" | "booking" | "review" | "offers" | "user" | "location" | "acceptable" | "partner" | "onboarding" | "partnerservice" | "partnerpayout" | "staff" | "adminsecurity" | "dataprotection" | "incidentresponse" | "thirdparty">("privacy");  const [activeSection, setActiveSection] = useState<string>("");
+  const { policyType } = useParams<{ policyType?: string }>();
+  const navigate = useNavigate();
+  
+  const activeTab: PolicyType = (policyType as PolicyType) || "privacy";
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [isMobileTocOpen, setIsMobileTocOpen] = useState(false);
+
+  const handleTabChange = (tab: PolicyType) => {
+    navigate(`/policy/${tab}`);
+    setIsMobileTocOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const getHighlights = () => {
     switch (activeTab) {
@@ -166,185 +185,185 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
             ][i]
           }`
         }));
-        case "user":
-  return Array.from({ length: 20 }, (_, i) => ({
-    id: `user-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Scope", "Account Creation", "Eligibility", "Account Security",
-        "Accurate Information", "Multiple Accounts", "Account Use", "Account Suspension",
-        "Account Termination", "Account Deletion", "Effect of Account Deletion", "Retention After Deletion",
-        "Pending Bookings", "Refunds After Account Deletion", "Unauthorized Account Access", "Account Recovery",
-        "Privacy", "Relationship With Other Policies", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "location":
-  return Array.from({ length: 20 }, (_, i) => ({
-    id: `loc-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Scope", "Location Services", "Location Permission", "If Location Permission Is Denied",
-        "Location Accuracy", "Background Location", "Use of Location Information", "Notifications",
-        "Service Notifications", "Promotional Notifications", "Managing Notifications", "Partner Notifications",
-        "Manage Web Notifications", "Communication Providers", "Security Notifications", "Personal Information",
-        "No Guarantee of Delivery", "Third-Party Services", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "acceptable":
-  return Array.from({ length: 24 }, (_, i) => ({
-    id: `use-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Scope", "Appropriate Use", "Accurate Information", "Respectful Conduct",
-        "Prohibited Activities", "Fake Bookings", "Cancellation Abuse", "Payment Abuse",
-        "Review and Rating Abuse", "Misuse of Offers", "Unauthorized Access", "Automated Access",
-        "Harmful Content", "Personal Information", "Security Testing", "Platform Interference",
-        "Customer-Salon Relationship", "Customer No-Show", "Consequences of Violation", "Emergency Restrictions",
-        "Reporting Misuse", "Relationship With Other Policies", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "partner":
-  return Array.from({ length: 32 }, (_, i) => ({
-    id: `part-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Scope", "Partner Eligibility", "Salon Profile", "Services and Pricing", 
-        "Appointment Availability", "Booking Responsibilities", "Salon Cancellation", 
-        "Customer No-Show", "Customer Information", "Staff Access", "Manage Web App", 
-        "Payments", "Commission", "Settlement", "Refund Cooperation", 
-        "Reviews and Ratings", "Customer Conduct", "Business Compliance", 
-        "Intellectual Property", "Partner Data", "Security Responsibilities", 
-        "Prohibited Partner Activities", "Partner Account Suspension", 
-        "Partner Account Termination", "Platform Availability", "Partner Support", 
-        "Confidentiality", "Relationship Between DigiSaloon and Salon", 
-        "Changes to Partner Services", "Changes to Partner Terms", "Governing Law", "Contact"
-      ][i]
-    }`
-  }));
-  case "onboarding":
-  return Array.from({ length: 25 }, (_, i) => ({
-    id: `onb-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Eligibility", "Partner Registration", "Authorized Representative",
-        "Business Information", "Verification Information", "Document Verification", "Bank and Settlement Verification",
-        "Partner Approval", "Verification Failure", "Account Activation", "Profile Accuracy",
-        "Changes in Ownership", "Changes in Bank Information", "Partner Staff", "Duplicate Salon Accounts",
-        "Verification Re-check", "Suspension During Verification", "Fraudulent Information", "Data Handling",
-        "Third-Party Verification", "No Guarantee of Approval", "Partner Responsibilities After Approval", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "partnerservice":
-  return Array.from({ length: 28 }, (_, i) => ({
-    id: `ps-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Service Listing", "Service Accuracy", "Pricing",
-        "Price Changes", "Additional Charges", "Service Availability", "Operating Hours",
-        "Appointment Acceptance", "Partner Cancellation", "Customer Refund for Salon Cancellation", "Pay-at-Salon Bookings",
-        "Repeated Cancellations", "Customer Cancellation", "Customer No-Show", "Booking Time",
-        "Service Substitution", "Service Quality", "Hygiene and Safety", "Offers and Discounts",
-        "Reviews and Ratings", "Booking Conflicts", "Unauthorized Price or Service Changes", "Partner Responsibility",
-        "Violations", "Relationship With Other Policies", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "partnerpayout":
-  return Array.from({ length: 28 }, (_, i) => ({
-    id: `payt-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Scope", "Payment Methods", "Online Payments", "Pay-at-Salon",
-        "DigiSaloon Commission", "Settlement Eligibility", "Settlement Timeline", "Bank Account Information",
-        "Incorrect Bank Information", "Change of Bank Account", "Refunds", "Cancelled Bookings",
-        "No-Show Bookings", "Transaction Reconciliation", "Settlement Statements", "Payment Provider",
-        "Payment Processing Delays", "Disputed Transactions", "Fraud Prevention", "Taxes",
-        "Settlement Records", "Partner Responsibility", "Settlement Disputes", "No Cash Payout From DigiSaloon",
-        "Changes to Settlement Terms", "Relationship With Other Policies", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "staff":
-  return Array.from({ length: 27 }, (_, i) => ({
-    id: `staff-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Authorized Access", "Staff Accounts", "Role-Based Access",
-        "Owner Responsibility", "Staff Responsibility", "Appointment Management", "No False Booking Updates",
-        "Customer Information", "Customer Communication", "Customer Privacy", "Service Management",
-        "Staff Availability", "Booking Conflicts", "No-Show Management", "Cancellation Management",
-        "Payment Information", "Account Security", "Staff Leaving the Salon", "Prohibited Activities",
-        "Monitoring and Logs", "Security Incidents", "Suspension of Staff Access", "Salon Responsibility",
-        "Relationship With Partner Terms", "Policy Updates", "Contact"
-      ][i]
-    }`
-  }));
-  case "adminsecurity":
-  return Array.from({ length: 29 }, (_, i) => ({
-    id: `as-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Authorized Access Only", "Individual Admin Accounts", "Role-Based Access",
-        "Principle of Least Privilege", "Authentication", "Password Security", "Sensitive Information",
-        "Customer Data Access", "Partner Data Access", "Payment Information", "Database Access",
-        "Data Export", "Admin Activity Logs", "Unauthorized Changes", "Production Environment",
-        "Software and System Changes", "Admin Device Security", "Public Exposure", "API and Credential Security",
-        "Staff Changes", "Security Incident Reporting", "Incident Response", "Confidentiality",
-        "Internal Use Only", "Policy Violations", "Third-Party Administrators", "Policy Updates", "Internal Contact"
-      ][i]
-    }`
-  }));
-  case "dataprotection":
-  return Array.from({ length: 31 }, (_, i) => ({
-    id: `dp-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Scope", "Types of Information", "Purpose of Data Processing",
-        "Data Minimization", "Data Accuracy", "Access Control", "Employee and Admin Access",
-        "Partner Access", "Data Security", "Sensitive Authentication Information", "Third-Party Processing",
-        "Data Retention", "Transaction Records", "Security Logs", "Legal Retention",
-        "Account Deletion", "Information Retained After Deletion", "Data Deletion Process", "Backups",
-        "Data Breach or Security Incident", "Internal Data Handling", "Data Export", "Data Sharing",
-        "User Rights and Requests", "Data Protection Responsibilities", "Policy Violations", "Policy Review",
-        "Relationship With Privacy Policy", "Public Summary", "Internal Reporting"
-      ][i]
-    }`
-  }));
-  case "incidentresponse":
-  return Array.from({ length: 28 }, (_, i) => ({
-    id: `sir-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Scope", "Security Responsibilities", "Security Controls",
-        "Types of Security Incidents", "Incident Detection", "Incident Reporting", "Initial Assessment",
-        "Containment", "Investigation", "Data Protection", "Notification",
-        "Recovery", "Post-Incident Review", "Security Vulnerabilities", "Account Security",
-        "Confidential Authentication Information", "Third-Party Security Incidents", "Backup and Recovery", "Business Continuity",
-        "Internal Access", "Employee Responsibilities", "Partner Responsibilities", "Security Limitations",
-        "Public Summary", "Policy Violations", "Policy Review", "Policy Updates"
-      ][i]
-    }`
-  }));
-  case "thirdparty":
-  return Array.from({ length: 30 }, (_, i) => ({
-    id: `tp-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Scope", "Third-Party Providers", "Payment Providers",
-        "Payment Processing", "Payment Authentication", "Payment Confirmation", "Payment Failures",
-        "Refunds Through Payment Providers", "Salon Settlements", "Cloud and Infrastructure Providers", "Communication Providers",
-        "Maps and Location Services", "Analytics Services", "Authentication and Verification Services", "Security Providers",
-        "Data Protection", "Third-Party Privacy Policies", "Data Sharing", "Internal Third-Party Management",
-        "Third-Party Changes", "Service Availability", "Third-Party Security Incidents", "User Responsibility",
-        "Partner Responsibility", "No Guarantee of Third-Party Services", "Relationship With Other Policies", "Policy Updates",
-        "Public Summary", "Internal Management"
-      ][i]
-    }`
-  }));
+      case "user":
+        return Array.from({ length: 20 }, (_, i) => ({
+          id: `user-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope", "Account Creation", "Eligibility", "Account Security",
+              "Accurate Information", "Multiple Accounts", "Account Use", "Account Suspension",
+              "Account Termination", "Account Deletion", "Effect of Account Deletion", "Retention After Deletion",
+              "Pending Bookings", "Refunds After Account Deletion", "Unauthorized Account Access", "Account Recovery",
+              "Privacy", "Relationship With Other Policies", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "location":
+        return Array.from({ length: 20 }, (_, i) => ({
+          id: `loc-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope", "Location Services", "Location Permission", "If Location Permission Is Denied",
+              "Location Accuracy", "Background Location", "Use of Location Information", "Notifications",
+              "Service Notifications", "Promotional Notifications", "Managing Notifications", "Partner Notifications",
+              "Manage Web Notifications", "Communication Providers", "Security Notifications", "Personal Information",
+              "No Guarantee of Delivery", "Third-Party Services", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "acceptable":
+        return Array.from({ length: 24 }, (_, i) => ({
+          id: `use-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope", "Appropriate Use", "Accurate Information", "Respectful Conduct",
+              "Prohibited Activities", "Fake Bookings", "Cancellation Abuse", "Payment Abuse",
+              "Review and Rating Abuse", "Misuse of Offers", "Unauthorized Access", "Automated Access",
+              "Harmful Content", "Personal Information", "Security Testing", "Platform Interference",
+              "Customer-Salon Relationship", "Customer No-Show", "Consequences of Violation", "Emergency Restrictions",
+              "Reporting Misuse", "Relationship With Other Policies", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "partner":
+        return Array.from({ length: 32 }, (_, i) => ({
+          id: `part-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope", "Partner Eligibility", "Salon Profile", "Services and Pricing", 
+              "Appointment Availability", "Booking Responsibilities", "Salon Cancellation", 
+              "Customer No-Show", "Customer Information", "Staff Access", "Manage Web App", 
+              "Payments", "Commission", "Settlement", "Refund Cooperation", 
+              "Reviews and Ratings", "Customer Conduct", "Business Compliance", 
+              "Intellectual Property", "Partner Data", "Security Responsibilities", 
+              "Prohibited Partner Activities", "Partner Account Suspension", 
+              "Partner Account Termination", "Platform Availability", "Partner Support", 
+              "Confidentiality", "Relationship Between DigiSaloon and Salon", 
+              "Changes to Partner Services", "Changes to Partner Terms", "Governing Law", "Contact"
+            ][i]
+          }`
+        }));
+      case "onboarding":
+        return Array.from({ length: 25 }, (_, i) => ({
+          id: `onb-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Eligibility", "Partner Registration", "Authorized Representative",
+              "Business Information", "Verification Information", "Document Verification", "Bank and Settlement Verification",
+              "Partner Approval", "Verification Failure", "Account Activation", "Profile Accuracy",
+              "Changes in Ownership", "Changes in Bank Information", "Partner Staff", "Duplicate Salon Accounts",
+              "Verification Re-check", "Suspension During Verification", "Fraudulent Information", "Data Handling",
+              "Third-Party Verification", "No Guarantee of Approval", "Partner Responsibilities After Approval", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "partnerservice":
+        return Array.from({ length: 28 }, (_, i) => ({
+          id: `ps-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Service Listing", "Service Accuracy", "Pricing",
+              "Price Changes", "Additional Charges", "Service Availability", "Operating Hours",
+              "Appointment Acceptance", "Partner Cancellation", "Customer Refund for Salon Cancellation", "Pay-at-Salon Bookings",
+              "Repeated Cancellations", "Customer Cancellation", "Customer No-Show", "Booking Time",
+              "Service Substitution", "Service Quality", "Hygiene and Safety", "Offers and Discounts",
+              "Reviews and Ratings", "Booking Conflicts", "Unauthorized Price or Service Changes", "Partner Responsibility",
+              "Violations", "Relationship With Other Policies", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "partnerpayout":
+        return Array.from({ length: 28 }, (_, i) => ({
+          id: `payt-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope", "Payment Methods", "Online Payments", "Pay-at-Salon",
+              "DigiSaloon Commission", "Settlement Eligibility", "Settlement Timeline", "Bank Account Information",
+              "Incorrect Bank Information", "Change of Bank Account", "Refunds", "Cancelled Bookings",
+              "No-Show Bookings", "Transaction Reconciliation", "Settlement Statements", "Payment Provider",
+              "Payment Processing Delays", "Disputed Transactions", "Fraud Prevention", "Taxes",
+              "Settlement Records", "Partner Responsibility", "Settlement Disputes", "No Cash Payout From DigiSaloon",
+              "Changes to Settlement Terms", "Relationship With Other Policies", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "staff":
+        return Array.from({ length: 27 }, (_, i) => ({
+          id: `staff-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Authorized Access", "Staff Accounts", "Role-Based Access",
+              "Owner Responsibility", "Staff Responsibility", "Appointment Management", "No False Booking Updates",
+              "Customer Information", "Customer Communication", "Customer Privacy", "Service Management",
+              "Staff Availability", "Booking Conflicts", "No-Show Management", "Cancellation Management",
+              "Payment Information", "Account Security", "Staff Leaving the Salon", "Prohibited Activities",
+              "Monitoring and Logs", "Security Incidents", "Suspension of Staff Access", "Salon Responsibility",
+              "Relationship With Partner Terms", "Policy Updates", "Contact"
+            ][i]
+          }`
+        }));
+      case "adminsecurity":
+        return Array.from({ length: 29 }, (_, i) => ({
+          id: `as-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Authorized Access Only", "Individual Admin Accounts", "Role-Based Access",
+              "Principle of Least Privilege", "Authentication", "Password Security", "Sensitive Information",
+              "Customer Data Access", "Partner Data Access", "Payment Information", "Database Access",
+              "Data Export", "Admin Activity Logs", "Unauthorized Changes", "Production Environment",
+              "Software and System Changes", "Admin Device Security", "Public Exposure", "API and Credential Security",
+              "Staff Changes", "Security Incident Reporting", "Incident Response", "Confidentiality",
+              "Internal Use Only", "Policy Violations", "Third-Party Administrators", "Policy Updates", "Internal Contact"
+            ][i]
+          }`
+        }));
+      case "dataprotection":
+        return Array.from({ length: 31 }, (_, i) => ({
+          id: `dp-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Scope", "Types of Information", "Purpose of Data Processing",
+              "Data Minimization", "Data Accuracy", "Access Control", "Employee and Admin Access",
+              "Partner Access", "Data Security", "Sensitive Authentication Information", "Third-Party Processing",
+              "Data Retention", "Transaction Records", "Security Logs", "Legal Retention",
+              "Account Deletion", "Information Retained After Deletion", "Data Deletion Process", "Backups",
+              "Data Breach or Security Incident", "Internal Data Handling", "Data Export", "Data Sharing",
+              "User Rights and Requests", "Data Protection Responsibilities", "Policy Violations", "Policy Review",
+              "Relationship With Privacy Policy", "Public Summary", "Internal Reporting"
+            ][i]
+          }`
+        }));
+      case "incidentresponse":
+        return Array.from({ length: 28 }, (_, i) => ({
+          id: `sir-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Scope", "Security Responsibilities", "Security Controls",
+              "Types of Security Incidents", "Incident Detection", "Incident Reporting", "Initial Assessment",
+              "Containment", "Investigation", "Data Protection", "Notification",
+              "Recovery", "Post-Incident Review", "Security Vulnerabilities", "Account Security",
+              "Confidential Authentication Information", "Third-Party Security Incidents", "Backup and Recovery", "Business Continuity",
+              "Internal Access", "Employee Responsibilities", "Partner Responsibilities", "Security Limitations",
+              "Public Summary", "Policy Violations", "Policy Review", "Policy Updates"
+            ][i]
+          }`
+        }));
+      case "thirdparty":
+        return Array.from({ length: 30 }, (_, i) => ({
+          id: `tp-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Scope", "Third-Party Providers", "Payment Providers",
+              "Payment Processing", "Payment Authentication", "Payment Confirmation", "Payment Failures",
+              "Refunds Through Payment Providers", "Salon Settlements", "Cloud and Infrastructure Providers", "Communication Providers",
+              "Maps and Location Services", "Analytics Services", "Authentication and Verification Services", "Security Providers",
+              "Data Protection", "Third-Party Privacy Policies", "Data Sharing", "Internal Third-Party Management",
+              "Third-Party Changes", "Service Availability", "Third-Party Security Incidents", "User Responsibility",
+              "Partner Responsibility", "No Guarantee of Third-Party Services", "Relationship With Other Policies", "Policy Updates",
+              "Public Summary", "Internal Management"
+            ][i]
+          }`
+        }));
       default:
         return [];
     }
@@ -370,12 +389,41 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeTab]);
+  }, [activeTab, highlights]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMobileTocOpen(false);
+    }
+  };
+
+  const renderPolicyComponent = () => {
+    switch (activeTab) {
+      case "privacy": return <PrivacyPolicy />;
+      case "terms": return <TermsOfService />;
+      case "cookie": return <CookiePolicy />;
+      case "cancellation": return <CancellationPolicy />;
+      case "payment": return <PaymentPolicy />;
+      case "disclaimer": return <LegalDisclaimer />;
+      case "grievance": return <GrievancePolicy />;
+      case "booking": return <BookingPolicy />;
+      case "review": return <ReviewPolicy />;
+      case "offers": return <OffersPolicy />;
+      case "user": return <UserAccountPolicy />;
+      case "location": return <LocationNotificationPolicy />;
+      case "acceptable": return <AcceptableUsePolicy />;
+      case "partner": return <SalonPartnerTerms />;
+      case "onboarding": return <PartnerOnboardingPolicy />;
+      case "partnerservice": return <PartnerServicePolicy />;
+      case "partnerpayout": return <PartnerPayoutPolicy />;
+      case "staff": return <StaffPolicy />;
+      case "adminsecurity": return <AdminSecurityPolicy />;
+      case "dataprotection": return <DataProtectionPolicy />;
+      case "incidentresponse": return <SecurityIncidentPolicy />;
+      case "thirdparty": return <ThirdPartyPolicy />;
+      default: return <PrivacyPolicy />;
     }
   };
 
@@ -383,25 +431,93 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
     <div className="min-h-screen bg-white text-slate-800 font-sans flex flex-col">
       
       {/* Top Header Navigation Bar */}
-      <div className="border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 bg-white z-50 shadow-xs">
+      <div className="border-b border-slate-200 px-4 md:px-6 py-4 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-md z-50 shadow-xs">
         <div className="flex items-center gap-4">
-          <a href="/" className="text-xl font-black tracking-tight text-slate-900 hover:opacity-85 transition-opacity no-underline">
-            Digi<span className="text-red-700">Saloon</span> <span className="text-xs font-normal text-slate-400">| Policies & Guidelines</span>
+          <a href="/" className="text-lg md:text-xl font-black tracking-tight text-slate-900 hover:opacity-85 transition-opacity no-underline">
+            Digi<span className="text-red-700">Saloon</span> <span className="text-[11px] font-normal text-slate-400 block md:inline">| Policies & Guidelines</span>
           </a>
         </div>
+      </div>
+
+      {/* 📱 Improved Mobile View Controls (Visible only on small screens) */}
+      <div className="block md:hidden bg-slate-50 border-b border-slate-200 p-3 sticky top-[65px] z-40 space-y-2 shadow-sm">
+        {/* Policy Selector Dropdown */}
+        <div className="relative">
+          <select
+            value={activeTab}
+            onChange={(e) => handleTabChange(e.target.value as PolicyType)}
+            className="w-full bg-white border border-slate-300 text-slate-800 text-sm rounded-xl p-3 shadow-xs focus:outline-none focus:ring-2 focus:ring-red-700 font-bold appearance-none pr-10"
+          >
+            <option value="privacy"> Privacy Policy</option>
+            <option value="terms"> Terms of Service</option>
+            <option value="cookie"> Cookie Policy</option>
+            <option value="cancellation"> Cancellation & Refund Policy</option>
+            <option value="payment"> Payment Policy</option>
+            <option value="disclaimer"> Legal Disclaimer</option>
+            <option value="grievance"> Grievance Redressal</option>
+            <option value="booking"> Booking Policy</option>
+            <option value="review"> Review Policy</option>
+            <option value="offers"> Offers & Discounts Policy</option>
+            <option value="user"> User Account Policy</option>
+            <option value="location"> Location & Notification Policy</option>
+            <option value="acceptable"> Acceptable Use Policy</option>
+            <option value="partner"> Partner Terms</option>
+            <option value="onboarding"> Partner Onboarding Policy</option>
+            <option value="partnerservice"> Partner Service & Pricing</option>
+            <option value="partnerpayout"> Partner Payout Terms</option>
+            <option value="staff"> Staff Policy</option>
+            <option value="adminsecurity"> Admin Security Policy</option>
+            <option value="dataprotection"> Data Protection Policy</option>
+            <option value="incidentresponse"> Security Incident Response</option>
+            <option value="thirdparty"> Third-Party Services Policy</option>
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+            <ChevronDown className="w-4 h-4" />
+          </div>
+        </div>
+
+        {/* Mobile Table of Contents Accordion Toggle */}
+        <button
+          onClick={() => setIsMobileTocOpen(!isMobileTocOpen)}
+          className="w-full flex items-center justify-between bg-white border border-slate-300 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 shadow-xs active:scale-[0.99] transition-all"
+        >
+          <span className="flex items-center gap-2">
+            <Menu className="w-4 h-4 text-red-700" /> Jump to Section ({highlights.length} sections)
+          </span>
+          {isMobileTocOpen ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
+        </button>
+
+        {/* Collapsible Table of Contents List for Mobile */}
+        {isMobileTocOpen && (
+          <div className="bg-white border border-slate-200 rounded-xl p-2 max-h-64 overflow-y-auto space-y-1 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+            {highlights.map((h) => (
+              <button
+                key={h.id}
+                onClick={() => scrollToSection(h.id)}
+                className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-all block truncate ${
+                  activeSection === h.id
+                    ? "text-red-700 font-bold bg-red-50"
+                    : "text-slate-600 hover:bg-slate-100"
+                }`}
+              >
+                {h.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Main 3-Column Layout */}
       <div className="w-full grid grid-cols-1 md:grid-cols-12 flex-1">
         
-        {/* 1. Left Sidebar (Fixed) */}
-        <aside className="md:col-span-2 border-r border-slate-200 p-6 space-y-2 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+        {/* 1. Left Sidebar (Hidden on Mobile, Sticky on Desktop) */}
+        <aside className="hidden md:block md:col-span-3 border-r border-slate-200 p-6 space-y-2 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-4 px-2">
             Policies
           </p>
           
           <button
-            onClick={() => { setActiveTab("privacy"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("privacy")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "privacy"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -414,7 +530,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("terms"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("terms")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "terms"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -427,7 +543,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("cookie"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("cookie")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "cookie"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -440,7 +556,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("cancellation"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("cancellation")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "cancellation"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -453,7 +569,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("payment"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("payment")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "payment"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -466,7 +582,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("disclaimer"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("disclaimer")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "disclaimer"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -479,7 +595,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("grievance"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("grievance")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "grievance"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -492,7 +608,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("booking"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("booking")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "booking"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -505,7 +621,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("review"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("review")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "review"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -518,7 +634,7 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-            onClick={() => { setActiveTab("offers"); window.scrollTo(0, 0); }}
+            onClick={() => handleTabChange("offers")}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
               activeTab === "offers"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
@@ -531,202 +647,188 @@ const [activeTab, setActiveTab] = useState<"privacy" | "terms" | "cookie" | "can
           </button>
 
           <button
-  onClick={() => { setActiveTab("user"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "user"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <User className="w-4 h-4" /> Account
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("location"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "location"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <MapPin className="w-4 h-4" /> Location
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("acceptable"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "acceptable"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <ShieldCheck className="w-4 h-4" /> Acceptable Use
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("partner"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "partner"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <Store className="w-4 h-4" /> Partner Terms
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("onboarding"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "onboarding"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <UserCheck className="w-4 h-4" /> Onboarding
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("partnerservice"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "partnerservice"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <CalendarCheck className="w-4 h-4" /> Service & Pricing
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("partnerpayout"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "partnerpayout"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <Wallet className="w-4 h-4" /> Partner Payout
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("staff"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "staff"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <Users className="w-4 h-4" /> Staff Policy
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("adminsecurity"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "adminsecurity"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <ShieldAlert className="w-4 h-4" /> Admin Security
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("dataprotection"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "dataprotection"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <Database className="w-4 h-4" /> Data Protection
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("incidentresponse"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "incidentresponse"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <AlertTriangle className="w-4 h-4" /> Incident Response
-  </span>
-</button>
-<button
-  onClick={() => { setActiveTab("thirdparty"); window.scrollTo(0, 0); }}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "thirdparty"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <Share2 className="w-4 h-4" /> Third-Party Services
-  </span>
-</button>
+            onClick={() => handleTabChange("user")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "user"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <User className="w-4 h-4" /> Account
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("location")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "location"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <MapPin className="w-4 h-4" /> Location
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("acceptable")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "acceptable"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4" /> Acceptable Use
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("partner")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "partner"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <Store className="w-4 h-4" /> Partner Terms
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("onboarding")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "onboarding"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <UserCheck className="w-4 h-4" /> Onboarding
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("partnerservice")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "partnerservice"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <CalendarCheck className="w-4 h-4" /> Service & Pricing
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("partnerpayout")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "partnerpayout"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <Wallet className="w-4 h-4" /> Partner Payout
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("staff")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "staff"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <Users className="w-4 h-4" /> Staff Policy
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("adminsecurity")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "adminsecurity"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4" /> Admin Security
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("dataprotection")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "dataprotection"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <Database className="w-4 h-4" /> Data Protection
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("incidentresponse")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "incidentresponse"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4" /> Incident Response
+            </span>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("thirdparty")}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "thirdparty"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <Share2 className="w-4 h-4" /> Third-Party
+            </span>
+          </button>
         </aside>
 
-        {/* 2. Center Content Area */}
-        <main className="md:col-span-8 p-8 md:p-16">
-          <div className="max-w-4xl mx-auto">
-            {activeTab === "privacy" && <PrivacyPolicy />}
-            {activeTab === "terms" && <TermsOfService />}
-            {activeTab === "cookie" && <CookiePolicy />}
-            {activeTab === "cancellation" && <CancellationPolicy />}
-            {activeTab === "payment" && <PaymentPolicy />}
-            {activeTab === "disclaimer" && <LegalDisclaimer />}
-            {activeTab === "grievance" && <GrievancePolicy />}
-            {activeTab === "booking" && <BookingPolicy />}
-            {activeTab === "review" && <ReviewPolicy />}
-            {activeTab === "offers" && <OffersPolicy />}
-            {activeTab === "user" && <UserAccountPolicy />}
-            {activeTab === "location" && <LocationNotificationPolicy />}
-            {activeTab === "acceptable" && <AcceptableUsePolicy />}
-            {activeTab === "partner" && <SalonPartnerTerms />}
-            {activeTab === "onboarding" && <PartnerOnboardingPolicy />}
-            {activeTab === "partnerservice" && <PartnerServicePolicy />}
-            {activeTab === "partnerpayout" && <PartnerPayoutPolicy />}
-            {activeTab === "staff" && <StaffPolicy />}
-            {activeTab === "adminsecurity" && <AdminSecurityPolicy />}
-            {activeTab === "dataprotection" && <DataProtectionPolicy />}
-            {activeTab === "incidentresponse" && <SecurityIncidentPolicy />}
-            {activeTab === "thirdparty" && <ThirdPartyPolicy />}
+        {/* 2. Main Content Area */}
+        <main className="md:col-span-7 p-4 md:p-12 overflow-y-auto">
+          <div className="max-w-3xl mx-auto space-y-8">
+            {renderPolicyComponent()}
           </div>
         </main>
 
-        {/* 3. Right Sidebar (Sticky Table of Contents with ScrollSpy) */}
-        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-6 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto bg-white">
-          <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-900 mb-4">
-            On This Page
+        {/* 3. Right Highlights / Table of Contents Sidebar */}
+        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-6 space-y-1 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+          <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-4 px-2">
+            Table of Contents
           </p>
-          <ul className="space-y-3 text-xs font-medium border-l border-slate-200 pl-3">
-            {highlights.map((item) => {
-              const isActive = activeSection === item.id;
-              return (
-                <li
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`cursor-pointer transition-colors duration-150 line-clamp-2 ${
-                    isActive
-                      ? "text-red-700 font-bold border-l-2 border-red-700 -ml-[13px] pl-3"
-                      : "text-slate-500 hover:text-slate-900"
-                  }`}
-                >
-                  {item.label}
-                </li>
-              );
-            })}
-          </ul>
+          {highlights.map((h) => (
+            <button
+              key={h.id}
+              onClick={() => scrollToSection(h.id)}
+              className={`w-full text-left px-2 py-1.5 rounded-md text-xs font-medium transition-all block truncate cursor-pointer ${
+                activeSection === h.id
+                  ? "text-red-700 font-bold bg-red-50"
+                  : "text-slate-500 hover:text-slate-800 hover:bg-slate-100"
+              }`}
+              title={h.label}
+            >
+              {h.label}
+            </button>
+          ))}
         </aside>
 
       </div>
