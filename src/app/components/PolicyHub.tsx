@@ -6,6 +6,7 @@ import { TermsOfService } from "./TermsOfService";
 import { CookiePolicy } from "./CookiePolicy";
 import { CancellationPolicy } from "./CancellationPolicy";
 import { PaymentPolicy } from "./PaymentPolicy";
+import { ContentPolicy } from "./ContentPolicy";
 import { LegalDisclaimer } from "./LegalDisclaimer";
 import { GrievancePolicy } from "./GrievancePolicy";
 import { BookingPolicy } from "./BookingPolicy";
@@ -25,7 +26,7 @@ import { SecurityIncidentPolicy } from "./SecurityIncidentPolicy";
 import { ThirdPartyPolicy } from "./ThirdPartyPolicy";
 
 type PolicyType = 
-  | "privacy" | "terms" | "cookie" | "cancellation" | "payment" 
+  | "privacy" | "terms" | "cookie" | "cancellation" | "payment" | "content"
   | "disclaimer" | "grievance" | "booking" | "review" | "offers" 
   | "user" | "location" | "acceptable" | "partner" | "onboarding" 
   | "partnerservice" | "partnerpayout" | "staff" | "adminsecurity" 
@@ -118,6 +119,22 @@ export function PolicyHub() {
             ][i]
           }`
         }));
+        case "content":
+  return Array.from({ length: 30 }, (_, i) => ({
+    id: `content-${i + 1}`,
+    label: `${i + 1}. ${
+      [
+        "Purpose", "Who This Policy Applies To", "Content Requirements", "Prohibited Content",
+        "Misleading Information", "Salon Content", "Images and Videos", "Customer Reviews",
+        "Review Manipulation", "Personal Information", "Copyright and Intellectual Property", "Impersonation",
+        "Promotional Content", "Spam", "External Links", "Customer-Salon Communication",
+        "Content Moderation", "Content Removal", "Account Action", "Reporting Content",
+        "Copyright Complaints", "False Reports", "Content Ownership", "DigiSaloon Platform Content",
+        "Accuracy of Content", "Third-Party Content", "Policy Enforcement", "Policy Updates",
+        "Relationship With Other Policies", "Contact"
+      ][i]
+    }`
+  }));
       case "disclaimer":
         return Array.from({ length: 21 }, (_, i) => ({
           id: `legal-${i + 1}`,
@@ -406,6 +423,7 @@ export function PolicyHub() {
       case "cookie": return <CookiePolicy />;
       case "cancellation": return <CancellationPolicy />;
       case "payment": return <PaymentPolicy />;
+      case "content": return <ContentPolicy />;
       case "disclaimer": return <LegalDisclaimer />;
       case "grievance": return <GrievancePolicy />;
       case "booking": return <BookingPolicy />;
@@ -580,6 +598,19 @@ export function PolicyHub() {
               <CreditCard className="w-4 h-4" /> Payment
             </span>
           </button>
+
+          <button
+  onClick={() => handleTabChange("content")}
+  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+    activeTab === "content"
+      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+      : "text-slate-600 hover:bg-slate-100"
+  }`}
+>
+  <span className="flex items-center gap-2">
+    <FileText className="w-4 h-4" /> Content Policy
+  </span>
+</button>
 
           <button
             onClick={() => handleTabChange("disclaimer")}
