@@ -608,7 +608,7 @@ export function PolicyHub() {
   }`}
 >
   <span className="flex items-center gap-2">
-    <FileText className="w-4 h-4" /> Content Policy
+    <FileText className="w-4 h-4" /> Content
   </span>
 </button>
 
