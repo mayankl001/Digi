@@ -13,7 +13,7 @@ export const ContentPolicy: React.FC = () => {
           <span className="text-xs text-slate-400">Last Updated: 12 September 2026</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-          DIGISALOON CONTENT POLICY
+          CONTENT POLICY
         </h1>
         <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
           This Content Policy explains what content may be uploaded, published, displayed or shared through DigiSaloon and the standards applicable to customers, salon partners, barbers, staff and other authorized users.
