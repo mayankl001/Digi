@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 const faqs = [
   { q: "What is DigiSaloon?", a: "DigiSaloon is a salon booking platform that helps you discover salons, explore services and prices, check available slots, and book appointments easily." },
   { q: "How can I book an appointment?", a: "Simply select your preferred salon, choose a service, select an available date and time, and confirm your booking through DigiSaloon." },
+  { q: "Can I book an appointment for now or schedule it for later?", a: "Yes. DigiSaloon offers both Live Booking and Schedule Booking. You can book an available salon slot for immediate service through Live Booking or select a future date and time through Schedule Booking, depending on the salon's availability." },
   { q: "Can I choose the salon and service I want?", a: "Yes. You can browse available salons and select the services that best suit your requirements." },
   { q: "Can I pay online or at the salon?", a: "Yes. Depending on the salon and booking, you can either pay online during booking or choose the Pay at Salon option." },
   { q: "Can I cancel my appointment?", a: "Yes. You can cancel eligible bookings from the app. Applicable cancellation charges and refunds are based on DigiSaloon's Cancellation & Refund Policy." },
