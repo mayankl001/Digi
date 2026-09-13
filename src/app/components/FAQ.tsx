@@ -4,16 +4,16 @@ import { AnimateIn } from "./AnimateIn";
 import { motion, AnimatePresence } from "motion/react";
 
 const faqs = [
-  { q: "When will DigiSaloon officially launch in Ranchi?", a: "We're currently in our pre-launch phase and expect to go live in Ranchi by Q3 2026. Join our waitlist to be among the first to get access and receive exclusive early-bird benefits." },
-  { q: "Is DigiSaloon free to use for customers?", a: "Absolutely! Downloading and using DigiSaloon is completely free for customers. You can discover salons, browse services, check availability, and book appointments at zero cost." },
-  { q: "How does DigiSaloon verify its salon partners?", a: "Every salon goes through a rigorous verification process — including license checks, physical inspection, hygiene standards review, and staff credential verification — before being listed on the platform." },
-  { q: "Can I cancel or reschedule my appointment?", a: "Yes! You can cancel or reschedule your appointment up to 2 hours before the scheduled time through the app — free of charge. Last-minute cancellations may incur a small fee depending on the salon's policy." },
-  { q: "What payment methods are supported?", a: "DigiSaloon supports all major payment methods including UPI (PhonePe, GPay, Paytm), debit/credit cards, net banking, and cash payment at the salon. Your payment data is 100% secure and encrypted." },
-  { q: "How do I become a salon partner?", a: "Click 'Become a Partner' or 'Partner With Us' anywhere on the page, fill in your salon details, and our team will reach out within 24 hours for onboarding. Early partners get priority placement, free listing, and dedicated support." },
-  { q: "What services can I book on DigiSaloon?", a: "From haircuts, coloring, and styling to facials, massages, manicures, pedicures, waxing, and bridal packages — DigiSaloon covers the full spectrum of beauty and wellness services." },
-  { q: "Is my personal data safe with DigiSaloon?", a: "Yes. We take data privacy extremely seriously. Your personal information is encrypted, never sold to third parties, and protected under our comprehensive privacy policy. We comply with all applicable Indian data protection laws." },
-  { q: "Will DigiSaloon expand beyond Ranchi?", a: "Ranchi is our launch city, and we plan to expand to other Tier-2 cities across Jharkhand and India in the next 12–18 months. If you're from another city, join the waitlist and we'll notify you when we reach your area." },
-  { q: "What happens after I join the waitlist?", a: "You'll receive an instant confirmation email with your waitlist position. As a waitlist member, you'll get early access to the app, exclusive launch offers, priority booking privileges, and a chance to be a founding member of the DigiSaloon community." },
+  { q: "What is DigiSaloon?", a: "DigiSaloon is a salon booking platform that helps you discover salons, explore services and prices, check available slots, and book appointments easily." },
+  { q: "How can I book an appointment?", a: "Simply select your preferred salon, choose a service, select an available date and time, and confirm your booking through DigiSaloon." },
+  { q: "Can I choose the salon and service I want?", a: "Yes. You can browse available salons and select the services that best suit your requirements." },
+  { q: "Can I pay online or at the salon?", a: "Yes. Depending on the salon and booking, you can either pay online during booking or choose the Pay at Salon option." },
+  { q: "Can I cancel my appointment?", a: "Yes. You can cancel eligible bookings from the app. Applicable cancellation charges and refunds are based on DigiSaloon's Cancellation & Refund Policy." },
+  { q: "What happens if the salon cancels my booking?", a: "If a salon cancels your confirmed booking, you are eligible for a 100% refund, subject to the applicable refund process." },
+  { q: "Can I reschedule my appointment?", a: "Rescheduling may be available depending on the salon's availability and the booking conditions. You can check available options from your booking details." },
+  { q: "Can I rate and review a salon?", a: "Yes. Customers can rate and review a salon after completing an eligible booking." },
+  { q: "Are the salons on DigiSaloon verified?", a: "DigiSaloon works with salon partners who complete the required onboarding and verification process before being listed on the platform." },
+  { q: "How can I contact DigiSaloon Support?", a: "For assistance with bookings, payments, cancellations, refunds, or other issues, you can contact DigiSaloon Support through the contact options available on our website or app." },
 ];
 
 export function FAQ() {
