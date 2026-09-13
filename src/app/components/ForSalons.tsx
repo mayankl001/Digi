@@ -91,14 +91,16 @@ export function ForSalons() {
               </div>
 
               {/* B2B CTA Primary Button */}
-              <a
-                id="partner"
-                href="#waitlist"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-base font-bold bg-gradient-to-br from-[#991B1B] to-[#B91C1C] shadow-[0_6px_24px_rgba(153,27,27,0.25)] hover:shadow-[0_12px_32px_rgba(153,27,27,0.38)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 no-underline group"
-              >
-                Become a Partner
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </a>
+             <a
+  id="partner"
+  href="https://partner.digisaloon.in/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-base font-bold bg-gradient-to-br from-[#991B1B] to-[#B91C1C] shadow-[0_6px_24px_rgba(153,27,27,0.25)] hover:shadow-[0_12px_32px_rgba(153,27,27,0.38)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 no-underline group"
+>
+  Become a Partner
+  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+</a>
               
             </div>
           </AnimateIn>
