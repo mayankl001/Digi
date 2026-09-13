@@ -471,6 +471,7 @@ export function PolicyHub() {
             <option value="cookie"> Cookie Policy</option>
             <option value="cancellation"> Cancellation & Refund Policy</option>
             <option value="payment"> Payment Policy</option>
+            <option value="content"> content policy</option>
             <option value="disclaimer"> Legal Disclaimer</option>
             <option value="grievance"> Grievance Redressal</option>
             <option value="booking"> Booking Policy</option>
