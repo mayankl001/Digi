@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
@@ -35,22 +35,48 @@ export function Footer() {
 
             {/* Social Media Links */}
             <div className="flex items-center gap-4">
-              {[
-                { icon: Instagram, href: "https://www.instagram.com/digisaloonn?igsh=MWlkYmdodXU0eGh0OQ==" },
-                { icon: Twitter, href: "https://x.com/Digiisaloon" },
-                { icon: Facebook, href: "https://www.facebook.com/share/1BB96mdqzT/?mibextid=wwXIfr" },
-                { icon: Linkedin, href: "https://www.linkedin.com/company/digi-saloon/" },
-              ].map(({ icon: Icon, href }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/digisaloonn?igsh=MWlkYmdodXU0eGh0OQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+
+              {/* X (formerly Twitter) */}
+              <a
+                href="https://x.com/Digiisaloon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (formerly Twitter)"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/share/1BB96mdqzT/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/digi-saloon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white/50 hover:bg-[#991B1B] hover:text-white transition-all duration-200"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
 
             <p className="mt-4 text-sm text-[#9CA3AF]">
