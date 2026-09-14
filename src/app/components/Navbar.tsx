@@ -121,17 +121,9 @@ export function Navbar() {
 
           {/* CTAs */}
           <div className="hidden md:flex items-center gap-3 font-sans">
-            <div className="hidden lg:flex items-center px-3 py-1 rounded-full bg-[#991B1B]/10 text-[#991B1B] text-xs font-semibold">
-              🚀 Launching Soon
-            </div>
             
-            <Link
-              to="/#waitlist"
-              onClick={(e) => handleLinkClick(e, { href: "/#waitlist", isPage: false })}
-              className="text-sm px-5 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-[#991B1B] to-[#B91C1C] shadow-[0_4px_14px_rgba(153,27,27,0.3)] hover:-translateY-[1px] transition-all duration-200 no-underline"
-            >
-              Get Early Access 
-            </Link>
+            
+            
           </div>
 
           {/* Mobile menu button */}
@@ -160,20 +152,8 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-4 flex flex-col gap-3">
-              <Link
-                to="/#waitlist"
-                onClick={(e) => handleLinkClick(e, { href: "/#waitlist", isPage: false })}
-                className="text-center text-sm px-5 py-3 rounded-full text-white font-bold bg-gradient-to-r from-[#991B1B] to-[#B91C1C] no-underline"
-              >
-                Get Early Access 
-              </Link>
-              <Link
-                to="/#waitlist" 
-                onClick={(e) => handleLinkClick(e, { href: "/#waitlist", isPage: false })}
-                className="text-center text-sm px-5 py-3 rounded-full border border-[#991B1B] text-[#991B1B] font-semibold no-underline"
-              >
-                Partner With Us
-              </Link>
+              
+              
             </div>
           </div>
         </div>

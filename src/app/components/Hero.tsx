@@ -108,13 +108,7 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-wrap gap-4 mb-10"
               >
-                <Link
-                  to="/#waitlist"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-base font-bold bg-gradient-to-r from-[#991B1B] to-[#B91C1C] shadow-[0_6px_24px_rgba(153,27,27,0.35)] hover:shadow-[0_10px_32px_rgba(153,27,27,0.45)] hover:-translateY-0.5 active:scale-[0.97] transition-all duration-200 no-underline"
-                >
-                  Join Waitlist
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+               
                 
                 {/* Partner With Us External Subdomain Link */}
                 <a
