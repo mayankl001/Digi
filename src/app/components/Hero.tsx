@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight, Star, Clock, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion"; 
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // 👈 Step 1 ke liye helmet import kiya
+import { Helmet } from "react-helmet-async";
 
 interface FloatingCardProps {
   children: React.ReactNode;
@@ -116,12 +116,15 @@ export function Hero() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 
-                <Link
-                  to="/#waitlist"
+                {/* Partner With Us External Subdomain Link */}
+                <a
+                  href="https://partner.digisaloon.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#991B1B] text-base font-semibold text-[#991B1B] bg-[#991B1B]/5 hover:bg-[#991B1B] hover:text-white active:scale-[0.97] transition-all duration-200 no-underline"
                 >
                   Partner With Us
-                </Link>
+                </a>
               </motion.div>
 
               {/* Social proof */}

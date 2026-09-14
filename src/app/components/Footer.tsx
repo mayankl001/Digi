@@ -29,9 +29,7 @@ export function Footer() {
               DigiSaloon is a smart salon booking platform helping users discover, compare and book trusted salons with transparent pricing and real-time availability.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mt-2 mb-5 bg-green-500/15 text-[#22C55E] text-xs font-semibold">
-              🟢 Launching Soon in Ranchi
-            </div>
+            
 
             {/* Social Media Links */}
             <div className="flex items-center gap-4">
