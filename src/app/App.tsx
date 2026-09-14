@@ -11,7 +11,7 @@ import { HowItWorks } from "./components/HowItWorks";
 import { ForSalons } from "./components/ForSalons";
 import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
-import { Waitlist } from "./components/Waitlist";
+import { AppDownload } from "./components/AppDownload"; 
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
 import { ContactPage } from "./components/Contact";
@@ -68,19 +68,33 @@ function PartnerPage() {
         <link rel="canonical" href="https://digisaloon.in/partner" />
       </Helmet>
 
-      <div className="w-full max-w-3xl px-4">
-        <div className="text-center text-white mb-6 space-y-2">
-          <span className="text-xs font-bold bg-white/15 border border-white/25 px-3 py-1 rounded-full uppercase tracking-widest">
-            Salon Partner Portal
-          </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            Grow Your Salon with DigiSaloon
-          </h1>
-          <p className="text-white/80 text-sm md:text-base max-w-lg mx-auto">
-            Register your salon in Ranchi for zero commission early access and automated queue management.
-          </p>
+      <div className="w-full max-w-2xl px-4 text-center text-white space-y-6">
+        <span className="text-xs font-bold bg-white/15 border border-white/25 px-3 py-1 rounded-full uppercase tracking-widest">
+          Salon Partner Portal
+        </span>
+        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+          Grow Your Salon with DigiSaloon
+        </h1>
+        <p className="text-white/80 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
+          Our partner onboarding app is now live for salons in Ranchi. Register your business directly through our vendor app or get in touch with our team.
+        </p>
+        
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="mailto:support@digisaloon.in"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-white bg-slate-950 hover:bg-slate-900 border border-slate-800 font-bold transition-all shadow-lg"
+          >
+            Contact Partner Team
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=in.digisaloon.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-2xl text-red-900 bg-white hover:bg-gray-100 font-bold transition-all shadow-lg"
+          >
+            Download Partner App
+          </a>
         </div>
-        <Waitlist initialType="salon" />
       </div>
     </div>
   );
@@ -158,7 +172,7 @@ function HomePage() {
       </div>
 
       <FAQ />
-      <Waitlist />
+      <AppDownload />
     </>
   );
 }
@@ -167,7 +181,6 @@ function HomePage() {
 function AppContent() {
   const location = useLocation();
 
-  // In paths par Navbar aur Footer show nahi honge (/policy aur uske sabhi sub-paths ke liye bhi)
   const hideHeaderFooter = location.pathname.startsWith("/policy") || [
     "/privacy-policy",
     "/terms-of-service",
@@ -180,29 +193,14 @@ function AppContent() {
       
       <main className="flex-grow">
         <Routes>
-          {/* Main Home Route */}
           <Route path="/" element={<HomePage />} />
-          
-          {/* QR Scanner Router */}
           <Route path="/review" element={<ReviewRedirect />} />
-          
-          {/* About Us Route */}
           <Route path="/about" element={<AboutUs />} />
-          
-          {/* Contact Us Route */}
           <Route path="/contact" element={<ContactPage />} />
-
-          {/* Local SEO Blog Route */}
           <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
-
-          {/* Salon Partner Dedicated Route */}
           <Route path="/partner" element={<PartnerPage />} />
-
-          {/* 🔒 Centralized Policy Hub Route with Dynamic Sub-path */}
           <Route path="/policy/:policyType" element={<PolicyHub />} />
           <Route path="/policy" element={<PolicyHub />} />
-
-          {/* Legacy Legal Routes (Optional Direct Fallbacks) */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
