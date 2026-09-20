@@ -28,7 +28,7 @@ export function FAQ() {
         <AnimateIn direction="up" className="text-center mb-16">
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4 bg-[#991B1B]/5 border border-[#991B1B]/12">
             <span className="text-sm font-semibold text-[#991B1B]">
-              FAQ
+              FAQs
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
