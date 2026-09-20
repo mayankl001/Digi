@@ -11,7 +11,8 @@ import { HowItWorks } from "./components/HowItWorks";
 import { ForSalons } from "./components/ForSalons";
 import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
-import { AppDownload } from "./components/AppDownload"; 
+import { Waitlist } from "./components/Waitlist";;
+/* import { AppDownload } from "./components/AppDownload"; */
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
 import { ContactPage } from "./components/Contact";
@@ -172,7 +173,8 @@ function HomePage() {
       </div>
 
       <FAQ />
-      <AppDownload />
+      <Waitlist />
+      
     </>
   );
 }
