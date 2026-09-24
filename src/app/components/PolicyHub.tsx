@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Shield, FileText, Cookie, RefreshCcw, CreditCard, AlertCircle, LifeBuoy, Calendar, Star, Tag, User, MapPin, ShieldCheck, Store, UserCheck, CalendarCheck, Wallet, Users, ShieldAlert, Database, AlertTriangle, Share2, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
+import { GuidelinesPolicy } from "./GuidelinesPolicy";
 import { PrivacyPolicy } from "./PrivacyPolicy";
 import { TermsOfService } from "./TermsOfService";
 import { CookiePolicy } from "./CookiePolicy";
@@ -26,7 +27,7 @@ import { SecurityIncidentPolicy } from "./SecurityIncidentPolicy";
 import { ThirdPartyPolicy } from "./ThirdPartyPolicy";
 
 type PolicyType = 
-  | "privacy" | "terms" | "cookie" | "cancellation" | "payment" | "content"
+  | "Guidlines" | "privacy" | "terms" | "cookie" | "cancellation" | "payment" | "content"
   | "disclaimer" | "grievance" | "booking" | "review" | "offers" 
   | "user" | "location" | "acceptable" | "partner" | "onboarding" 
   | "partnerservice" | "partnerpayout" | "staff" | "adminsecurity" 
@@ -48,6 +49,17 @@ export function PolicyHub() {
 
   const getHighlights = () => {
     switch (activeTab) {
+      case "Guidlines":
+        return Array.from({ length: 14 }, (_, i) => ({
+          id: `sec-gp-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose of This Page", "Customer & User Policies", "Salon Partner Policies", "Barber, Staff & Manage Web Policies",
+              "Admin & Internal Policies", "Content & Intellectual Property", "Payment & Third-Party Services", "Legal & Compliance Policies",
+              "Customer Support", "Policy Acceptance", "Policy Updates", "Policy Priority", "Important Payment Summary", "Contact Information"
+            ][i]
+          }`
+        }));
       case "privacy":
         return Array.from({ length: 24 }, (_, i) => ({
           id: `sec-${i + 1}`,
@@ -119,22 +131,22 @@ export function PolicyHub() {
             ][i]
           }`
         }));
-        case "content":
-  return Array.from({ length: 30 }, (_, i) => ({
-    id: `content-${i + 1}`,
-    label: `${i + 1}. ${
-      [
-        "Purpose", "Who This Policy Applies To", "Content Requirements", "Prohibited Content",
-        "Misleading Information", "Salon Content", "Images and Videos", "Customer Reviews",
-        "Review Manipulation", "Personal Information", "Copyright and Intellectual Property", "Impersonation",
-        "Promotional Content", "Spam", "External Links", "Customer-Salon Communication",
-        "Content Moderation", "Content Removal", "Account Action", "Reporting Content",
-        "Copyright Complaints", "False Reports", "Content Ownership", "DigiSaloon Platform Content",
-        "Accuracy of Content", "Third-Party Content", "Policy Enforcement", "Policy Updates",
-        "Relationship With Other Policies", "Contact"
-      ][i]
-    }`
-  }));
+      case "content":
+        return Array.from({ length: 30 }, (_, i) => ({
+          id: `content-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose", "Who This Policy Applies To", "Content Requirements", "Prohibited Content",
+              "Misleading Information", "Salon Content", "Images and Videos", "Customer Reviews",
+              "Review Manipulation", "Personal Information", "Copyright and Intellectual Property", "Impersonation",
+              "Promotional Content", "Spam", "External Links", "Customer-Salon Communication",
+              "Content Moderation", "Content Removal", "Account Action", "Reporting Content",
+              "Copyright Complaints", "False Reports", "Content Ownership", "DigiSaloon Platform Content",
+              "Accuracy of Content", "Third-Party Content", "Policy Enforcement", "Policy Updates",
+              "Relationship With Other Policies", "Contact"
+            ][i]
+          }`
+        }));
       case "disclaimer":
         return Array.from({ length: 21 }, (_, i) => ({
           id: `legal-${i + 1}`,
@@ -418,6 +430,7 @@ export function PolicyHub() {
 
   const renderPolicyComponent = () => {
     switch (activeTab) {
+      case "Guidlines": return <GuidelinesPolicy />;
       case "privacy": return <PrivacyPolicy />;
       case "terms": return <TermsOfService />;
       case "cookie": return <CookiePolicy />;
@@ -466,12 +479,13 @@ export function PolicyHub() {
             onChange={(e) => handleTabChange(e.target.value as PolicyType)}
             className="w-full bg-white border border-slate-300 text-slate-800 text-sm rounded-xl p-3 shadow-xs focus:outline-none focus:ring-2 focus:ring-red-700 font-bold appearance-none pr-10"
           >
+            <option value="Guidlines"> Master Guidelines & Policies</option>
             <option value="privacy"> Privacy Policy</option>
             <option value="terms"> Terms of Service</option>
             <option value="cookie"> Cookie Policy</option>
             <option value="cancellation"> Cancellation & Refund Policy</option>
             <option value="payment"> Payment Policy</option>
-            <option value="content"> content policy</option>
+            <option value="content"> Content Policy</option>
             <option value="disclaimer"> Legal Disclaimer</option>
             <option value="grievance"> Grievance Redressal</option>
             <option value="booking"> Booking Policy</option>
@@ -526,341 +540,353 @@ export function PolicyHub() {
         )}
       </div>
 
-      {/* Main 3-Column Layout */}
+      {/* Main 3-Column Layout (Left & Right col-span-2, Center col-span-8) */}
       <div className="w-full grid grid-cols-1 md:grid-cols-12 flex-1">
         
-        {/* 1. Left Sidebar (Hidden on Mobile, Sticky on Desktop) */}
-        <aside className="hidden md:block md:col-span-3 border-r border-slate-200 p-6 space-y-2 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
-          <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-4 px-2">
+        {/* 1. Left Sidebar (col-span-2) */}
+        <aside className="hidden md:block md:col-span-2 border-r border-slate-200 p-4 space-y-1.5 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+          <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-3 px-2">
             Policies
           </p>
           
           <button
+            onClick={() => handleTabChange("Guidlines")}
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "Guidlines"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <FileText className="w-3.5 h-3.5" /> Master Guidelines
+            </span>
+          </button>
+
+          <button
             onClick={() => handleTabChange("privacy")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "privacy"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Shield className="w-4 h-4" /> Privacy
+              <Shield className="w-3.5 h-3.5" /> Privacy Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("terms")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "terms"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <FileText className="w-4 h-4" /> Terms
+              <FileText className="w-3.5 h-3.5" /> Terms of Service
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("cookie")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "cookie"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Cookie className="w-4 h-4" /> Cookies
+              <Cookie className="w-3.5 h-3.5" /> Cookie Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("cancellation")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "cancellation"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <RefreshCcw className="w-4 h-4" /> Cancellation
+              <RefreshCcw className="w-3.5 h-3.5" /> Cancellation & Refund
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("payment")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "payment"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <CreditCard className="w-4 h-4" /> Payment
+              <CreditCard className="w-3.5 h-3.5" /> Payment Policy
             </span>
           </button>
 
           <button
-  onClick={() => handleTabChange("content")}
-  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
-    activeTab === "content"
-      ? "bg-red-50 text-red-700 border-l-4 border-red-700"
-      : "text-slate-600 hover:bg-slate-100"
-  }`}
->
-  <span className="flex items-center gap-2">
-    <FileText className="w-4 h-4" /> Content
-  </span>
-</button>
+            onClick={() => handleTabChange("content")}
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
+              activeTab === "content"
+                ? "bg-red-50 text-red-700 border-l-4 border-red-700"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <FileText className="w-3.5 h-3.5" /> Content Policy
+            </span>
+          </button>
 
           <button
             onClick={() => handleTabChange("disclaimer")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "disclaimer"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <AlertCircle className="w-4 h-4" /> Disclaimer
+              <AlertCircle className="w-3.5 h-3.5" /> Legal Disclaimer
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("grievance")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "grievance"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <LifeBuoy className="w-4 h-4" /> Grievance
+              <LifeBuoy className="w-3.5 h-3.5" /> Grievance Redressal
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("booking")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "booking"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" /> Booking
+              <Calendar className="w-3.5 h-3.5" /> Booking Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("review")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "review"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Star className="w-4 h-4" /> Review
+              <Star className="w-3.5 h-3.5" /> Review Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("offers")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "offers"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Tag className="w-4 h-4" /> Offers
+              <Tag className="w-3.5 h-3.5" /> Offers & Discounts
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("user")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "user"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Account
+              <User className="w-3.5 h-3.5" /> User Account Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("location")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "location"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Location
+              <MapPin className="w-3.5 h-3.5" /> Location & Notification
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("acceptable")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "acceptable"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4" /> Acceptable Use
+              <ShieldCheck className="w-3.5 h-3.5" /> Acceptable Use
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("partner")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "partner"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Store className="w-4 h-4" /> Partner Terms
+              <Store className="w-3.5 h-3.5" /> Partner Terms
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("onboarding")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "onboarding"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <UserCheck className="w-4 h-4" /> Onboarding
+              <UserCheck className="w-3.5 h-3.5" /> Partner Onboarding
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("partnerservice")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "partnerservice"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <CalendarCheck className="w-4 h-4" /> Service & Pricing
+              <CalendarCheck className="w-3.5 h-3.5" /> Partner Service & Pricing
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("partnerpayout")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "partnerpayout"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Wallet className="w-4 h-4" /> Partner Payout
+              <Wallet className="w-3.5 h-3.5" /> Partner Payout Terms
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("staff")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "staff"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Users className="w-4 h-4" /> Staff Policy
+              <Users className="w-3.5 h-3.5" /> Staff Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("adminsecurity")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "adminsecurity"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4" /> Admin Security
+              <ShieldAlert className="w-3.5 h-3.5" /> Admin Security Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("dataprotection")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "dataprotection"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Database className="w-4 h-4" /> Data Protection
+              <Database className="w-3.5 h-3.5" /> Data Protection Policy
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("incidentresponse")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "incidentresponse"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4" /> Incident Response
+              <AlertTriangle className="w-3.5 h-3.5" /> Security Incident Response
             </span>
           </button>
 
           <button
             onClick={() => handleTabChange("thirdparty")}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-all text-left cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all text-left cursor-pointer ${
               activeTab === "thirdparty"
                 ? "bg-red-50 text-red-700 border-l-4 border-red-700"
                 : "text-slate-600 hover:bg-slate-100"
             }`}
           >
             <span className="flex items-center gap-2">
-              <Share2 className="w-4 h-4" /> Third-Party
+              <Share2 className="w-3.5 h-3.5" /> Third-Party Services
             </span>
           </button>
         </aside>
 
-        {/* 2. Main Content Area */}
-        <main className="md:col-span-7 p-4 md:p-12 overflow-y-auto">
-          <div className="max-w-3xl mx-auto space-y-8">
-            {renderPolicyComponent()}
-          </div>
+        {/* 2. Center Content Area (col-span-8 - Expanded Width) */}
+        <main className="col-span-1 md:col-span-8 p-6 md:p-12">
+          {renderPolicyComponent()}
         </main>
 
-        {/* 3. Right Highlights / Table of Contents Sidebar */}
-        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-6 space-y-1 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+        {/* 3. Right Sidebar (col-span-2) */}
+        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-4 space-y-2 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-4 px-2">
             Table of Contents
           </p>
-          {highlights.map((h) => (
-            <button
-              key={h.id}
-              onClick={() => scrollToSection(h.id)}
-              className={`w-full text-left px-2 py-1.5 rounded-md text-xs font-medium transition-all block truncate cursor-pointer ${
-                activeSection === h.id
-                  ? "text-red-700 font-bold bg-red-50"
-                  : "text-slate-500 hover:text-slate-800 hover:bg-slate-100"
-              }`}
-              title={h.label}
-            >
-              {h.label}
-            </button>
-          ))}
+          <div className="space-y-1">
+            {highlights.map((h) => (
+              <button
+                key={h.id}
+                onClick={() => scrollToSection(h.id)}
+                className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-all block truncate cursor-pointer ${
+                  activeSection === h.id
+                    ? "text-red-700 font-bold bg-red-50 border-l-2 border-red-700"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                }`}
+              >
+                {h.label}
+              </button>
+            ))}
+          </div>
         </aside>
 
       </div>

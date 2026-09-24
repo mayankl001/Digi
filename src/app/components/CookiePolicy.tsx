@@ -10,16 +10,16 @@ export const CookiePolicy: React.FC = () => {
           <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
             Cookie Policy
           </span>
-          <span className="text-xs text-slate-400">Last Updated: 11 August 2026</span>
+          <span className="text-xs text-slate-400">Last Updated: 21 September 2026</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
           COOKIE POLICY
         </h1>
         <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
-          This Cookie Policy explains how DigiSaloon ("DigiSaloon", "we", "us" or "our") may use cookies and similar technologies when you access or use our website and web-based services.
+          This Cookie Policy explains how DigiSaloon (“DigiSaloon”, “we”, “us”, or “our”) uses cookies and similar technologies on our website and related online services.
         </p>
         <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-          This Policy should be read together with DigiSaloon's Privacy Policy and Terms & Conditions.
+          By using the DigiSaloon website, you acknowledge the practices described in this Cookie Policy.
         </p>
       </div>
 
@@ -27,227 +27,229 @@ export const CookiePolicy: React.FC = () => {
       <div className="space-y-8 text-sm text-slate-600 leading-relaxed">
         
         <section id="cookie-1" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">1. What Are Cookies?</h2>
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">1. WHAT ARE COOKIES?</h2>
           <p>Cookies are small text files that may be stored on your device when you visit a website.</p>
-          <p>Cookies help websites perform essential functions, remember preferences, maintain user sessions and understand how users interact with online services.</p>
+          <p>Cookies help websites remember information about your visit, maintain functionality, improve user experience, and understand how the website is used.</p>
+          <p>DigiSaloon may also use technologies similar to cookies, such as local storage, pixels, SDKs, and device identifiers.</p>
         </section>
 
         <section id="cookie-2" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">2. Where We May Use Cookies</h2>
-          <p>DigiSaloon may use cookies and similar technologies on:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>DigiSaloon website</li>
-            <li>Partner Web App</li>
-            <li>Manage Web App</li>
-            <li>Other authorized DigiSaloon web services</li>
-          </ul>
-          <p>Mobile applications may use similar technologies such as local storage, SDKs and device identifiers where applicable.</p>
-        </section>
-
-        <section id="cookie-3" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">3. Why DigiSaloon Uses Cookies</h2>
-          <p>DigiSaloon may use cookies and similar technologies for purposes including:</p>
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">2. WHY DIGISALOON USES COOKIES</h2>
+          <p>DigiSaloon may use cookies and similar technologies to:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Authentication</li>
-            <li>Login and session management</li>
-            <li>Security</li>
-            <li>Website functionality</li>
-            <li>User preferences</li>
-            <li>Performance</li>
-            <li>Analytics</li>
-            <li>Service improvement</li>
+            <li>Keep the website functioning properly.</li>
+            <li>Maintain login and session information.</li>
+            <li>Remember user preferences.</li>
+            <li>Improve website performance.</li>
+            <li>Understand how visitors use the website.</li>
+            <li>Improve navigation and user experience.</li>
+            <li>Detect and prevent security issues.</li>
+            <li>Analyze website traffic and performance.</li>
+            <li>Support certain website features.</li>
           </ul>
         </section>
 
-        <section id="cookie-4" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">4. Essential Cookies</h2>
-          <p>Essential cookies may be necessary for the website or web application to function properly.</p>
-          <p>They may support:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Login</li>
-            <li>Authentication</li>
-            <li>Session management</li>
-            <li>Security</li>
-            <li>Access control</li>
-            <li>Basic application functionality</li>
-          </ul>
-          <p>If essential cookies are blocked, certain features may not work correctly.</p>
-        </section>
-
-        <section id="cookie-5" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">5. Authentication and Session Cookies</h2>
-          <p>DigiSaloon may use cookies to maintain an authenticated session after a user logs in.</p>
-          <p>These technologies may help ensure that users remain logged in while navigating between authorized pages.</p>
-          <p>They may also help prevent unauthorized access to protected areas.</p>
-        </section>
-
-        <section id="cookie-6" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">6. Security Cookies</h2>
-          <p>Cookies or similar technologies may be used to support security functions, including:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Detecting suspicious activity</li>
-            <li>Preventing unauthorized access</li>
-            <li>Protecting sessions</li>
-            <li>Supporting fraud prevention</li>
-            <li>Maintaining platform security</li>
-          </ul>
-        </section>
-
-        <section id="cookie-7" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">7. Preference Cookies</h2>
-          <p>Where applicable, DigiSaloon may use cookies to remember certain settings or preferences.</p>
-          <p>This can help improve the user's experience by reducing the need to repeatedly enter the same information.</p>
-        </section>
-
-        <section id="cookie-8" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">8. Analytics Technologies</h2>
-          <p>DigiSaloon may use analytics tools or similar technologies to understand how its website and services are used.</p>
-          <p>Analytics information may help us understand:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Website traffic</li>
-            <li>Frequently used features</li>
-            <li>General usage patterns</li>
-            <li>Technical performance</li>
-            <li>Errors</li>
-            <li>User experience</li>
-          </ul>
-          <p>Analytics providers may process information according to their own privacy policies.</p>
-        </section>
-
-        <section id="cookie-9" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">9. Performance and Technical Monitoring</h2>
-          <p>DigiSaloon may use technologies to monitor technical performance and identify problems such as:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Application errors</li>
-            <li>Slow-loading pages</li>
-            <li>Technical failures</li>
-            <li>Compatibility issues</li>
-          </ul>
-          <p>This information may be used to improve the reliability and performance of DigiSaloon services.</p>
-        </section>
-
-        <section id="cookie-10" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">10. Third-Party Services</h2>
-          <p>Some cookies or similar technologies may be provided by third-party services used by DigiSaloon.</p>
-          <p>These may include providers supporting:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Analytics</li>
-            <li>Security</li>
-            <li>Payments</li>
-            <li>Maps</li>
-            <li>Authentication</li>
-            <li>Communications</li>
-            <li>Hosting</li>
-            <li>Other website functionality</li>
-          </ul>
-          <p>Third-party providers may have their own privacy and cookie policies.</p>
-        </section>
-
-        <section id="cookie-11" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">11. Payment-Related Technologies</h2>
-          <p>When online payment functionality is used, third-party payment providers may use cookies or similar technologies as part of their payment and security processes.</p>
-          <p>Payment providers may process such information according to their applicable terms and privacy policies.</p>
-        </section>
-
-        <section id="cookie-12" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">12. Mobile Applications</h2>
-          <p>DigiSaloon mobile applications may not use traditional browser cookies in the same way as a website.</p>
-          <p>Instead, the applications may use similar technologies, including:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Local storage</li>
-            <li>Software development kits (SDKs)</li>
-            <li>Device identifiers</li>
-            <li>Authentication tokens</li>
-            <li>Application analytics technologies</li>
-          </ul>
-          <p>These technologies may be used for authentication, security, analytics, functionality and service improvement.</p>
-        </section>
-
-        <section id="cookie-13" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">13. Personal Information</h2>
-          <p>Some cookies or similar technologies may be associated with information that can identify or relate to a user.</p>
-          <p>Where this occurs, the information will be handled according to DigiSaloon's Privacy Policy and applicable requirements.</p>
-        </section>
-
-        <section id="cookie-14" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">14. Cookie Duration</h2>
-          <p>Cookies may generally be classified as:</p>
-          <div className="space-y-2 pt-1">
-            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-              <strong className="text-slate-900 block font-semibold">Session Cookies</strong>
-              <p className="text-xs">These are temporary cookies that may expire when the browsing session ends or the browser is closed.</p>
+        <section id="cookie-3" className="space-y-4 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">3. TYPES OF COOKIES WE MAY USE</h2>
+          
+          <div className="space-y-4 pt-2">
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">3.1 Essential Cookies</h3>
+              <p>These cookies are necessary for basic website functionality.</p>
+              <p>They may be used for:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Login sessions.</li>
+                <li>Authentication.</li>
+                <li>Security.</li>
+                <li>Session management.</li>
+                <li>Basic website functionality.</li>
+              </ul>
+              <p className="pt-2">Because these cookies may be necessary for the operation of the website, they may not always be disabled through the website.</p>
             </div>
-            <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-              <strong className="text-slate-900 block font-semibold">Persistent Cookies</strong>
-              <p className="text-xs">These may remain on the device for a defined period or until they are manually deleted. The duration depends on the purpose and configuration of the particular cookie or technology.</p>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">3.2 Functional Cookies</h3>
+              <p>Functional cookies help remember choices and preferences made by users.</p>
+              <p>For example, they may help remember:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Language preferences.</li>
+                <li>User preferences.</li>
+                <li>Certain interface settings.</li>
+                <li>Session-related information.</li>
+              </ul>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">3.3 Analytics Cookies</h3>
+              <p>DigiSaloon may use analytics technologies to understand how visitors interact with the website.</p>
+              <p>These technologies may help us understand:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Number of visitors.</li>
+                <li>Frequently visited pages.</li>
+                <li>Website performance.</li>
+                <li>General user interaction.</li>
+                <li>Technical errors.</li>
+              </ul>
+              <p className="pt-2">Analytics information may be aggregated or otherwise processed to improve our services.</p>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">3.4 Security Cookies</h3>
+              <p>Security-related cookies and similar technologies may be used to:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Detect suspicious activity.</li>
+                <li>Protect user accounts.</li>
+                <li>Prevent fraudulent activity.</li>
+                <li>Maintain platform security.</li>
+              </ul>
             </div>
           </div>
         </section>
 
+        <section id="cookie-4" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">4. THIRD-PARTY SERVICES</h2>
+          <p>DigiSaloon may use third-party services that may place or access cookies or similar technologies.</p>
+          <p>These services may include:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Google services.</li>
+            <li>Firebase.</li>
+            <li>Analytics providers.</li>
+            <li>Payment-related services.</li>
+            <li>Security services.</li>
+            <li>Other technology providers integrated into DigiSaloon.</li>
+          </ul>
+          <p className="pt-2">Third-party providers may have their own privacy and cookie policies.</p>
+          <p>DigiSaloon does not control the cookie practices of independent third-party providers.</p>
+        </section>
+
+        <section id="cookie-5" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">5. PAYMENT SERVICES</h2>
+          <p>DigiSaloon may use third-party payment providers such as Razorpay for processing online booking payments.</p>
+          <p>Payment providers may use cookies or similar technologies for purposes such as:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Payment processing.</li>
+            <li>Fraud prevention.</li>
+            <li>Security.</li>
+            <li>Transaction verification.</li>
+          </ul>
+          <p className="pt-2">Payment processing is subject to the applicable payment provider's terms and policies.</p>
+        </section>
+
+        <section id="cookie-6" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">6. MOBILE APPLICATIONS</h2>
+          <p>The DigiSaloon mobile application may use technologies similar to cookies, including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>SDKs.</li>
+            <li>Local storage.</li>
+            <li>Device identifiers.</li>
+            <li>Session identifiers.</li>
+            <li>Analytics technologies.</li>
+          </ul>
+          <p className="pt-2">These technologies may be used for authentication, functionality, security, analytics, and improving the application.</p>
+        </section>
+
+        <section id="cookie-7" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">7. LOCATION-RELATED TECHNOLOGIES</h2>
+          <p>DigiSaloon may use location-related technologies when the user provides the required device permission.</p>
+          <p>Location information may be used to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Find nearby salons.</li>
+            <li>Display relevant salon listings.</li>
+            <li>Provide location-based features.</li>
+            <li>Improve the user experience.</li>
+          </ul>
+          <p className="pt-2">Location permissions can be controlled through the device settings.</p>
+        </section>
+
+        <section id="cookie-8" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">8. HOW LONG COOKIES REMAIN</h2>
+          <p>Cookies may be either:</p>
+          <p><strong>Session Cookies:</strong> These are generally deleted when the browser session ends.</p>
+          <p><strong>Persistent Cookies:</strong> These may remain on your device for a defined period or until they are manually deleted.</p>
+          <p>The retention period depends on the purpose of the cookie and the technology being used.</p>
+        </section>
+
+        <section id="cookie-9" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">9. MANAGING COOKIES</h2>
+          <p>You may control or delete cookies through your browser settings.</p>
+          <p>Most browsers allow you to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>View stored cookies.</li>
+            <li>Delete cookies.</li>
+            <li>Block cookies.</li>
+            <li>Allow cookies only from selected websites.</li>
+            <li>Receive notifications before cookies are stored.</li>
+          </ul>
+          <p className="pt-2">Disabling certain cookies may affect the functionality or performance of the DigiSaloon website.</p>
+        </section>
+
+        <section id="cookie-10" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">10. DO-NOT-TRACK SIGNALS</h2>
+          <p>Some browsers and devices provide “Do Not Track” or similar privacy settings.</p>
+          <p>Because there is no universally accepted technical standard for responding to all such signals, DigiSaloon may not respond to every browser or device signal in the same manner.</p>
+        </section>
+
+        <section id="cookie-11" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">11. INFORMATION COLLECTED THROUGH COOKIES</h2>
+          <p>Depending on the technology used, information collected may include:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>IP address.</li>
+            <li>Browser type.</li>
+            <li>Device type.</li>
+            <li>Operating system.</li>
+            <li>Pages visited.</li>
+            <li>Approximate visit time.</li>
+            <li>Session information.</li>
+            <li>Website interaction information.</li>
+            <li>Technical information.</li>
+          </ul>
+          <p className="pt-2">Cookies generally do not directly identify you by name unless the information is associated with information you have provided to DigiSaloon.</p>
+        </section>
+
+        <section id="cookie-12" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">12. COOKIE SECURITY</h2>
+          <p>DigiSaloon takes reasonable measures to protect information collected through cookies and similar technologies.</p>
+          <p>However, no internet-based technology can guarantee complete security.</p>
+          <p>Users should also take reasonable steps to protect their devices, browsers, and account credentials.</p>
+        </section>
+
+        <section id="cookie-13" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">13. PRIVACY POLICY</h2>
+          <p>Cookies and similar technologies may collect or process information that is also covered by the DigiSaloon Privacy Policy.</p>
+          <p>For more information about how DigiSaloon collects, uses, stores, and protects personal information, please refer to our Privacy Policy.</p>
+        </section>
+
+        <section id="cookie-14" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">14. CHANGES TO THIS COOKIE POLICY</h2>
+          <p>DigiSaloon may update this Cookie Policy from time to time.</p>
+          <p>Any updated version will be published on the DigiSaloon platform with a revised “Last Updated” date.</p>
+          <p>Users are encouraged to review this page periodically.</p>
+        </section>
+
         <section id="cookie-15" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">15. Managing Cookies</h2>
-          <p>Most modern browsers allow users to manage cookie settings.</p>
-          <p>Depending on the browser, users may be able to:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>View cookies</li>
-            <li>Delete cookies</li>
-            <li>Block cookies</li>
-            <li>Allow only certain cookies</li>
-            <li>Disable third-party cookies</li>
-            <li>Clear stored website data</li>
-          </ul>
-          <p>Users should refer to their browser's settings or help documentation for specific instructions.</p>
-        </section>
-
-        <section id="cookie-16" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">16. Effect of Disabling Cookies</h2>
-          <p>Disabling certain cookies may affect the functionality of DigiSaloon's website or web applications.</p>
-          <p>For example, disabling essential cookies may prevent:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Login</li>
-            <li>Authentication</li>
-            <li>Session management</li>
-            <li>Certain secure features</li>
-          </ul>
-          <p>from working correctly.</p>
-        </section>
-
-        <section id="cookie-17" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">17. Do Not Track Signals</h2>
-          <p>Browser "Do Not Track" settings may not always be supported or recognized by all technologies used by DigiSaloon or its third-party service providers.</p>
-          <p>Where applicable, DigiSaloon will handle such settings according to available technical functionality and applicable requirements.</p>
-        </section>
-
-        <section id="cookie-18" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">18. Changes to Cookies</h2>
-          <p>DigiSaloon may introduce, remove or modify cookies and similar technologies as its services develop.</p>
-          <p>The types and purposes of technologies used may therefore change over time.</p>
-        </section>
-
-        <section id="cookie-19" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">19. Changes to This Cookie Policy</h2>
-          <p>DigiSaloon may update this Cookie Policy to reflect changes in:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Website functionality</li>
-            <li>Web applications</li>
-            <li>Mobile applications</li>
-            <li>Analytics tools</li>
-            <li>Third-party services</li>
-            <li>Security technologies</li>
-            <li>Applicable legal requirements</li>
-          </ul>
-          <p>The updated version may be published on the DigiSaloon website.</p>
-        </section>
-
-        <section id="cookie-20" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">20. Contact Us</h2>
-          <p>If you have questions regarding this Cookie Policy or DigiSaloon's use of cookies and similar technologies, contact:</p>
-          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-2 text-xs md:text-sm">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">15. CONTACT US</h2>
+          <p>If you have questions or concerns about this Cookie Policy, contact:</p>
+          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-3 text-xs md:text-sm">
             <p className="font-bold text-white text-base">DigiSaloon</p>
-            <p><strong>Email:</strong> support@digisaloon.in</p>
-            <p><strong>Phone:</strong> 9973499471</p>
-            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand – 835103</p>
-            <p><strong>Website:</strong> digisaloon.in</p>
+            <p>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline">
+                support@digisaloon.in
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{" "}
+              <a href="tel:9973499471" className="text-red-400 hover:underline">
+                9973499471
+              </a>
+            </p>
+            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>
+            <p>
+              <strong>Website:</strong>{" "}
+              <a href="https://digisaloon.in" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:underline">
+                digisaloon.in
+              </a>
+            </p>
           </div>
         </section>
 

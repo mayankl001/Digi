@@ -8,216 +8,350 @@ export const GrievancePolicy: React.FC = () => {
       <div className="border-b border-slate-200 pb-6 space-y-3">
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-bold text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full uppercase tracking-widest">
-            Support Policy
+            Grievance Redressal & Contact Policy
           </span>
-          <span className="text-xs text-slate-400">Last Updated: 11 August 2026</span>
+          <span className="text-xs text-slate-400">Last Updated: 21 September 2026</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
           GRIEVANCE REDRESSAL & CONTACT POLICY
         </h1>
         <p className="text-sm md:text-base text-slate-600 leading-relaxed pt-2">
-          DigiSaloon is committed to providing a clear channel for customers, salon partners and authorized users to raise questions, complaints and service-related concerns.
+          This Grievance Redressal & Contact Policy explains how customers, salon partners, and other users can contact DigiSaloon, submit complaints or grievances, and seek assistance regarding the DigiSaloon platform and its services.
         </p>
       </div>
 
       {/* Sections with IDs for ScrollSpy */}
       <div className="space-y-8 text-sm text-slate-600 leading-relaxed">
         
-        <section id="g-1" className="space-y-3 scroll-mt-24">
+        <section id="grievance-1" className="space-y-3 scroll-mt-24">
           <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">1. Purpose</h2>
-          <p>This Policy explains how users can contact DigiSaloon and how complaints may be submitted and reviewed.</p>
+          <p>DigiSaloon aims to provide a transparent and accessible process for receiving and addressing user complaints, concerns, and grievances.</p>
+          <p>This policy provides a dedicated channel through which users can report issues relating to:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Account and profile</li>
+            <li>Salon listings</li>
+            <li>Bookings</li>
+            <li>Payments</li>
+            <li>Refunds</li>
+            <li>Cancellations</li>
+            <li>Reviews and ratings</li>
+            <li>Content</li>
+            <li>Privacy</li>
+            <li>Security</li>
+            <li>Technical problems</li>
+            <li>Salon partner issues</li>
+            <li>Other DigiSaloon platform-related matters</li>
+          </ul>
         </section>
 
-        <section id="g-2" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">2. Who Can Contact DigiSaloon</h2>
-          <p>Support may be requested by:</p>
+        <section id="grievance-2" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">2. Who Can Raise a Grievance</h2>
+          <p>A grievance may be submitted by:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
             <li>Customers</li>
             <li>Salon partners</li>
-            <li>Authorized salon owners</li>
-            <li>Authorized salon staff or barbers</li>
-            <li>Other authorized DigiSaloon users</li>
+            <li>Authorized representatives</li>
+            <li>Other users of DigiSaloon</li>
           </ul>
+          <p className="pt-2">A user may contact DigiSaloon regarding an issue connected with the platform, a booking, transaction, account, or other DigiSaloon-related service.</p>
         </section>
 
-        <section id="g-3" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">3. Types of Complaints</h2>
-          <p>Users may contact DigiSaloon regarding:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Booking issues</li>
-            <li>Appointment issues</li>
-            <li>Cancellation</li>
-            <li>Refunds</li>
-            <li>Payment issues</li>
-            <li>Salon cancellation</li>
-            <li>Incorrect booking status</li>
-            <li>Account problems</li>
-            <li>Technical issues</li>
-            <li>Reviews and ratings</li>
-            <li>Partner-related concerns</li>
-            <li>Security concerns</li>
-            <li>Privacy-related concerns</li>
-            <li>Other DigiSaloon service issues</li>
-          </ul>
-        </section>
-
-        <section id="g-4" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">4. How to Contact DigiSaloon</h2>
-          <p>Users may contact DigiSaloon through the available support channels.</p>
-          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-2 text-xs md:text-sm">
-            <p className="font-bold text-white text-base">DigiSaloon Support Channels</p>
-            <p><strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline font-mono">support@digisaloon.in</a></p>
-            <p><strong>Phone:</strong> 9973499471</p>
-            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand – 835103</p>
-            <p><strong>Website:</strong> digisaloon.in</p>
+        <section id="grievance-3" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">3. How to Contact DigiSaloon</h2>
+          <p>Users can submit their grievance or request assistance through the following contact details:</p>
+          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-3 text-xs md:text-sm">
+            <p className="font-bold text-white text-base">DigiSaloon</p>
+            <p>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline">
+                support@digisaloon.in
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{" "}
+              <a href="tel:9973499471" className="text-red-400 hover:underline">
+                9973499471
+              </a>
+            </p>
+            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>
           </div>
+          <p className="pt-2">For faster resolution, users should provide sufficient information about the issue.</p>
         </section>
 
-        <section id="g-5" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">5. Information to Include</h2>
-          <p>To help DigiSaloon investigate a complaint, users should provide relevant information such as:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-3">
-            <li>Name</li>
-            <li>Registered mobile number or email</li>
+        <section id="grievance-4" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">4. Information to Include in a Complaint</h2>
+          <p>Where applicable, users should provide:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Full name</li>
+            <li>Registered mobile number or email address</li>
             <li>Booking ID</li>
             <li>Salon name</li>
-            <li>Appointment date and time</li>
-            <li>Transaction/reference ID</li>
+            <li>Date and time of booking</li>
+            <li>Payment or transaction ID</li>
             <li>Description of the issue</li>
-            <li>Relevant screenshots or documents, where appropriate</li>
+            <li>Relevant screenshots or supporting documents</li>
+            <li>Any other information that may help DigiSaloon investigate the matter</li>
           </ul>
-          <div className="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-900 font-mono space-y-1">
-            <p className="font-bold">Users should never send:</p>
-            <p>Passwords, OTPs, UPI PINs, Card PINs, Banking passwords, or other confidential authentication credentials.</p>
+          <p className="pt-2">Users should avoid sending unnecessary sensitive personal or financial information.</p>
+        </section>
+
+        <section id="grievance-5" className="space-y-4 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">5. Types of Grievances</h2>
+          <p>DigiSaloon may receive grievances relating to:</p>
+          
+          <div className="space-y-4 pt-2">
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">A. Booking Issues</h3>
+              <p>Examples include:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Booking not confirmed</li>
+                <li>Incorrect booking information</li>
+                <li>Booking status issues</li>
+                <li>Appointment availability issues</li>
+                <li>Technical booking problems</li>
+              </ul>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">B. Cancellation and Refund Issues</h3>
+              <p>Examples include:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Eligible refund not received</li>
+                <li>Incorrect refund amount</li>
+                <li>Cancellation-related concerns</li>
+                <li>Refund processing delays</li>
+              </ul>
+              <p className="pt-2">Refund matters will be handled according to the DigiSaloon Cancellation & Refund Policy.</p>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">C. Payment Issues</h3>
+              <p>Examples include:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Failed payment</li>
+                <li>Duplicate payment</li>
+                <li>Payment deducted but booking not confirmed</li>
+                <li>Incorrect transaction status</li>
+                <li>Payment gateway-related issues</li>
+              </ul>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">D. Salon-Related Issues</h3>
+              <p>Users may report concerns regarding:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Salon information</li>
+                <li>Service information</li>
+                <li>Booking acceptance</li>
+                <li>Salon cancellation</li>
+                <li>Staff behaviour</li>
+                <li>Service-related concerns</li>
+              </ul>
+              <p className="pt-2">Where an issue relates directly to an independent salon's service, DigiSaloon may coordinate with the concerned salon where appropriate.</p>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">E. Content and Review Issues</h3>
+              <p>Users may report:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Fake reviews</li>
+                <li>Misleading information</li>
+                <li>Inappropriate content</li>
+                <li>Copyright concerns</li>
+                <li>Privacy concerns</li>
+                <li>Harassment or abusive content</li>
+              </ul>
+              <p className="pt-2">Such complaints may be reviewed under DigiSaloon's Content Policy & Community Guidelines.</p>
+            </div>
+
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 space-y-2">
+              <h3 className="font-bold text-slate-900 text-sm">F. Privacy and Security Issues</h3>
+              <p>Users may report concerns involving:</p>
+              <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+                <li>Unauthorized account access</li>
+                <li>Privacy concerns</li>
+                <li>Suspicious activity</li>
+                <li>Security incidents</li>
+                <li>Improper use of personal information</li>
+              </ul>
+              <p className="pt-2">Security-related reports should be submitted as soon as reasonably possible.</p>
+            </div>
           </div>
         </section>
 
-        <section id="g-6" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">6. Complaint Review</h2>
-          <p>DigiSaloon may review the information provided and may request additional information where reasonably necessary.</p>
-          <p>Depending on the issue, DigiSaloon may communicate with:</p>
+        <section id="grievance-6" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">6. Complaint Acknowledgement</h2>
+          <p>DigiSaloon may acknowledge receipt of a grievance after it has been received through an appropriate communication channel.</p>
+          <p>The acknowledgement may include, where appropriate:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Customer</li>
-            <li>Salon partner</li>
-            <li>Authorized salon staff</li>
-            <li>Payment provider</li>
-            <li>Technical service provider</li>
-            <li>Other relevant third party</li>
+            <li>Complaint reference number</li>
+            <li>Summary of the reported issue</li>
+            <li>Information required from the user</li>
+            <li>Expected next steps</li>
           </ul>
         </section>
 
-        <section id="g-7" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">7. Booking Complaints</h2>
-          <p>For booking-related complaints, DigiSaloon may review available records, including:</p>
+        <section id="grievance-7" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">7. Review and Investigation</h2>
+          <p>DigiSaloon may review the complaint using information available through its systems and relevant third-party service providers.</p>
+          <p>Depending on the nature of the grievance, DigiSaloon may review:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Booking status</li>
-            <li>Appointment information</li>
-            <li>Cancellation records</li>
-            <li>Payment status</li>
-            <li>Relevant system records</li>
+            <li>Booking records</li>
+            <li>Payment records</li>
+            <li>Transaction information</li>
+            <li>Account information</li>
+            <li>Communication records</li>
+            <li>Review or content information</li>
+            <li>Technical logs</li>
+            <li>Salon partner information</li>
           </ul>
+          <p className="pt-2">DigiSaloon may contact the concerned customer, salon partner, payment provider, or other relevant party where reasonably necessary.</p>
         </section>
 
-        <section id="g-8" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">8. Payment and Refund Complaints</h2>
-          <p>For payment or refund complaints, DigiSaloon may need to verify the transaction with the applicable payment provider.</p>
-          <p>Resolution may depend on payment providers, banks, UPI systems, card networks or other financial institutions.</p>
+        <section id="grievance-8" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">8. Resolution</h2>
+          <p>DigiSaloon will make reasonable efforts to review and resolve valid grievances in a fair and appropriate manner.</p>
+          <p>The resolution may include:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Providing information or clarification</li>
+            <li>Correcting account or booking information</li>
+            <li>Assisting with an eligible refund</li>
+            <li>Correcting a technical issue</li>
+            <li>Reviewing or removing policy-violating content</li>
+            <li>Coordinating with a salon partner</li>
+            <li>Taking appropriate action under DigiSaloon policies</li>
+          </ul>
+          <p className="pt-2">The resolution will depend on the nature and circumstances of the complaint.</p>
         </section>
 
-        <section id="g-9" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">9. Salon Service Complaints</h2>
-          <p>The salon is responsible for the actual salon service provided to the customer.</p>
-          <p>DigiSaloon may review complaints regarding salon services and may take appropriate platform-level action where reasonably necessary.</p>
-        </section>
-
-        <section id="g-10" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">10. Partner Complaints</h2>
+        <section id="grievance-9" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">9. Salon Partner Grievances</h2>
           <p>Salon partners may contact DigiSaloon regarding:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
-            <li>Booking problems</li>
-            <li>Settlement issues</li>
+            <li>Booking settlements</li>
             <li>Payment issues</li>
-            <li>Partner account problems</li>
-            <li>Technical issues</li>
             <li>Customer disputes</li>
-            <li>Staff access</li>
-            <li>Other partner-related matters</li>
+            <li>Account issues</li>
+            <li>Salon profile information</li>
+            <li>Service listings</li>
+            <li>Technical problems</li>
+            <li>Platform-related concerns</li>
           </ul>
+          <p className="pt-2">Salon partners should provide the relevant booking, transaction, or account information to help DigiSaloon investigate the matter.</p>
         </section>
 
-        <section id="g-11" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">11. Privacy and Data Complaints</h2>
-          <p>Privacy-related concerns may be submitted through: <a href="mailto:support@digisaloon.in" className="text-red-700 font-mono hover:underline">support@digisaloon.in</a></p>
-          <p>DigiSaloon may request reasonable information to verify the identity of the person making the request before providing account-specific information.</p>
+        <section id="grievance-10" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">10. Customer Grievances Regarding Salon Services</h2>
+          <p>DigiSaloon provides a platform for booking services offered by participating salons.</p>
+          <p>Where a complaint concerns the actual salon service, DigiSaloon may communicate with the concerned salon and assist in facilitating communication.</p>
+          <p>However, the salon remains responsible for the services it independently provides to customers.</p>
         </section>
 
-        <section id="g-12" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">12. Security Reports</h2>
-          <p>Users should promptly report suspected unauthorized access, fraud, suspicious transactions, security vulnerabilities, or misuse of account information to DigiSaloon.</p>
-          <p className="text-xs font-semibold text-slate-900">Users should not attempt to exploit or disrupt a suspected security vulnerability.</p>
+        <section id="grievance-11" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">11. Privacy of Complaints</h2>
+          <p>DigiSaloon may process information provided in a grievance for purposes including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Investigating the complaint</li>
+            <li>Communicating with the user</li>
+            <li>Resolving the issue</li>
+            <li>Preventing fraud or abuse</li>
+            <li>Improving platform services</li>
+            <li>Maintaining records</li>
+            <li>Complying with applicable legal requirements</li>
+          </ul>
+          <p className="pt-2">Personal information will be handled according to the DigiSaloon Privacy Policy.</p>
         </section>
 
-        <section id="g-13" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">13. Response and Resolution</h2>
-          <p>DigiSaloon aims to review support requests within a reasonable period.</p>
-          <p>The actual resolution time may vary depending on:</p>
+        <section id="grievance-12" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">12. Supporting Documents</h2>
+          <p>DigiSaloon may request additional information or documents where necessary to verify a complaint.</p>
+          <p>Users should provide genuine and accurate information.</p>
+          <p>Providing false information or submitting fraudulent complaints may result in appropriate action under applicable DigiSaloon policies.</p>
+        </section>
+
+        <section id="grievance-13" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">13. Urgent Security Concerns</h2>
+          <p>Users who identify a suspected security vulnerability, unauthorized access, or other serious security concern should contact DigiSaloon as soon as possible.</p>
+          <p>Users should provide sufficient details to allow DigiSaloon to understand and investigate the reported issue.</p>
+          <p>Users should not attempt to exploit, access, damage, or disrupt DigiSaloon systems while reporting a security issue.</p>
+        </section>
+
+        <section id="grievance-14" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">14. Escalation</h2>
+          <p>If a user is not satisfied with the initial response, the user may reply to the communication received from DigiSaloon or contact support again with the relevant complaint reference or previous communication details.</p>
+          <p>DigiSaloon may review the matter further based on the information provided.</p>
+        </section>
+
+        <section id="grievance-15" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">15. Response Time</h2>
+          <p>DigiSaloon aims to acknowledge and address grievances within a reasonable period.</p>
+          <p>Actual resolution time may vary depending on:</p>
           <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
             <li>Complexity of the complaint</li>
-            <li>Information available</li>
-            <li>Need for additional verification</li>
-            <li>Third-party service providers</li>
-            <li>Payment or banking processes</li>
+            <li>Information required</li>
+            <li>Payment gateway or banking verification</li>
+            <li>Salon partner response</li>
             <li>Technical investigation</li>
-            <li>Other relevant circumstances</li>
+            <li>Third-party service providers</li>
+            <li>Legal or regulatory requirements</li>
           </ul>
+          <p className="pt-2">Some matters may therefore require additional time to resolve.</p>
         </section>
 
-        <section id="g-14" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">14. Escalation</h2>
-          <p>If a complaint cannot be resolved through normal support, DigiSaloon may escalate the matter internally for further review.</p>
-          <p>Users may provide additional information if they believe the initial response does not fully address their concern.</p>
+        <section id="grievance-16" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">16. Fraudulent or Abusive Complaints</h2>
+          <p>DigiSaloon may take appropriate action against accounts that repeatedly submit knowingly false, fraudulent, threatening, or abusive complaints.</p>
+          <p>This does not prevent users from making genuine complaints or reporting legitimate concerns.</p>
         </section>
 
-        <section id="g-15" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">15. Abusive Support Requests</h2>
-          <p>Support channels must not be used for:</p>
-          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm mb-2">
-            <li>Threats</li>
-            <li>Harassment</li>
-            <li>Spam</li>
-            <li>Fraudulent claims</li>
-            <li>Impersonation</li>
-            <li>Repeated abusive communications</li>
+        <section id="grievance-17" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">17. Legal and Regulatory Matters</h2>
+          <p>Where a grievance involves a legal, regulatory, court, law-enforcement, or government matter, DigiSaloon may handle the matter in accordance with applicable laws and lawful requirements.</p>
+          <p>DigiSaloon may provide information to authorized authorities where legally required.</p>
+        </section>
+
+        <section id="grievance-18" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">18. Policy Relationship</h2>
+          <p>This Grievance Redressal & Contact Policy should be read together with other applicable DigiSaloon policies, including:</p>
+          <ul className="list-disc pl-5 space-y-1 text-xs md:text-sm">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+            <li>Cancellation & Refund Policy</li>
+            <li>Payment & Settlement Policy</li>
+            <li>Cookie Policy</li>
+            <li>Content Policy & Community Guidelines</li>
+            <li>Security Policy</li>
+            <li>Legal Disclaimer</li>
           </ul>
-          <p>DigiSaloon may restrict abusive communications while continuing to address legitimate concerns.</p>
+          <p className="pt-2">If a specific policy provides a dedicated process for a particular matter, that process may also apply.</p>
         </section>
 
-        <section id="g-16" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">16. Third-Party Issues</h2>
-          <p>Where a complaint relates primarily to a third-party provider, DigiSaloon may assist with verification or coordination where reasonably possible.</p>
-          <p>However, DigiSaloon cannot guarantee the actions or timelines of independent third-party providers.</p>
+        <section id="grievance-19" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">19. Changes to This Policy</h2>
+          <p>DigiSaloon may update this Grievance Redressal & Contact Policy from time to time to reflect changes in its services, support processes, business operations, or applicable legal requirements.</p>
+          <p>The updated version will be published on the DigiSaloon website or application with the revised effective date.</p>
         </section>
 
-        <section id="g-17" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">17. No Waiver of Legal Rights</h2>
-          <p>Using DigiSaloon's internal complaint process does not remove or limit any rights or remedies available under applicable law.</p>
-        </section>
-
-        <section id="g-18" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">18. Policy Updates</h2>
-          <p>DigiSaloon may update this Policy to reflect changes in its support procedures, services, technology or applicable requirements.</p>
-          <p>The latest version may be published on the DigiSaloon website.</p>
-        </section>
-
-        <section id="g-19" className="space-y-3 scroll-mt-24">
-          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">19. Contact</h2>
-          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-2 text-xs md:text-sm">
+        <section id="grievance-20" className="space-y-3 scroll-mt-24">
+          <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">20. Contact Details</h2>
+          <p>For all general support, complaints, and grievances:</p>
+          <div className="bg-slate-900 text-slate-200 p-5 rounded-xl space-y-3 text-xs md:text-sm">
             <p className="font-bold text-white text-base">DigiSaloon</p>
-            <p><strong>Email:</strong> support@digisaloon.in</p>
-            <p><strong>Phone:</strong> 9973499471</p>
-            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand – 835103</p>
-            <p><strong>Website:</strong> digisaloon.in</p>
+            <p>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:support@digisaloon.in" className="text-red-400 hover:underline">
+                support@digisaloon.in
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{" "}
+              <a href="tel:9973499471" className="text-red-400 hover:underline">
+                9973499471
+              </a>
+            </p>
+            <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>
           </div>
+          <p className="pt-2">Users are encouraged to contact DigiSaloon with complete and accurate information so that their concerns can be reviewed efficiently.</p>
         </section>
 
       </div>
