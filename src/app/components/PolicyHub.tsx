@@ -63,7 +63,7 @@ export function PolicyHub() {
         
         case "privacy":
     return Array.from({ length: 25 }, (_, i) => ({
-      id: `sec-pp-${i + 1}`,
+      id: `privacy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About DigiSaloon","Information We Collect","Booking Payment Information","Device and Technical Information","How We Use Your Information","Communications","Sharing of Information",
@@ -76,7 +76,7 @@ export function PolicyHub() {
       
         case "terms":
     return Array.from({ length: 27 }, (_, i) => ({
-      id: `sec-tc-${i + 1}`,
+      id: `terms-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About DigiSaloon","Eligibility","User Account","Salon Information","Bookings","Booking Payment","Remaining Service Payment","Payment Gateway","Payment Confirmation",
@@ -89,7 +89,7 @@ export function PolicyHub() {
       
         case "cookie":
     return Array.from({ length: 15 }, (_, i) => ({
-      id: `sec-cookie-${i + 1}`,
+      id: `cookie-${i + 1}`,
       label: `${i + 1}. ${
         [
           "What Are Cookies?","Why DigiSaloon Uses Cookies","Types of Cookies We May Use","Third-Party Services",
@@ -101,7 +101,7 @@ export function PolicyHub() {
      
         case "cancellation":
     return Array.from({ length: 16 }, (_, i) => ({
-      id: `sec-cr-${i + 1}`,
+      id: `cancel-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Overview","Live Booking Cancellation","Schedule Booking Cancellation","Cancellation Less Than 1 Hour Before Appointment",
@@ -113,7 +113,7 @@ export function PolicyHub() {
       
         case "payment":
     return Array.from({ length: 27 }, (_, i) => ({
-      id: `sec-ps-${i + 1}`,
+      id: `pay-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Overview","Booking Payment","Payment Calculation Example","Payment Gateway","Payment Confirmation","Salon Booking Amount","Salon Settlement",
@@ -127,7 +127,7 @@ export function PolicyHub() {
       
         case "content":
     return Array.from({ length: 24 }, (_, i) => ({
-      id: `sec-cp-${i + 1}`,
+      id: `content-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Scope","General Content Standards","Reviews and Ratings","Honest and Relevant Reviews","Prohibited Content","Harassment and Abuse","Hate and Discrimination",
@@ -140,7 +140,7 @@ export function PolicyHub() {
       
         case "disclaimer":
     return Array.from({ length: 23 }, (_, i) => ({
-      id: `sec-ld-${i + 1}`,
+      id: `disclaimer-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About DigiSaloon","Independent Salon Partners","Service Information","No Guarantee of Service Availability","Booking Platform","Payment Disclaimer",
@@ -153,7 +153,7 @@ export function PolicyHub() {
       
         case "grievance":
     return Array.from({ length: 20 }, (_, i) => ({
-      id: `sec-gr-${i + 1}`,
+      id: `grievance-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Who Can Raise a Grievance","How to Contact DigiSaloon","Information to Include in a Complaint",
@@ -166,7 +166,7 @@ export function PolicyHub() {
       
         case "booking":
     return Array.from({ length: 28 }, (_, i) => ({
-      id: `sec-ba-${i + 1}`,
+      id: `booking-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About DigiSaloon Bookings","Eligibility to Make a Booking","Selecting a Salon and Service","Live Booking","Schedule Booking","Booking Payment",
@@ -180,7 +180,7 @@ export function PolicyHub() {
       
         case "review":
     return Array.from({ length: 27 }, (_, i) => ({
-      id: `sec-rr-${i + 1}`,
+      id: `review-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Who Can Submit a Review or Rating","Genuine Experience Requirement","Honest and Accurate Reviews","Ratings",
@@ -194,7 +194,7 @@ export function PolicyHub() {
       
         case "offers":
     return Array.from({ length: 32 }, (_, i) => ({
-      id: `sec-oc-${i + 1}`,
+      id: `offer-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About Offers and Coupons","Eligibility","Coupon Validity","Coupon Application","One Coupon Per Booking","Minimum Booking Value",
@@ -209,7 +209,7 @@ export function PolicyHub() {
       
         case "user":
     return Array.from({ length: 36 }, (_, i) => ({
-      id: `sec-uad-${i + 1}`,
+      id: `account-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About User Accounts","User Eligibility","Account Information","Accuracy of Information","Account Security","Unauthorized Account Access","Account Usage","Duplicate or Multiple Accounts",
@@ -225,7 +225,7 @@ export function PolicyHub() {
       
         case "location":
     return Array.from({ length: 28 }, (_, i) => ({
-      id: `sec-ln-${i + 1}`,
+      id: `loc-notif-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose of This Policy","Location Permission","How DigiSaloon May Use Location Information","User-Controlled Location Access","Manual Location Selection",
@@ -240,7 +240,7 @@ export function PolicyHub() {
       
         case "acceptable":
     return Array.from({ length: 38 }, (_, i) => ({
-      id: `sec-au-${i + 1}`,
+      id: `acc-use-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose of This Policy","Appropriate Use of DigiSaloon","Customer Responsibilities","Respectful Conduct","Prohibited Booking Activities","Live Bookings",
@@ -256,7 +256,7 @@ export function PolicyHub() {
       
         case "partner":
     return Array.from({ length: 56 }, (_, i) => ({
-      id: `sec-spt-${i + 1}`,
+      id: `partner-terms-${i + 1}`,
       label: `${i + 1}. ${
         [
           "About DigiSaloon","Partner Eligibility","Partner Account",
@@ -275,7 +275,7 @@ export function PolicyHub() {
       
         case "onboarding":
     return Array.from({ length: 42 }, (_, i) => ({
-      id: `sec-pov-${i + 1}`,
+      id: `onboarding-policy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose of Partner Onboarding","Who Can Apply","Partner Application","Accurate Information Requirement",
@@ -306,7 +306,7 @@ export function PolicyHub() {
         
         case "partnerpayout":
     return Array.from({ length: 33 }, (_, i) => ({
-      id: `sec-pp-${i + 1}`,
+      id: `payout-terms-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Current Booking Payment Model","Partner Payout Calculation","Service Amount Paid Directly to Salon",
@@ -322,7 +322,7 @@ export function PolicyHub() {
       
         case "staff":
     return Array.from({ length: 42 }, (_, i) => ({
-      id: `sec-bs-${i + 1}`,
+      id: `staff-policy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Who This Policy Applies To","Manage Web","Partner Responsibility","Staff Account Access","Staff Role and Permissions",
@@ -338,7 +338,7 @@ export function PolicyHub() {
       
         case "adminsecurity":
     return Array.from({ length: 47 }, (_, i) => ({
-      id: `sec-as-${i + 1}`,
+      id: `admin-policy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Scope","Authorized Access Only","Admin Account","Role-Based Access Control","Principle of Least Privilege",
@@ -356,7 +356,7 @@ export function PolicyHub() {
       
         case "dataprotection":
     return Array.from({ length: 43 }, (_, i) => ({
-      id: `sec-dp-${i + 1}`,
+      id: `data-policy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Scope","Types of Information",
@@ -372,7 +372,7 @@ export function PolicyHub() {
     }));
         case "incidentresponse":
     return Array.from({ length: 47 }, (_, i) => ({
-      id: `incidentresponse-${i + 1}`,
+      id: `sec-policy-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Scope","Security Principles","Access Control","Administrative Access","Account Security","Authentication",
@@ -389,7 +389,7 @@ export function PolicyHub() {
         
      case "thirdparty":
     return Array.from({ length: 43 }, (_, i) => ({
-      id: `sec-gp-${i + 1}`,
+      id: `sec-tp-${i + 1}`,
       label: `${i + 1}. ${
         [
           "Purpose","Scope","Third-Party Service Providers","Payment Provider","Customer Booking Payment","Payment Example",
