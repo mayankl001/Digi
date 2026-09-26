@@ -291,21 +291,18 @@ export function PolicyHub() {
       }`
     }));
       
-      case "partnerservice":
-        return Array.from({ length: 28 }, (_, i) => ({
-          id: `ps-${i + 1}`,
-          label: `${i + 1}. ${
-            [
-              "Purpose", "Service Listing", "Service Accuracy", "Pricing",
-              "Price Changes", "Additional Charges", "Service Availability", "Operating Hours",
-              "Appointment Acceptance", "Partner Cancellation", "Customer Refund for Salon Cancellation", "Pay-at-Salon Bookings",
-              "Repeated Cancellations", "Customer Cancellation", "Customer No-Show", "Booking Time",
-              "Service Substitution", "Service Quality", "Hygiene and Safety", "Offers and Discounts",
-              "Reviews and Ratings", "Booking Conflicts", "Unauthorized Price or Service Changes", "Partner Responsibility",
-              "Violations", "Relationship With Other Policies", "Policy Updates", "Contact"
-            ][i]
-          }`
-        }));
+    case "partnerservice":
+    return Array.from({ length: 26 }, (_, i) => ({
+      id: `sec-psp-${i + 1}`,
+      label: `${i + 1}. ${
+        [
+          "Purpose","Service Information","Service Availability","Service Pricing","Price Changes","Taxes and Other Charges","Customer Booking Amount",
+          "Service Delivery","Appointment Confirmation","Partner-Initiated Cancellation","Customer Refund When Partner Cancels","Customer Cancellation",
+          "Partner No-Show","Delayed Service","Service Modification","Offers and Discounts","Customer Communication","Pricing Disputes","False or Misleading Pricing",
+          "Repeated Cancellations","Settlement After Cancellation","Partner Responsibilities","Policy Violations","Policy Updates","Related Policies","Contact Information"
+        ][i]
+      }`
+    }));
         
         case "partnerpayout":
     return Array.from({ length: 33 }, (_, i) => ({
