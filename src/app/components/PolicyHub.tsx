@@ -60,6 +60,7 @@ export function PolicyHub() {
             ][i]
           }`
         }));
+        
         case "privacy":
     return Array.from({ length: 25 }, (_, i) => ({
       id: `sec-pp-${i + 1}`,
