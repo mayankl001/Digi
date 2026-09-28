@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export function Footer() {
   return (
     <footer className="py-12 lg:py-16 bg-[#111827] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-4 gap-10 mb-12">
           
           {/* 1. Brand & Logo Section */}
           <div className="md:col-span-2">
