@@ -1,10 +1,10 @@
 import { AnimateIn, StaggerChildren } from "./AnimateIn";
 
-const HOME_SCREEN = "/app1.png";
-const SALON_DISCOVERY = "/app2.png";
-const BOOKING_SCREEN = "/app3.png";
-const BOOKING_CONFIRMED = "/app4.png";
-const TRACKING_SCREEN = "/app5.png";
+const HOME_SCREEN = "/App1.jpeg";
+const SALON_DISCOVERY = "/App2.jpeg";
+const BOOKING_SCREEN = "/App3.jpeg";
+const BOOKING_CONFIRMED = "/App4.jpeg";
+const TRACKING_SCREEN = "/App5.jpeg";
 
 const screens = [
   {
