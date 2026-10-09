@@ -1,20 +1,92 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Mail, Phone, Globe } from "lucide-react";
 import { AnimateIn } from "./AnimateIn";
 import { motion, AnimatePresence } from "motion/react";
 
 const faqs = [
-  { q: "What is DigiSaloon?", a: "DigiSaloon is a salon booking platform that helps you discover salons, explore services and prices, check available slots, and book appointments easily." },
-  { q: "How can I book an appointment?", a: "Simply select your preferred salon, choose a service, select an available date and time, and confirm your booking through DigiSaloon." },
-  { q: "Can I book an appointment for now or schedule it for later?", a: "Yes. DigiSaloon offers both Live Booking and Schedule Booking. You can book an available salon slot for immediate service through Live Booking or select a future date and time through Schedule Booking, depending on the salon's availability." },
-  { q: "Can I choose the salon and service I want?", a: "Yes. You can browse available salons and select the services that best suit your requirements." },
-  { q: "Can I pay online or at the salon?", a: "Yes. Depending on the salon and booking, you can either pay online during booking or choose the Pay at Salon option." },
-  { q: "Can I cancel my appointment?", a: "Yes. You can cancel eligible bookings from the app. Applicable cancellation charges and refunds are based on DigiSaloon's Cancellation & Refund Policy." },
-  { q: "What happens if the salon cancels my booking?", a: "If a salon cancels your confirmed booking, you are eligible for a 100% refund, subject to the applicable refund process." },
-  { q: "Can I reschedule my appointment?", a: "Rescheduling may be available depending on the salon's availability and the booking conditions. You can check available options from your booking details." },
-  { q: "Can I rate and review a salon?", a: "Yes. Customers can rate and review a salon after completing an eligible booking." },
-  { q: "Are the salons on DigiSaloon verified?", a: "DigiSaloon works with salon partners who complete the required onboarding and verification process before being listed on the platform." },
-  { q: "How can I contact DigiSaloon Support?", a: "For assistance with bookings, payments, cancellations, refunds, or other issues, you can contact DigiSaloon Support through the contact options available on our website or app." },
+  {
+    q: "What is DigiSaloon?",
+    a: "DigiSaloon is an online salon booking platform that helps customers discover salons, explore services and prices, check available time slots, and book appointments conveniently.",
+  },
+  {
+    q: "How can I book an appointment through DigiSaloon?",
+    a: "Browse the available salons, select your preferred salon and service, choose an available time slot, provide the required details, and pay the booking amount online to confirm your appointment.",
+  },
+  {
+    q: "Can I book an appointment for the same day?",
+    a: "Yes, you can book an appointment for the same day (Live Booking), subject to the salon’s availability and the available time slots displayed on the platform.",
+  },
+  {
+    q: "Can I schedule an appointment for a future date?",
+    a: "Yes, you can schedule an appointment for a future date (Scheduled Booking) by selecting your preferred salon, service, date, and available time slot.",
+  },
+  {
+    q: "How can I find the right salon for my needs?",
+    a: "You can explore listed salons, compare available services and prices, check customer ratings and reviews, and choose a salon that suits your preferences.",
+  },
+  {
+    q: "How does payment work on DigiSaloon?",
+    a: "Customers must pay the specified booking amount online when confirming an appointment. The remaining service amount must be paid directly to the salon. Both prices are clearly displayed during the booking process.",
+  },
+  {
+    q: "Can I cancel my appointment and receive a refund?",
+    a: "Cancellation and refund eligibility depend on the booking type. Live Bookings are non-cancellable and non-refundable. Scheduled Bookings may be cancelled at least 1 hour before the appointment time. Cancellations made less than 1 hour before are non-refundable.",
+  },
+  {
+    q: "How long does it take to receive a refund?",
+    a: "For an eligible Scheduled Booking cancelled at least 1 hour before the appointment, the applicable refund amount is ₹49 (after payment gateway fee handling). Refunds are generally processed within 5–7 working days.",
+  },
+  {
+    q: "Can I rate and review a salon after my appointment?",
+    a: "Yes, customers can rate and review a salon after completing their booking. Your feedback helps other customers make informed decisions and helps salons improve their services.",
+  },
+  {
+    q: "Is my personal information safe with DigiSaloon?",
+    a: "Yes. DigiSaloon handles your personal information in accordance with its Privacy Policy and applicable data protection requirements.",
+  },
+  {
+    q: "How can I contact DigiSaloon Support?",
+    a: (
+      <div className="space-y-3 pt-1">
+        <p>
+          Our Customer Experience team is available to assist you with booking management, payments, refunds, and salon inquiries. You can reach out through any of the following channels:
+        </p>
+        
+        <div className="grid gap-2.5 sm:grid-cols-2 pt-1">
+          <a 
+            href="mailto:support@digisaloon.in" 
+            className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#991B1B]/30 hover:bg-[#991B1B]/5 transition-colors group/item"
+          >
+            <div className="w-8 h-8 rounded-lg bg-[#991B1B]/10 text-[#991B1B] flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#991B1B] group-hover/item:text-white transition-colors">
+              <Mail className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Email Support</p>
+              <p className="text-sm font-medium text-gray-900 truncate">support@digisaloon.in</p>
+            </div>
+          </a>
+
+          <a 
+            href="tel:+919973499471" 
+            className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#991B1B]/30 hover:bg-[#991B1B]/5 transition-colors group/item"
+          >
+            <div className="w-8 h-8 rounded-lg bg-[#991B1B]/10 text-[#991B1B] flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#991B1B] group-hover/item:text-white transition-colors">
+              <Phone className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Phone Support</p>
+              <p className="text-sm font-medium text-gray-900 truncate">+91 99734 99471</p>
+            </div>
+          </a>
+        </div>
+
+        <div className="flex items-center gap-2 pt-1 text-xs text-gray-500">
+          <Globe className="w-3.5 h-3.5 text-[#991B1B]" />
+          <span>For faster resolution, please mention your <strong>Booking ID</strong> when reaching out.</span>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export function FAQ() {
