@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemaps locations
+Sitemap: https://digisaloon.in/sitemap.xml

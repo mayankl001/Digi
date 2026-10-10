@@ -8,9 +8,65 @@ const stats = [
   { icon: Star,     value: "4.9★",   label: "Customer Satisfaction", sub: "goal" },
 ];
 
+// Salons ke naam yahan badal sakte hain
+const salonNames = [
+  "Style Studio Ranchi",
+  "Glamour Lounge",
+  "The Barber Room",
+  "Elegance Beauty Salon",
+  "Urban Cut & Spa",
+  "Royal Touch Salon",
+];
+
 export function Stats() {
   return (
     <section className="py-16 lg:py-20 bg-white">
+      
+      {/* Dynamic Keyframes Animation Style (No tailwind.config needed) */}
+      <style>{`
+        @keyframes marqueeScroll {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-marquee-smooth {
+          display: flex;
+          animation: marqueeScroll 25s linear infinite;
+        }
+        .marquee-container:hover .animate-marquee-smooth {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      {/* TOP MARQUEE BANNER */}
+      <div className="w-full bg-[#031530] py-3.5 mb-12 overflow-hidden flex select-none border-y border-[#991B1B]/20 marquee-container">
+        <div className="animate-marquee-smooth shrink-0 items-center gap-8 min-w-full whitespace-nowrap pr-8">
+          {salonNames.concat(salonNames).map((name, index) => (
+            <div key={index} className="flex items-center gap-8">
+              <span className="text-white font-bold text-sm tracking-widest uppercase font-sans">
+                {name}
+              </span>
+              <span className="text-[#FF3377] text-xs">✦</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Seamless Loop Duplicate */}
+        <div 
+          aria-hidden="true" 
+          className="animate-marquee-smooth shrink-0 items-center gap-8 min-w-full whitespace-nowrap pr-8"
+        >
+          {salonNames.concat(salonNames).map((name, index) => (
+            <div key={`dup-${index}`} className="flex items-center gap-8">
+              <span className="text-white font-bold text-sm tracking-widest uppercase font-sans">
+                {name}
+              </span>
+              <span className="text-[#FF3377] text-xs">✦</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* STATS SECTION (Unchanged) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Entrance staggered animations */}
