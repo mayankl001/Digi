@@ -8,7 +8,7 @@ const stats = [
   { icon: Star,     value: "4.9★",   label: "Customer Satisfaction", sub: "goal" },
 ];
 
-// Salons ke naam yahan badal sakte hain
+// Salons ke naam
 const salonNames = [
   "Style Studio Ranchi",
   "Glamour Lounge",
@@ -20,9 +20,9 @@ const salonNames = [
 
 export function Stats() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="pt-0 pb-16 lg:pb-20 bg-white">
       
-      {/* Dynamic Keyframes Animation Style (No tailwind.config needed) */}
+      {/* Dynamic Keyframes Animation Style */}
       <style>{`
         @keyframes marqueeScroll {
           0% { transform: translateX(0%); }
@@ -37,7 +37,7 @@ export function Stats() {
         }
       `}</style>
 
-      {/* TOP MARQUEE BANNER */}
+      {/* TOP MARQUEE BANNER (Section ke top se bilkul touch) */}
       <div className="w-full bg-[#031530] py-3.5 mb-12 overflow-hidden flex select-none border-y border-[#991B1B]/20 marquee-container">
         <div className="animate-marquee-smooth shrink-0 items-center gap-8 min-w-full whitespace-nowrap pr-8">
           {salonNames.concat(salonNames).map((name, index) => (
@@ -50,7 +50,7 @@ export function Stats() {
           ))}
         </div>
 
-        {/* Seamless Loop Duplicate */}
+        {/* Continuous Loop Duplicate */}
         <div 
           aria-hidden="true" 
           className="animate-marquee-smooth shrink-0 items-center gap-8 min-w-full whitespace-nowrap pr-8"
@@ -66,7 +66,7 @@ export function Stats() {
         </div>
       </div>
 
-      {/* STATS SECTION (Unchanged) */}
+      {/* STATS CARDS SECTION */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Entrance staggered animations */}
@@ -80,7 +80,7 @@ export function Stats() {
               key={i}
               className="relative rounded-2xl p-6 lg:p-8 text-center bg-gradient-to-br from-[#FAFAFA] to-[#FDF2F2] border border-[#991B1B]/10 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(153,27,27,0.12)] transition-all duration-300 cursor-default font-sans group"
             >
-              {/* Icon Container with subtle zoom on card hover */}
+              {/* Icon Container */}
               <div className="w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#991B1B] to-[#B91C1C] shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <s.icon className="w-5 h-5 text-white" />
               </div>
