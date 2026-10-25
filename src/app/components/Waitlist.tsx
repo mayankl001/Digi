@@ -109,8 +109,11 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                   {(["customer", "salon"] as const).map((t) => (
                     <button
                       key={t}
+                      id={`type-btn-${t}`}
+                      name="audience-type"
                       disabled={loading}
                       type="button"
+                      aria-label={t === "customer" ? "Switch to Customer mode" : "Switch to Salon Owner mode"}
                       onClick={() => handleTypeChange(t)}
                       className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 relative disabled:opacity-50 ${
                         type === t 
@@ -124,11 +127,16 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-xl mx-auto">
+              <form onSubmit={handleSubmit} id="waitlist-form" name="waitlistForm" className="flex flex-col gap-4 max-w-xl mx-auto">
                 <div className="relative flex items-center group">
+                  <label htmlFor="waitlist-name" className="sr-only">
+                    {type === "customer" ? "Your Full Name" : "Owner's Full Name"}
+                  </label>
                   <User className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#991B1B] transition-colors z-20" />
                   <input
                     type="text"
+                    id="waitlist-name"
+                    name="fullName"
                     disabled={loading}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -145,9 +153,12 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                     className="flex flex-col gap-4 w-full"
                   >
                     <div className="relative flex items-center group">
+                      <label htmlFor="waitlist-salon-name" className="sr-only">Salon Name</label>
                       <Store className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#991B1B] transition-colors z-20" />
                       <input
                         type="text"
+                        id="waitlist-salon-name"
+                        name="salonName"
                         disabled={loading}
                         value={salonName}
                         onChange={(e) => setSalonName(e.target.value)}
@@ -159,9 +170,12 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="relative flex items-center group">
+                        <label htmlFor="waitlist-phone" className="sr-only">Contact Number</label>
                         <Phone className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#991B1B] transition-colors z-20" />
                         <input
                           type="tel"
+                          id="waitlist-phone"
+                          name="phone"
                           disabled={loading}
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
@@ -172,9 +186,12 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                       </div>
 
                       <div className="relative flex items-center group">
+                        <label htmlFor="waitlist-city" className="sr-only">City</label>
                         <MapPin className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#991B1B] transition-colors z-20" />
                         <input
                           type="text"
+                          id="waitlist-city"
+                          name="city"
                           disabled={loading}
                           value={city}
                           onChange={(e) => setCity(e.target.value)}
@@ -188,9 +205,14 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                 )}
 
                 <div className="relative flex items-center group">
+                  <label htmlFor="waitlist-email" className="sr-only">
+                    {type === "customer" ? "Email Address" : "Business Email Address"}
+                  </label>
                   <Mail className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#991B1B] transition-colors z-20" />
                   <input
                     type="email"
+                    id="waitlist-email"
+                    name="email"
                     disabled={loading}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -203,7 +225,10 @@ export function Waitlist({ initialType = "customer" }: WaitlistProps) {
                 <div className="mt-2">
                   <button
                     type="submit"
+                    id="waitlist-submit"
+                    name="waitlistSubmit"
                     disabled={loading}
+                    aria-label={type === "customer" ? "Join Waitlist" : "Partner With Us"}
                     className="flex items-center justify-center gap-2 px-7 py-4 rounded-full text-base font-bold w-full bg-white text-[#991B1B] shadow-lg hover:-translate-y-0.5 active:scale-[0.99] transition-all duration-300 disabled:opacity-80"
                   >
                     {loading ? (

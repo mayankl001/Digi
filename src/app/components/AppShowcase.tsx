@@ -11,7 +11,15 @@ const screens = [
     label: "Home Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={HOME_SCREEN} loading="lazy" alt="Home Screen" className="w-full h-full object-cover object-top" />
+        <img
+          src={HOME_SCREEN}
+          loading="lazy"
+          width="210"
+          height="420"
+          decoding="async"
+          alt="DigiSaloon Home Screen interface"
+          className="w-full h-full object-cover object-top"
+        />
       </div>
     ),
   },
@@ -19,7 +27,15 @@ const screens = [
     label: "Salon Discovery",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={SALON_DISCOVERY} loading="lazy" alt="Salon Discovery" className="w-full h-full object-cover object-top" />
+        <img
+          src={SALON_DISCOVERY}
+          loading="lazy"
+          width="210"
+          height="420"
+          decoding="async"
+          alt="Salon Discovery interface"
+          className="w-full h-full object-cover object-top"
+        />
       </div>
     ),
   },
@@ -27,7 +43,15 @@ const screens = [
     label: "Booking Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={BOOKING_SCREEN} loading="lazy" alt="Booking Screen" className="w-full h-full object-cover object-top" />
+        <img
+          src={BOOKING_SCREEN}
+          loading="lazy"
+          width="210"
+          height="420"
+          decoding="async"
+          alt="Booking Screen interface"
+          className="w-full h-full object-cover object-top"
+        />
       </div>
     ),
   },
@@ -35,7 +59,15 @@ const screens = [
     label: "Booking Confirmed",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={BOOKING_CONFIRMED} loading="lazy" alt="Booking Confirmed" className="w-full h-full object-cover object-top" />
+        <img
+          src={BOOKING_CONFIRMED}
+          loading="lazy"
+          width="210"
+          height="420"
+          decoding="async"
+          alt="Booking Confirmed screen interface"
+          className="w-full h-full object-cover object-top"
+        />
       </div>
     ),
   },
@@ -43,7 +75,15 @@ const screens = [
     label: "Tracking Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={TRACKING_SCREEN} loading="lazy" alt="Tracking Screen" className="w-full h-full object-cover object-top" />
+        <img
+          src={TRACKING_SCREEN}
+          loading="lazy"
+          width="210"
+          height="420"
+          decoding="async"
+          alt="Queue Tracking Screen interface"
+          className="w-full h-full object-cover object-top"
+        />
       </div>
     ),
   },
@@ -72,7 +112,7 @@ export function AppShowcase() {
           </p>
         </AnimateIn>
 
-        {/* Showcase Grid: Mobile=1 col, Small Mobile=2 col (with responsive width), MD=3 col, LG=5 col */}
+        {/* Showcase Grid */}
         <StaggerChildren
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-6 lg:gap-8 justify-items-center font-sans max-w-full"
           stagger={0.13}
