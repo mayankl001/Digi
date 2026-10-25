@@ -1,7 +1,6 @@
 import React from "react";
-import { ArrowRight, Star, Clock, CheckCircle } from "lucide-react";
+import { Star, Clock, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion"; 
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 interface FloatingCardProps {
@@ -22,7 +21,7 @@ function FloatingCard({ children, className = "" }: FloatingCardProps) {
 export function Hero() {
   return (
     <>
-      {/* 🌐 TECHNICAL SEO HEAD INJECTION START */}
+      {/* 🌐 TECHNICAL SEO HEAD INJECTION */}
       <Helmet>
         <title>DigiSaloon | Best Salon & Spa Booking Platform in Ranchi</title>
         <meta 
@@ -31,7 +30,7 @@ export function Hero() {
         />
         <link rel="canonical" href="https://digisaloon.in/" />
 
-        {/* Open Graph / Facebook / LinkedIn */}
+        {/* Open Graph Tags */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="DigiSaloon | Smart Salon & Spa Booking Platform in Ranchi" />
         <meta property="og:description" content="Discover verified premium salons in Ranchi, compare pricing, and book your styling slots instantly." />
@@ -44,7 +43,6 @@ export function Hero() {
         <meta name="twitter:description" content="Skip the salon queues. Book trusted salon and spa treatments instantly across Ranchi in just a few taps." />
         <meta name="twitter:image" content="https://digisaloon.in/og-image.png" />
       </Helmet>
-      {/* 🌐 TECHNICAL SEO HEAD INJECTION END */}
 
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#FAFAFA] via-[#FDF2F2] to-[#FEF0F0]">
         
@@ -69,7 +67,7 @@ export function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 bg-[#991B1B]/10 border border-[#991B1B]/15"
               >
                 <div className="w-2 h-2 rounded-full animate-pulse bg-[#991B1B]" />
@@ -82,7 +80,7 @@ export function Hero() {
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111827] tracking-tight leading-tight mb-4 sm:mb-6"
               >
                 Book Salon & Spa{" "}
@@ -95,7 +93,7 @@ export function Hero() {
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="text-base sm:text-lg text-[#4B5563] leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0"
               >
                 Discover verified salons in Ranchi, check live availability, compare prices, and book your styling session in seconds.
@@ -105,10 +103,9 @@ export function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 sm:mb-10"
               >
-                {/* Partner With Us Link */}
                 <a
                   href="https://partner.digisaloon.in/"
                   target="_blank"
@@ -119,11 +116,11 @@ export function Hero() {
                 </a>
               </motion.div>
 
-              {/* Social proof */}
+              {/* Social Proof */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 flex-wrap"
               >
                 <div className="flex -space-x-2">
@@ -132,6 +129,9 @@ export function Hero() {
                       key={i}
                       src={`https://images.unsplash.com/photo-${id}?w=40&h=40&fit=crop&auto=format`}
                       alt="DigiSaloon Early User"
+                      loading="lazy"
+                      width="36"
+                      height="36"
                       className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#FAFAFA] object-cover"
                     />
                   ))}
@@ -155,9 +155,9 @@ export function Hero() {
 
             {/* Right: App Mockup */}
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="relative flex justify-center lg:justify-end mt-4 lg:mt-0"
             >
               <motion.div
@@ -165,17 +165,23 @@ export function Hero() {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="relative"
               >
-                {/* Main phone mockup - Mobile size adjusted to w-[240px] and Desktop to w-[320px] */}
+                {/* Main phone mockup */}
                 <div className="relative p-2.5 sm:p-3 rounded-[36px] sm:rounded-[45px] bg-[#111827] w-[240px] sm:w-[320px] max-w-full shadow-[0_24px_60px_rgba(153,27,27,0.2),0_8px_32px_rgba(0,0,0,0.18)]">
+                  {/* 🚀 CRITICAL FIX FOR LIGHTHOUSE PERFORMANCE: Eager load with High Priority for fast LCP */}
                   <img
-                    src="/homepage.webp" loading="lazy"
+                    src="/homepage.webp"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="sync"
+                    width="320"
+                    height="640"
                     alt="DigiSaloon App Interface - Best Salon App in Ranchi"
-                    className="w-full rounded-[28px] sm:rounded-[35px]"
+                    className="w-full rounded-[28px] sm:rounded-[35px] h-auto object-cover"
                   />
                 </div>
               </motion.div>
 
-              {/* Floating cards - Adjusted offsets for smaller mobile mockup */}
+              {/* Floating cards */}
               <FloatingCard className="top-[5%] left-[-2%] sm:left-[-5%] z-10 scale-90 sm:scale-100">
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
