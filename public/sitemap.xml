@@ -4,51 +4,73 @@
   <!-- Main Landing Page -->
   <url>
     <loc>https://digisaloon.in/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Core Content Pages -->
+  <!-- Core Content & Business Pages -->
   <url>
     <loc>https://digisaloon.in/about</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://digisaloon.in/contact</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Legal & Compliance Pages (Lower Priority) -->
+  <url>
+    <loc>https://digisaloon.in/partner</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Articles (High SEO Priority) -->
+  <url>
+    <loc>https://digisaloon.in/blog/top-bridal-makeup-artists-ranchi</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal & Compliance Pages -->
   <url>
     <loc>https://digisaloon.in/privacy-policy</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://digisaloon.in/terms-and-conditions</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://digisaloon.in/terms-of-service</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://digisaloon.in/cookie-policy</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://digisaloon.in/refund-policy</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://digisaloon.in/cancellation-policy</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

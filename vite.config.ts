@@ -3,7 +3,6 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
-
 function figmaAssetResolver() {
   return {
     name: 'figma-asset-resolver',
@@ -19,18 +18,46 @@ function figmaAssetResolver() {
 export default defineConfig({
   plugins: [
     figmaAssetResolver(),
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
   ],
   resolve: {
     alias: {
-      // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
     },
   },
-
-  // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  // 🚀 PERFORMANCE & BUNDLE OPTIMIZATIONS
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    cssMinify: true,
+    sourcemap: false, // Production me extra sourcemap load hona band karega
+    chunkSizeWarningLimit: 800, // Large chunk warnings adjust karne ke liye
+    
+    rollupOptions: {
+      output: {
+        // Vendor libraries ko dedicated chunks me divide karein
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'react-vendor'
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons-vendor'
+            }
+            if (id.includes('react-helmet-async')) {
+              return 'helmet-vendor'
+            }
+            return 'vendor' // Rest of third-party libraries
+          }
+        },
+        // Clean asset file names for better caching
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
+  },
 })

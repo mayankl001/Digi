@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowUp } from "lucide-react";
+
+// Critical layout & landing page components (Eagerly Loaded)
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
@@ -13,15 +15,16 @@ import { ForSalons } from "./components/ForSalons";
 import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
 import { Waitlist } from "./components/Waitlist";
-/* import { AppDownload } from "./components/AppDownload"; */
 import { Footer } from "./components/Footer";
-import { AboutUs } from "./components/AboutUs"; 
-import { ContactPage } from "./components/Contact";
-import { BlogPage } from "./components/BlogPage";
-import { PolicyHub } from "./components/PolicyHub";
-import { PrivacyPolicy } from "./components/PrivacyPolicy"; 
-import { TermsOfService } from "./components/TermsOfService";
-import { CookiePolicy } from "./components/CookiePolicy";
+
+// 🚀 LAZY LOADED COMPONENTS (Bundle size reduce karne ke liye)
+const AboutUs = lazy(() => import("./components/AboutUs").then((m) => ({ default: m.AboutUs })));
+const ContactPage = lazy(() => import("./components/Contact").then((m) => ({ default: m.ContactPage })));
+const BlogPage = lazy(() => import("./components/BlogPage").then((m) => ({ default: m.BlogPage })));
+const PolicyHub = lazy(() => import("./components/PolicyHub").then((m) => ({ default: m.PolicyHub })));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy").then((m) => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import("./components/TermsOfService").then((m) => ({ default: m.TermsOfService })));
+const CookiePolicy = lazy(() => import("./components/CookiePolicy").then((m) => ({ default: m.CookiePolicy })));
 
 // ⬆️ ROUTE CHANGE SCROLL TO TOP HELPER
 function RouteScrollToTop() {
@@ -241,19 +244,21 @@ function AppContent() {
       {!hideHeaderFooter && <Navbar />}
       
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/review" element={<ReviewRedirect />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
-          <Route path="/partner" element={<PartnerPage />} />
-          <Route path="/policy/:policyType" element={<PolicyHub />} />
-          <Route path="/policy" element={<PolicyHub />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-[#FAFAFA]" />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/review" element={<ReviewRedirect />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog/top-bridal-makeup-artists-ranchi" element={<BlogPage />} />
+            <Route path="/partner" element={<PartnerPage />} />
+            <Route path="/policy/:policyType" element={<PolicyHub />} />
+            <Route path="/policy" element={<PolicyHub />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+          </Routes>
+        </Suspense>
       </main>
       
       {!hideHeaderFooter && <Footer />}
