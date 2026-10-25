@@ -11,7 +11,7 @@ const screens = [
     label: "Home Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={HOME_SCREEN} alt="Home Screen" className="w-full h-full object-cover object-top" />
+        <img src={HOME_SCREEN} loading="lazy" alt="Home Screen" className="w-full h-full object-cover object-top" />
       </div>
     ),
   },
@@ -19,7 +19,7 @@ const screens = [
     label: "Salon Discovery",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={SALON_DISCOVERY} alt="Salon Discovery" className="w-full h-full object-cover object-top" />
+        <img src={SALON_DISCOVERY} loading="lazy" alt="Salon Discovery" className="w-full h-full object-cover object-top" />
       </div>
     ),
   },
@@ -27,7 +27,7 @@ const screens = [
     label: "Booking Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={BOOKING_SCREEN} alt="Booking Screen" className="w-full h-full object-cover object-top" />
+        <img src={BOOKING_SCREEN} loading="lazy" alt="Booking Screen" className="w-full h-full object-cover object-top" />
       </div>
     ),
   },
@@ -35,7 +35,7 @@ const screens = [
     label: "Booking Confirmed",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={BOOKING_CONFIRMED} alt="Booking Confirmed" className="w-full h-full object-cover object-top" />
+        <img src={BOOKING_CONFIRMED} loading="lazy" alt="Booking Confirmed" className="w-full h-full object-cover object-top" />
       </div>
     ),
   },
@@ -43,7 +43,7 @@ const screens = [
     label: "Tracking Screen",
     content: (
       <div className="h-full w-full flex items-center justify-center overflow-hidden bg-white">
-        <img src={TRACKING_SCREEN} alt="Tracking Screen" className="w-full h-full object-cover object-top" />
+        <img src={TRACKING_SCREEN} loading="lazy" alt="Tracking Screen" className="w-full h-full object-cover object-top" />
       </div>
     ),
   },

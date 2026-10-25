@@ -11,7 +11,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 w-fit hover:opacity-90 transition-opacity no-underline">
               <img
-                src="/logo.webp"
+                src="/logo.webp" loading="lazy"
                 alt="DigiSaloon Logo"
                 className="w-8 h-8 object-contain"
               />
@@ -148,11 +148,11 @@ export function Footer() {
                 </p>
                 <div className="flex flex-col gap-3">
                   <div className="relative w-fit">
-                    <img src="/google-play.webp" alt="Google Play" className="h-10" />
+                    <img src="/google-play.webp" loading="lazy" alt="Google Play" className="h-10" />
                     <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">Soon</span>
                   </div>
                   <div className="relative w-fit">
-                    <img src="/app-store.webp" alt="App Store" className="h-10" />
+                    <img src="/app-store.webp" loading="lazy" alt="App Store" className="h-10" />
                     <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-2 py-1 rounded-full">Soon</span>
                   </div>
                 </div>

@@ -122,7 +122,7 @@ export function Navbar() {
             className="flex items-center gap-2 sm:gap-3 cursor-pointer no-underline"
           >
             <img
-              src="/logo.webp"
+              src="/logo.webp" loading="lazy"
               alt="DigiSaloon Logo"
               className="w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
             />

@@ -168,7 +168,7 @@ export function Hero() {
                 {/* Main phone mockup - Mobile size adjusted to w-[240px] and Desktop to w-[320px] */}
                 <div className="relative p-2.5 sm:p-3 rounded-[36px] sm:rounded-[45px] bg-[#111827] w-[240px] sm:w-[320px] max-w-full shadow-[0_24px_60px_rgba(153,27,27,0.2),0_8px_32px_rgba(0,0,0,0.18)]">
                   <img
-                    src="/homepage.webp"
+                    src="/homepage.webp" loading="lazy"
                     alt="DigiSaloon App Interface - Best Salon App in Ranchi"
                     className="w-full rounded-[28px] sm:rounded-[35px]"
                   />
