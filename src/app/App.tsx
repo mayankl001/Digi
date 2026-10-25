@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { ArrowUp } from "lucide-react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
@@ -11,7 +12,7 @@ import { HowItWorks } from "./components/HowItWorks";
 import { ForSalons } from "./components/ForSalons";
 import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
-import { Waitlist } from "./components/Waitlist";;
+import { Waitlist } from "./components/Waitlist";
 /* import { AppDownload } from "./components/AppDownload"; */
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs"; 
@@ -22,8 +23,8 @@ import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { CookiePolicy } from "./components/CookiePolicy";
 
-// ⬆️ SCROLL TO TOP HELPER COMPONENT
-function ScrollToTop() {
+// ⬆️ ROUTE CHANGE SCROLL TO TOP HELPER
+function RouteScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -31,6 +32,53 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+// 🔝 FLOATING 'SCROLL TO TOP' BUTTON COMPONENT
+function FloatingScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      const scrollPos =
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+
+      if (scrollPos > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <button
+      onClick={scrollToTop}
+      aria-label="Scroll to top"
+      className="fixed bottom-6 right-6 z-[9990] flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#991B1B] text-white shadow-lg shadow-[#991B1B]/30 hover:bg-[#7f1616] hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#991B1B] focus:ring-offset-2"
+    >
+      <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" />
+    </button>
+  );
 }
 
 // 🚀 SCANNER REDIRECTION COMPONENT
@@ -174,7 +222,6 @@ function HomePage() {
 
       <FAQ />
       <Waitlist />
-      
     </>
   );
 }
@@ -190,7 +237,7 @@ function AppContent() {
   ].includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans flex flex-col justify-between">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans flex flex-col justify-between relative">
       {!hideHeaderFooter && <Navbar />}
       
       <main className="flex-grow">
@@ -210,6 +257,9 @@ function AppContent() {
       </main>
       
       {!hideHeaderFooter && <Footer />}
+
+      {/* Floating Scroll To Top Button */}
+      <FloatingScrollToTop />
     </div>
   );
 }
@@ -218,7 +268,7 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
+      <RouteScrollToTop />
       <AppContent />
     </Router>
   );

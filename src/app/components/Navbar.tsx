@@ -14,6 +14,17 @@ export function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Scroll to absolute top helper
+  const forceScrollToTop = () => {
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    } catch {
+      window.scrollTo(0, 0);
+    }
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   // Robust Scroll Listener
   useEffect(() => {
     const handleScroll = () => {
@@ -76,9 +87,18 @@ export function Navbar() {
       }
     } else {
       if (link.href === "/") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (location.pathname === "/") {
+          e.preventDefault();
+          // Remove hash from URL if any exists
+          if (location.hash) {
+            window.history.pushState("", document.title, window.location.pathname);
+          }
+          forceScrollToTop();
+        } else {
+          forceScrollToTop();
+        }
       } else {
-        window.scrollTo(0, 0); 
+        forceScrollToTop();
       }
     }
   };
@@ -95,7 +115,7 @@ export function Navbar() {
       <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           
-          {/* Logo (Compact for Mobile) */}
+          {/* Logo with explicit forceScrollToTop call */}
           <Link 
             to="/" 
             onClick={(e) => handleLinkClick(e, { href: "/", isPage: true })} 
@@ -116,7 +136,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop links */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 font-sans">
             {links.map((l) => (
               <Link
@@ -143,7 +163,7 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Right Action Area (Book Now + Menu Button) */}
+          {/* Mobile Right Action Area */}
           <div className="md:hidden flex items-center gap-2 font-sans">
             <a
               href="https://app.digisaloon.in/"
