@@ -28,32 +28,19 @@ export default defineConfig({
   },
   assetsInclude: ['**/*.svg', '**/*.csv'],
 
-  // 🚀 PERFORMANCE & BUNDLE OPTIMIZATIONS
   build: {
     target: 'esnext',
     minify: 'esbuild',
     cssMinify: true,
-    sourcemap: false, // Production me extra sourcemap load hona band karega
-    chunkSizeWarningLimit: 800, // Large chunk warnings adjust karne ke liye
-    
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        // Vendor libraries ko dedicated chunks me divide karein
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'react-vendor'
-            }
-            if (id.includes('lucide-react')) {
-              return 'icons-vendor'
-            }
-            if (id.includes('react-helmet-async')) {
-              return 'helmet-vendor'
-            }
-            return 'vendor' // Rest of third-party libraries
-          }
+        // Safe Vendor Chunking: Keeps React core modules unified
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          'vendor-icons': ['lucide-react'],
         },
-        // Clean asset file names for better caching
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
