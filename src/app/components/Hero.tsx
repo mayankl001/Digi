@@ -34,14 +34,14 @@ export function Hero() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="DigiSaloon | Smart Salon & Spa Booking Platform in Ranchi" />
         <meta property="og:description" content="Discover verified premium salons in Ranchi, compare pricing, and book your styling slots instantly." />
-        <meta property="og:image" content="https://digisaloon.in/og-image.png" />
+        <meta property="og:image" content="https://digisaloon.in/og-image.webp" />
         <meta property="og:url" content="https://digisaloon.in/" />
 
         {/* Twitter Share Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DigiSaloon | Premium Salon Experience in Ranchi" />
         <meta name="twitter:description" content="Skip the salon queues. Book trusted salon and spa treatments instantly across Ranchi in just a few taps." />
-        <meta name="twitter:image" content="https://digisaloon.in/og-image.png" />
+        <meta name="twitter:image" content="https://digisaloon.in/og-image.webp" />
       </Helmet>
 
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#FAFAFA] via-[#FDF2F2] to-[#FEF0F0]">
@@ -127,9 +127,10 @@ export function Hero() {
                   {["1706943262459-3ef6ce03305c", "1533128361669-69c065857a13", "1496813146940-1601b02f81a4"].map((id, i) => (
                     <img
                       key={i}
-                      src={`https://images.unsplash.com/photo-${id}?w=40&h=40&fit=crop&auto=format`}
+                      src={`https://images.unsplash.com/photo-${id}?w=36&h=36&fit=crop&auto=format&q=60`}
                       alt="DigiSaloon Early User"
                       loading="lazy"
+                      decoding="async"
                       width="36"
                       height="36"
                       className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#FAFAFA] object-cover"
@@ -167,7 +168,7 @@ export function Hero() {
               >
                 {/* Main phone mockup */}
                 <div className="relative p-2.5 sm:p-3 rounded-[36px] sm:rounded-[45px] bg-[#111827] w-[240px] sm:w-[320px] max-w-full shadow-[0_24px_60px_rgba(153,27,27,0.2),0_8px_32px_rgba(0,0,0,0.18)]">
-                  {/* 🚀 CRITICAL FIX FOR LIGHTHOUSE PERFORMANCE: Eager load with High Priority for fast LCP */}
+                  {/* 🚀 LCP PRIORITIZED HERO MOCKUP */}
                   <img
                     src="/homepage.webp"
                     loading="eager"
