@@ -1,6 +1,5 @@
 import React from "react";
 import { Star, Clock, CheckCircle } from "lucide-react";
-import { motion } from "framer-motion"; 
 import { Helmet } from "react-helmet-async";
 
 interface FloatingCardProps {
@@ -46,66 +45,38 @@ export function Hero() {
 
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#FAFAFA] via-[#FDF2F2] to-[#FEF0F0]">
         
-        {/* Background decorative blobs */}
-        <motion.div
-          className="absolute top-20 right-0 w-72 sm:w-96 h-72 sm:h-96 rounded-full pointer-events-none bg-[radial-gradient(circle,#E8B4B8_0%,transparent_70%)] opacity-20 translate-x-[30%] -translate-y-[20%]"
-          animate={{ scale: [1, 1.08, 1], opacity: [0.18, 0.25, 0.18] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none bg-[radial-gradient(circle,#991B1B_0%,transparent_70%)] opacity-12 -translate-x-[40%] translate-y-[30%]"
-          animate={{ scale: [1, 1.12, 1], opacity: [0.1, 0.18, 0.1] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
+        {/* Static Background Blobs (Zero JS Overhead) */}
+        <div className="absolute top-20 right-0 w-72 sm:w-96 h-72 sm:h-96 rounded-full pointer-events-none bg-[radial-gradient(circle,#E8B4B8_0%,transparent_70%)] opacity-20 translate-x-[30%] -translate-y-[20%]" />
+        <div className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none bg-[radial-gradient(circle,#991B1B_0%,transparent_70%)] opacity-12 -translate-x-[40%] translate-y-[30%]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-0">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             
-            {/* Left: Text Content */}
+            {/* Left: Instant Text Content */}
             <div className="relative z-10 font-sans text-center lg:text-left">
               {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 bg-[#991B1B]/10 border border-[#991B1B]/15"
-              >
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 bg-[#991B1B]/10 border border-[#991B1B]/15">
                 <div className="w-2 h-2 rounded-full animate-pulse bg-[#991B1B]" />
                 <span className="text-xs sm:text-sm font-semibold text-[#991B1B]">
                   Premium Salon Experience
                 </span>
-              </motion.div>
+              </div>
 
               {/* Headline */}
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111827] tracking-tight leading-tight mb-4 sm:mb-6"
-              >
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111827] tracking-tight leading-tight mb-4 sm:mb-6">
                 Book Salon & Spa{" "}
                 <span className="bg-gradient-to-r from-[#991B1B] via-[#B91C1C] to-[#E8B4B8] bg-clip-text text-transparent">
                   Appointments Instantly
                 </span>{" "}
                 in Ranchi.
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-base sm:text-lg text-[#4B5563] leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0"
-              >
+              <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
                 Discover verified salons in Ranchi, check live availability, compare prices, and book your styling session in seconds.
-              </motion.p>
+              </p>
 
               {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 sm:mb-10"
-              >
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 sm:mb-10">
                 <a
                   href="https://partner.digisaloon.in/"
                   target="_blank"
@@ -114,15 +85,10 @@ export function Hero() {
                 >
                   Partner With Us
                 </a>
-              </motion.div>
+              </div>
 
               {/* Social Proof */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 flex-wrap"
-              >
+              <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 flex-wrap">
                 <div className="flex -space-x-2">
                   {["1706943262459-3ef6ce03305c", "1533128361669-69c065857a13", "1496813146940-1601b02f81a4"].map((id, i) => (
                     <img
@@ -151,24 +117,15 @@ export function Hero() {
                     150+ Ranchi salon partners & users joined
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right: App Mockup */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex justify-center lg:justify-end mt-4 lg:mt-0"
-            >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative"
-              >
-                {/* Main phone mockup */}
+            <div className="relative flex justify-center lg:justify-end mt-4 lg:mt-0">
+              <div className="relative">
+                {/* Main Phone Mockup */}
                 <div className="relative p-2.5 sm:p-3 rounded-[36px] sm:rounded-[45px] bg-[#111827] w-[240px] sm:w-[320px] max-w-full shadow-[0_24px_60px_rgba(153,27,27,0.2),0_8px_32px_rgba(0,0,0,0.18)]">
-                  {/* 🚀 LCP PRIORITIZED HERO MOCKUP */}
+                  {/* 🚀 LCP PRIORITY MOCKUP */}
                   <img
                     src="/homepage.webp"
                     loading="eager"
@@ -180,15 +137,11 @@ export function Hero() {
                     className="w-full rounded-[28px] sm:rounded-[35px] h-auto object-cover"
                   />
                 </div>
-              </motion.div>
+              </div>
 
-              {/* Floating cards */}
+              {/* Static Floating Cards */}
               <FloatingCard className="top-[5%] left-[-2%] sm:left-[-5%] z-10 scale-90 sm:scale-100">
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="flex items-center gap-1.5 sm:gap-2"
-                >
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center bg-[#FEF2F2]">
                     <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-[#991B1B]" />
                   </div>
@@ -196,15 +149,11 @@ export function Hero() {
                     <p className="text-[10px] sm:text-xs font-bold text-[#111827]">Live Slots</p>
                     <p className="text-[9px] sm:text-xs text-[#6B7280]">11 available now</p>
                   </div>
-                </motion.div>
+                </div>
               </FloatingCard>
 
               <FloatingCard className="bottom-[12%] left-[-4%] sm:left-[-8%] z-10 scale-90 sm:scale-100">
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="flex items-center gap-1.5 sm:gap-2"
-                >
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center bg-[#F0FDF4]">
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-[#16A34A]" />
                   </div>
@@ -212,24 +161,21 @@ export function Hero() {
                     <p className="text-[10px] sm:text-xs font-bold text-[#111827]">Booking confirmed!</p>
                     <p className="text-[9px] sm:text-xs text-[#6B7280]">Looks salon</p>
                   </div>
-                </motion.div>
+                </div>
               </FloatingCard>
 
               <FloatingCard className="top-[30%] right-[-2%] sm:right-[-5%] z-10 scale-90 sm:scale-100">
-                <motion.div
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                >
+                <div>
                   <div className="flex items-center gap-0.5 sm:gap-1">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star key={s} className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#F59E0B] text-[#F59E0B]" />
                     ))}
                   </div>
                   <p className="text-[10px] sm:text-xs mt-0.5 sm:mt-1 font-semibold text-[#111827]">4.9 ★ Rating</p>
-                </motion.div>
+                </div>
               </FloatingCard>
 
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
