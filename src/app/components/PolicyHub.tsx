@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Shield, FileText, Cookie, RefreshCcw, CreditCard, AlertCircle, LifeBuoy, Calendar, Star, Tag, User, MapPin, ShieldCheck, Store, UserCheck, CalendarCheck, Wallet, Users, ShieldAlert, Database, AlertTriangle, Share2, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Shield, FileText, Cookie, RefreshCcw, CreditCard, AlertCircle, LifeBuoy, Calendar, Star, Tag, User, MapPin, ShieldCheck, Store, UserCheck, CalendarCheck, Wallet, Users, ShieldAlert, Database, AlertTriangle, Share2, ChevronDown, ChevronUp, Menu } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GuidelinesPolicy } from "./GuidelinesPolicy";
 import { PrivacyPolicy } from "./PrivacyPolicy";
@@ -41,10 +41,15 @@ export function PolicyHub() {
   const [activeSection, setActiveSection] = useState<string>("");
   const [isMobileTocOpen, setIsMobileTocOpen] = useState(false);
 
+  // Reference for the independent scrolling main container
+  const mainRef = useRef<HTMLElement>(null);
+
   const handleTabChange = (tab: PolicyType) => {
     navigate(`/policy/${tab}`);
     setIsMobileTocOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const getHighlights = () => {
@@ -61,348 +66,348 @@ export function PolicyHub() {
           }`
         }));
         
-        case "privacy":
-    return Array.from({ length: 25 }, (_, i) => ({
-      id: `privacy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About DigiSaloon","Information We Collect","Booking Payment Information","Device and Technical Information","How We Use Your Information","Communications","Sharing of Information",
-          "Information Shared With Salon Partners","Payment Service Providers","Reviews and Ratings","Cookies and Similar Technologies","Data Storage",
-          "Data Retention","Data Security","Account Security","Children's Privacy","Third-Party Services","Legal Disclosures","Business Transfers",
-          "Your Privacy Rights","Location Permission","Marketing Communications","Changes to This Privacy Policy","Contact Us","Acceptance"
-        ][i]
-      }`
-    }));
+      case "privacy":
+        return Array.from({ length: 25 }, (_, i) => ({
+          id: `privacy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About DigiSaloon","Information We Collect","Booking Payment Information","Device and Technical Information","How We Use Your Information","Communications","Sharing of Information",
+              "Information Shared With Salon Partners","Payment Service Providers","Reviews and Ratings","Cookies and Similar Technologies","Data Storage",
+              "Data Retention","Data Security","Account Security","Children's Privacy","Third-Party Services","Legal Disclosures","Business Transfers",
+              "Your Privacy Rights","Location Permission","Marketing Communications","Changes to This Privacy Policy","Contact Us","Acceptance"
+            ][i]
+          }`
+        }));
       
-        case "terms":
-    return Array.from({ length: 27 }, (_, i) => ({
-      id: `terms-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About DigiSaloon","Eligibility","User Account","Salon Information","Bookings","Booking Payment","Remaining Service Payment","Payment Gateway","Payment Confirmation",
-          "Cancellation & Refund","Salon Cancellation","Salon Services","Customer Responsibilities","Salon Partner Responsibilities","Reviews and Ratings",
-          "Prohibited Activities","Intellectual Property","Third-Party Services","Platform Availability","Limitation of Liability","Indemnification",
-          "Account Suspension or Termination","Privacy","Changes to These Terms","Governing Law","Contact Us","Acceptance of Terms"
-        ][i]
-      }`
-    }));
+      case "terms":
+        return Array.from({ length: 27 }, (_, i) => ({
+          id: `terms-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About DigiSaloon","Eligibility","User Account","Salon Information","Bookings","Booking Payment","Remaining Service Payment","Payment Gateway","Payment Confirmation",
+              "Cancellation & Refund","Salon Cancellation","Salon Services","Customer Responsibilities","Salon Partner Responsibilities","Reviews and Ratings",
+              "Prohibited Activities","Intellectual Property","Third-Party Services","Platform Availability","Limitation of Liability","Indemnification",
+              "Account Suspension or Termination","Privacy","Changes to These Terms","Governing Law","Contact Us","Acceptance of Terms"
+            ][i]
+          }`
+        }));
       
-        case "cookie":
-    return Array.from({ length: 15 }, (_, i) => ({
-      id: `cookie-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "What Are Cookies?","Why DigiSaloon Uses Cookies","Types of Cookies We May Use","Third-Party Services",
-          "Payment Services","Mobile Applications","Location-Related Technologies","How Long Cookies Remain","Managing Cookies",
-          "Do-Not-Track Signals","Information Collected Through Cookies","Cookie Security","Privacy Policy","Changes to This Cookie Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "cookie":
+        return Array.from({ length: 15 }, (_, i) => ({
+          id: `cookie-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "What Are Cookies?","Why DigiSaloon Uses Cookies","Types of Cookies We May Use","Third-Party Services",
+              "Payment Services","Mobile Applications","Location-Related Technologies","How Long Cookies Remain","Managing Cookies",
+              "Do-Not-Track Signals","Information Collected Through Cookies","Cookie Security","Privacy Policy","Changes to This Cookie Policy","Contact Us"
+            ][i]
+          }`
+        }));
      
-        case "cancellation":
-    return Array.from({ length: 16 }, (_, i) => ({
-      id: `cancel-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Overview","Live Booking Cancellation","Schedule Booking Cancellation","Cancellation Less Than 1 Hour Before Appointment",
-          "Salon Cancellation","Refund Processing Time","Payment Gateway Charges","Service Amount Paid to Salon","No-Show",
-          "Duplicate or Failed Transactions","Refund Method","Refund Status","Service Quality Issues","Changes to a Booking","Policy Changes","Contact Us"
-        ][i]
-      }`
-    }));
+      case "cancellation":
+        return Array.from({ length: 16 }, (_, i) => ({
+          id: `cancel-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Overview","Live Booking Cancellation","Schedule Booking Cancellation","Cancellation Less Than 1 Hour Before Appointment",
+              "Salon Cancellation","Refund Processing Time","Payment Gateway Charges","Service Amount Paid to Salon","No-Show",
+              "Duplicate or Failed Transactions","Refund Method","Refund Status","Service Quality Issues","Changes to a Booking","Policy Changes","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "payment":
-    return Array.from({ length: 27 }, (_, i) => ({
-      id: `pay-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Overview","Booking Payment","Payment Calculation Example","Payment Gateway","Payment Confirmation","Salon Booking Amount","Salon Settlement",
-          "Settlement Example","Remaining Service Amount","DigiSaloon Commission","Payment Gateway Charges","Refunds","Live Booking Cancellation",
-          "Schedule Booking Cancellation","Salon Cancellation and Settlement","Failed, Pending, or Reversed Payments","Duplicate Payments",
-          "No-Show Bookings","Settlement Account","Settlement Holds","Transaction Records","Taxes and Applicable Charges","Payment Disputes",
-          "Settlement Disputes for Salon Partners","Payment and Settlement Responsibility","Changes to Payment & Settlement Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "payment":
+        return Array.from({ length: 27 }, (_, i) => ({
+          id: `pay-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Overview","Booking Payment","Payment Calculation Example","Payment Gateway","Payment Confirmation","Salon Booking Amount","Salon Settlement",
+              "Settlement Example","Remaining Service Amount","DigiSaloon Commission","Payment Gateway Charges","Refunds","Live Booking Cancellation",
+              "Schedule Booking Cancellation","Salon Cancellation and Settlement","Failed, Pending, or Reversed Payments","Duplicate Payments",
+              "No-Show Bookings","Settlement Account","Settlement Holds","Transaction Records","Taxes and Applicable Charges","Payment Disputes",
+              "Settlement Disputes for Salon Partners","Payment and Settlement Responsibility","Changes to Payment & Settlement Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "content":
-    return Array.from({ length: 24 }, (_, i) => ({
-      id: `content-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Scope","General Content Standards","Reviews and Ratings","Honest and Relevant Reviews","Prohibited Content","Harassment and Abuse","Hate and Discrimination",
-          "False or Misleading Information","Promotional and Commercial Content","Images and Media","Personal Information and Privacy","Intellectual Property",
-          "Spam and Manipulation","Platform and Booking Abuse","Salon Partner Responsibilities","Customer Responsibilities","Content Moderation","Removal or Restriction of Content",
-          "Account Restrictions","Reporting Content","Appeals and Clarifications","Legal and Regulatory Compliance","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "content":
+        return Array.from({ length: 24 }, (_, i) => ({
+          id: `content-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Scope","General Content Standards","Reviews and Ratings","Honest and Relevant Reviews","Prohibited Content","Harassment and Abuse","Hate and Discrimination",
+              "False or Misleading Information","Promotional and Commercial Content","Images and Media","Personal Information and Privacy","Intellectual Property",
+              "Spam and Manipulation","Platform and Booking Abuse","Salon Partner Responsibilities","Customer Responsibilities","Content Moderation","Removal or Restriction of Content",
+              "Account Restrictions","Reporting Content","Appeals and Clarifications","Legal and Regulatory Compliance","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "disclaimer":
-    return Array.from({ length: 23 }, (_, i) => ({
-      id: `disclaimer-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About DigiSaloon","Independent Salon Partners","Service Information","No Guarantee of Service Availability","Booking Platform","Payment Disclaimer",
-          "Salon Service Disclaimer","Reviews and Ratings","Third-Party Services","External Links","Website and Application Availability","Technical Information",
-          "No Professional Advice","Health and Beauty Services","Pricing and Offers","Intellectual Property","User-Generated Content",
-          "Limitation of Responsibility","Force Majeure","No Guarantee","Changes to This Disclaimer","Related Policies","Contact Us"
-        ][i]
-      }`
-    }));
+      case "disclaimer":
+        return Array.from({ length: 23 }, (_, i) => ({
+          id: `disclaimer-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About DigiSaloon","Independent Salon Partners","Service Information","No Guarantee of Service Availability","Booking Platform","Payment Disclaimer",
+              "Salon Service Disclaimer","Reviews and Ratings","Third-Party Services","External Links","Website and Application Availability","Technical Information",
+              "No Professional Advice","Health and Beauty Services","Pricing and Offers","Intellectual Property","User-Generated Content",
+              "Limitation of Responsibility","Force Majeure","No Guarantee","Changes to This Disclaimer","Related Policies","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "grievance":
-    return Array.from({ length: 20 }, (_, i) => ({
-      id: `grievance-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Who Can Raise a Grievance","How to Contact DigiSaloon","Information to Include in a Complaint",
-          "Types of Grievances","Complaint Acknowledgement","Review and Investigation","Resolution","Salon Partner Grievances",
-          "Customer Grievances Regarding Salon Services","Privacy of Complaints","Supporting Documents","Urgent Security Concerns","Escalation","Response Time",
-          "Fraudulent or Abusive Complaints","Legal and Regulatory Matters","Policy Relationship","Changes to This Policy","Contact Details"
-        ][i]
-      }`
-    }));
+      case "grievance":
+        return Array.from({ length: 20 }, (_, i) => ({
+          id: `grievance-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Who Can Raise a Grievance","How to Contact DigiSaloon","Information to Include in a Complaint",
+              "Types of Grievances","Complaint Acknowledgement","Review and Investigation","Resolution","Salon Partner Grievances",
+              "Customer Grievances Regarding Salon Services","Privacy of Complaints","Supporting Documents","Urgent Security Concerns","Escalation","Response Time",
+              "Fraudulent or Abusive Complaints","Legal and Regulatory Matters","Policy Relationship","Changes to This Policy","Contact Details"
+            ][i]
+          }`
+        }));
       
-        case "booking":
-    return Array.from({ length: 28 }, (_, i) => ({
-      id: `booking-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About DigiSaloon Bookings","Eligibility to Make a Booking","Selecting a Salon and Service","Live Booking","Schedule Booking","Booking Payment",
-          "Example of Booking Payment","Booking Confirmation","Booking Details","Appointment Timing","Customer No-Show","Cancellation of Live Booking",
-          "Cancellation of Schedule Booking","Cancellation Less Than 1 Hour Before Appointment","Salon Cancellation","Changes to Appointments",
-          "Service Availability","Service Duration","Additional Services","Booking and Payment Records","Technical Issues","Duplicate Bookings",
-          "Customer Responsibilities","Salon Partner Responsibilities","Booking Disputes","Policy Relationship","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "booking":
+        return Array.from({ length: 28 }, (_, i) => ({
+          id: `booking-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About DigiSaloon Bookings","Eligibility to Make a Booking","Selecting a Salon and Service","Live Booking","Schedule Booking","Booking Payment",
+              "Example of Booking Payment","Booking Confirmation","Booking Details","Appointment Timing","Customer No-Show","Cancellation of Live Booking",
+              "Cancellation of Schedule Booking","Cancellation Less Than 1 Hour Before Appointment","Salon Cancellation","Changes to Appointments",
+              "Service Availability","Service Duration","Additional Services","Booking and Payment Records","Technical Issues","Duplicate Bookings",
+              "Customer Responsibilities","Salon Partner Responsibilities","Booking Disputes","Policy Relationship","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "review":
-    return Array.from({ length: 27 }, (_, i) => ({
-      id: `review-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Who Can Submit a Review or Rating","Genuine Experience Requirement","Honest and Accurate Reviews","Ratings",
-          "Review Content Guidelines","Prohibited Review Content","Reviews Must Not Be Used for Extortion","Reviews and Refunds",
-          "Salon Partner Responses","Personal Information","Intellectual Property","Review Moderation","Removal or Restriction of Reviews",
-          "Honest Negative Reviews","Positive Reviews","Conflicts of Interest","Review Editing","Review Reporting","Disputes About Reviews",
-          "No Guarantee of Review Accuracy","Rating Calculations","Manipulation and Abuse","Account Restrictions","Privacy","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "review":
+        return Array.from({ length: 27 }, (_, i) => ({
+          id: `review-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Who Can Submit a Review or Rating","Genuine Experience Requirement","Honest and Accurate Reviews","Ratings",
+              "Review Content Guidelines","Prohibited Review Content","Reviews Must Not Be Used for Extortion","Reviews and Refunds",
+              "Salon Partner Responses","Personal Information","Intellectual Property","Review Moderation","Removal or Restriction of Reviews",
+              "Honest Negative Reviews","Positive Reviews","Conflicts of Interest","Review Editing","Review Reporting","Disputes About Reviews",
+              "No Guarantee of Review Accuracy","Rating Calculations","Manipulation and Abuse","Account Restrictions","Privacy","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "offers":
-    return Array.from({ length: 32 }, (_, i) => ({
-      id: `offer-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About Offers and Coupons","Eligibility","Coupon Validity","Coupon Application","One Coupon Per Booking","Minimum Booking Value",
-          "Maximum Discount","Salon-Specific Offers","Service-Specific Offers","Booking Type Restrictions","New Customer Offers",
-          "Promotional and Referral Offers","Coupon and Booking Payment","Offers and Cancellation","Expired Coupons","Non-Transferable Offers",
-          "Cash Conversion","Coupon Misuse","Incorrectly Applied Offers","Offer Changes","No Guaranteed Availability","Salon Promotions",
-          "Taxes and Charges","Refunds After Use of an Offer","Coupon Restoration After Cancellation","Technical Issues","Promotional Communication",
-          "Fraudulent or Unauthorized Promotions","Disputes Regarding Offers","Relationship With Other Policies","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "offers":
+        return Array.from({ length: 32 }, (_, i) => ({
+          id: `offer-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About Offers and Coupons","Eligibility","Coupon Validity","Coupon Application","One Coupon Per Booking","Minimum Booking Value",
+              "Maximum Discount","Salon-Specific Offers","Service-Specific Offers","Booking Type Restrictions","New Customer Offers",
+              "Promotional and Referral Offers","Coupon and Booking Payment","Offers and Cancellation","Expired Coupons","Non-Transferable Offers",
+              "Cash Conversion","Coupon Misuse","Incorrectly Applied Offers","Offer Changes","No Guaranteed Availability","Salon Promotions",
+              "Taxes and Charges","Refunds After Use of an Offer","Coupon Restoration After Cancellation","Technical Issues","Promotional Communication",
+              "Fraudulent or Unauthorized Promotions","Disputes Regarding Offers","Relationship With Other Policies","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "user":
-    return Array.from({ length: 36 }, (_, i) => ({
-      id: `account-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About User Accounts","User Eligibility","Account Information","Accuracy of Information","Account Security","Unauthorized Account Access","Account Usage","Duplicate or Multiple Accounts",
-          "Bookings Before Account Deletion","Outstanding Transactions","How to Request Account Deletion","Identity and Account Verification",
-          "Effect of Account Deletion","Data Retention After Deletion","Payment and Transaction Records","Booking History","Reviews and Ratings","Account Deletion and Refunds",
-          "Account Deletion and Active Bookings","Account Suspension or Restriction","Termination of Accounts","Recreating an Account","Promotional Benefits After Deletion",
-          "Notifications After Account Deletion","Privacy and Account Deletion","Data Backup and System Copies","Security and Fraud Prevention",
-          "Third-Party Services","Deletion Request Processing","Failed or Incomplete Deletion Requests","Consequences of Account Deletion",
-          "Reconsidering Account Deletion","No Circumvention","Relationship With Other Policies","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "user":
+        return Array.from({ length: 36 }, (_, i) => ({
+          id: `account-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About User Accounts","User Eligibility","Account Information","Accuracy of Information","Account Security","Unauthorized Account Access","Account Usage","Duplicate or Multiple Accounts",
+              "Bookings Before Account Deletion","Outstanding Transactions","How to Request Account Deletion","Identity and Account Verification",
+              "Effect of Account Deletion","Data Retention After Deletion","Payment and Transaction Records","Booking History","Reviews and Ratings","Account Deletion and Refunds",
+              "Account Deletion and Active Bookings","Account Suspension or Restriction","Termination of Accounts","Recreating an Account","Promotional Benefits After Deletion",
+              "Notifications After Account Deletion","Privacy and Account Deletion","Data Backup and System Copies","Security and Fraud Prevention",
+              "Third-Party Services","Deletion Request Processing","Failed or Incomplete Deletion Requests","Consequences of Account Deletion",
+              "Reconsidering Account Deletion","No Circumvention","Relationship With Other Policies","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "location":
-    return Array.from({ length: 28 }, (_, i) => ({
-      id: `loc-notif-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose of This Policy","Location Permission","How DigiSaloon May Use Location Information","User-Controlled Location Access","Manual Location Selection",
-          "Location Accuracy","Background Location","Location and Salon Discovery","Location Data and Privacy","Notification Permission",
-          "Types of Notifications","Transactional vs Promotional Notifications","Managing Notifications","Important Service Notifications","Promotional Notifications",
-          "Notification Accuracy and Timing","Third-Party Notification Services","Notification Content","Device and Operating-System Controls",
-          "Disabling Location or Notifications","Children and Minimum Age","Location and Notification Security","Changes to Location Features",
-          "Changes to Notification Features","Relationship With Privacy Policy","Relationship With Other Policies","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "location":
+        return Array.from({ length: 28 }, (_, i) => ({
+          id: `loc-notif-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose of This Policy","Location Permission","How DigiSaloon May Use Location Information","User-Controlled Location Access","Manual Location Selection",
+              "Location Accuracy","Background Location","Location and Salon Discovery","Location Data and Privacy","Notification Permission",
+              "Types of Notifications","Transactional vs Promotional Notifications","Managing Notifications","Important Service Notifications","Promotional Notifications",
+              "Notification Accuracy and Timing","Third-Party Notification Services","Notification Content","Device and Operating-System Controls",
+              "Disabling Location or Notifications","Children and Minimum Age","Location and Notification Security","Changes to Location Features",
+              "Changes to Notification Features","Relationship With Privacy Policy","Relationship With Other Policies","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "acceptable":
-    return Array.from({ length: 38 }, (_, i) => ({
-      id: `acc-use-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose of This Policy","Appropriate Use of DigiSaloon","Customer Responsibilities","Respectful Conduct","Prohibited Booking Activities","Live Bookings",
-          "Schedule Bookings","No-Show Conduct","Late Arrival","Salon Rules","Payment Conduct","Payment Disputes","Reviews and Ratings",
-          "False or Misleading Information","Coupon and Offer Misuse","Account Misuse","Personal Information","Photography and Recording",
-          "Harassment and Abuse","Discrimination and Hate","Illegal Activities","Platform and System Security","Automated or Abusive Use",
-          "Spam and Unwanted Communication","Intellectual Property","Content Standards","Customer-Salon Disputes","Customer Support Conduct","Reporting Misconduct",
-          "Investigation and Enforcement","Emergency or Serious Safety Concerns","No Retaliation for Genuine Reports","Account Restrictions",
-          "Responsibility for Account Activity","No Circumvention","Relationship With Other Policies","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "acceptable":
+        return Array.from({ length: 38 }, (_, i) => ({
+          id: `acc-use-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose of This Policy","Appropriate Use of DigiSaloon","Customer Responsibilities","Respectful Conduct","Prohibited Booking Activities","Live Bookings",
+              "Schedule Bookings","No-Show Conduct","Late Arrival","Salon Rules","Payment Conduct","Payment Disputes","Reviews and Ratings",
+              "False or Misleading Information","Coupon and Offer Misuse","Account Misuse","Personal Information","Photography and Recording",
+              "Harassment and Abuse","Discrimination and Hate","Illegal Activities","Platform and System Security","Automated or Abusive Use",
+              "Spam and Unwanted Communication","Intellectual Property","Content Standards","Customer-Salon Disputes","Customer Support Conduct","Reporting Misconduct",
+              "Investigation and Enforcement","Emergency or Serious Safety Concerns","No Retaliation for Genuine Reports","Account Restrictions",
+              "Responsibility for Account Activity","No Circumvention","Relationship With Other Policies","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-        case "partner":
-    return Array.from({ length: 56 }, (_, i) => ({
-      id: `partner-terms-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "About DigiSaloon","Partner Eligibility","Partner Account",
-          "Accurate Salon Information","Salon Services","Service Pricing","Booking Types","Booking Acceptance","Salon Availability",
-          "Salon Cancellation","Customer Cancellation","Booking Payment Model","Example of Booking Payment","Salon Settlement","Remaining Service Amount",
-          "DigiSaloon Commission","Refunds","Salon Responsibility for Customer Payments","Customer Service Standards","Service Quality",
-          "Salon Staff","Health, Safety and Hygiene","Licenses and Registrations","Tax and GST Information","Bank Account and Settlement Information","Customer Information",
-          "Privacy and Data Protection","Reviews and Ratings","Salon Content","Intellectual Property","Use of Salon Name and Content","Promotions and Offers",
-          "Prohibited Partner Conduct","Unauthorized Payments","No Unauthorized Charges","Booking Changes","Customer No-Show","Salon Closure","Partner Support",
-          "Technical Requirements","Partner Account Security","Monitoring and Verification","Suspension or Restriction","Termination","Effect of Termination",
-          "Outstanding Settlements","Indemnification","Independent Business Relationship","Service Responsibility","Disputes","Confidentiality",
-          "Compliance With Law","Force Majeure","Changes to Partner Terms","Relationship With Other DigiSaloon Policies","Contact DigiSaloon"
-        ][i]
-      }`
-    }));
+      case "partner":
+        return Array.from({ length: 56 }, (_, i) => ({
+          id: `partner-terms-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "About DigiSaloon","Partner Eligibility","Partner Account",
+              "Accurate Salon Information","Salon Services","Service Pricing","Booking Types","Booking Acceptance","Salon Availability",
+              "Salon Cancellation","Customer Cancellation","Booking Payment Model","Example of Booking Payment","Salon Settlement","Remaining Service Amount",
+              "DigiSaloon Commission","Refunds","Salon Responsibility for Customer Payments","Customer Service Standards","Service Quality",
+              "Salon Staff","Health, Safety and Hygiene","Licenses and Registrations","Tax and GST Information","Bank Account and Settlement Information","Customer Information",
+              "Privacy and Data Protection","Reviews and Ratings","Salon Content","Intellectual Property","Use of Salon Name and Content","Promotions and Offers",
+              "Prohibited Partner Conduct","Unauthorized Payments","No Unauthorized Charges","Booking Changes","Customer No-Show","Salon Closure","Partner Support",
+              "Technical Requirements","Partner Account Security","Monitoring and Verification","Suspension or Restriction","Termination","Effect of Termination",
+              "Outstanding Settlements","Indemnification","Independent Business Relationship","Service Responsibility","Disputes","Confidentiality",
+              "Compliance With Law","Force Majeure","Changes to Partner Terms","Relationship With Other DigiSaloon Policies","Contact DigiSaloon"
+            ][i]
+          }`
+        }));
       
-        case "onboarding":
-    return Array.from({ length: 42 }, (_, i) => ({
-      id: `onboarding-policy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose of Partner Onboarding","Who Can Apply","Partner Application","Accurate Information Requirement",
-          "Identity Verification","Business Verification","Salon Address Verification","Contact Information Verification","Bank Account Verification","GST and Tax Information",
-          "Salon Service Verification","Pricing Verification","Salon Images and Content","Operating Hours","Booking Availability Verification",
-          "Verification Process","Additional Information Requests","Verification Time","Approval Is Not Automatic","Provisional or Conditional Approval",
-          "Rejection of Application","Re-Application","Verification of Existing Partners","Changes to Partner Information","Bank Account Changes",
-          "GSTIN Changes","Verification and Payment Settlement","Verification and Customer Trust","False or Fraudulent Information",
-          "Unauthorized Representation","Security and Fraud Prevention","Partner Data and Privacy","Third-Party Verification Services",
-          "Document Retention","Verification Failure","Partner Account Suspension During Review","Partner Responsibility After Approval",
-          "No Guarantee of Continuous Listing","Partner Onboarding Fees","Relationship With Salon Partner Terms","Changes to This Policy","Contact Us"
-        ][i]
-      }`
-    }));
+      case "onboarding":
+        return Array.from({ length: 42 }, (_, i) => ({
+          id: `onboarding-policy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose of Partner Onboarding","Who Can Apply","Partner Application","Accurate Information Requirement",
+              "Identity Verification","Business Verification","Salon Address Verification","Contact Information Verification","Bank Account Verification","GST and Tax Information",
+              "Salon Service Verification","Pricing Verification","Salon Images and Content","Operating Hours","Booking Availability Verification",
+              "Verification Process","Additional Information Requests","Verification Time","Approval Is Not Automatic","Provisional or Conditional Approval",
+              "Rejection of Application","Re-Application","Verification of Existing Partners","Changes to Partner Information","Bank Account Changes",
+              "GSTIN Changes","Verification and Payment Settlement","Verification and Customer Trust","False or Fraudulent Information",
+              "Unauthorized Representation","Security and Fraud Prevention","Partner Data and Privacy","Third-Party Verification Services",
+              "Document Retention","Verification Failure","Partner Account Suspension During Review","Partner Responsibility After Approval",
+              "No Guarantee of Continuous Listing","Partner Onboarding Fees","Relationship With Salon Partner Terms","Changes to This Policy","Contact Us"
+            ][i]
+          }`
+        }));
       
-    case "partnerservice":
-    return Array.from({ length: 26 }, (_, i) => ({
-      id: `sec-psp-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Service Information","Service Availability","Service Pricing","Price Changes","Taxes and Other Charges","Customer Booking Amount",
-          "Service Delivery","Appointment Confirmation","Partner-Initiated Cancellation","Customer Refund When Partner Cancels","Customer Cancellation",
-          "Partner No-Show","Delayed Service","Service Modification","Offers and Discounts","Customer Communication","Pricing Disputes","False or Misleading Pricing",
-          "Repeated Cancellations","Settlement After Cancellation","Partner Responsibilities","Policy Violations","Policy Updates","Related Policies","Contact Information"
-        ][i]
-      }`
-    }));
+      case "partnerservice":
+        return Array.from({ length: 26 }, (_, i) => ({
+          id: `sec-psp-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Service Information","Service Availability","Service Pricing","Price Changes","Taxes and Other Charges","Customer Booking Amount",
+              "Service Delivery","Appointment Confirmation","Partner-Initiated Cancellation","Customer Refund When Partner Cancels","Customer Cancellation",
+              "Partner No-Show","Delayed Service","Service Modification","Offers and Discounts","Customer Communication","Pricing Disputes","False or Misleading Pricing",
+              "Repeated Cancellations","Settlement After Cancellation","Partner Responsibilities","Policy Violations","Policy Updates","Related Policies","Contact Information"
+            ][i]
+          }`
+        }));
         
-        case "partnerpayout":
-    return Array.from({ length: 33 }, (_, i) => ({
-      id: `payout-terms-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Current Booking Payment Model","Partner Payout Calculation","Service Amount Paid Directly to Salon",
-          "DigiSaloon Commission","Settlement Timing","Settlement Account","Bank Account Changes","Payment Gateway Processing",
-          "Refunds and Settlement Adjustments","Live Booking Cancellation","Salon-Cancelled Bookings","Failed Payments","Pending Transactions",
-          "Reversed or Charged-Back Transactions","Duplicate Payments","Settlement Holds","Fraud and Risk Review","Taxes and Statutory Obligations",
-          "GST Information","Partner Service Collections","No Unauthorized Customer Charges","Settlement Reconciliation","Settlement Disputes",
-          "Records and Transaction History","Third-Party Payment Provider","Platform Errors and Corrections","Partner Responsibilities",
-          "Suspension or Termination","No Guarantee of Fixed Settlement Time","Policy Changes","Relationship with Other Policies","Contact Information"
-        ][i]
-      }`
-    }));
+      case "partnerpayout":
+        return Array.from({ length: 33 }, (_, i) => ({
+          id: `payout-terms-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Current Booking Payment Model","Partner Payout Calculation","Service Amount Paid Directly to Salon",
+              "DigiSaloon Commission","Settlement Timing","Settlement Account","Bank Account Changes","Payment Gateway Processing",
+              "Refunds and Settlement Adjustments","Live Booking Cancellation","Salon-Cancelled Bookings","Failed Payments","Pending Transactions",
+              "Reversed or Charged-Back Transactions","Duplicate Payments","Settlement Holds","Fraud and Risk Review","Taxes and Statutory Obligations",
+              "GST Information","Partner Service Collections","No Unauthorized Customer Charges","Settlement Reconciliation","Settlement Disputes",
+              "Records and Transaction History","Third-Party Payment Provider","Platform Errors and Corrections","Partner Responsibilities",
+              "Suspension or Termination","No Guarantee of Fixed Settlement Time","Policy Changes","Relationship with Other Policies","Contact Information"
+            ][i]
+          }`
+        }));
       
-        case "staff":
-    return Array.from({ length: 42 }, (_, i) => ({
-      id: `staff-policy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Who This Policy Applies To","Manage Web","Partner Responsibility","Staff Account Access","Staff Role and Permissions",
-          "Staff Onboarding","Booking Management","Live Bookings","Schedule Bookings","Appointment Status","Staff Assignment","Customer Information",
-          "Customer Privacy","Customer Contact","Customer Service Responsibility","Service Information","Payment Information","Unauthorized Charges",
-          "Manage Web Security","Shared Devices","Unauthorized Access","System Manipulation","Reviews and Ratings","Customer Photos and Media",
-          "Prohibited Conduct","Software and Automation","Staff Offboarding","Lost or Stolen Device","Security Incident Reporting","Monitoring and Audit",
-          "Partner Responsibility for Staff Actions","Account Restrictions","Customer-Salon Disputes","Data Retention","Confidentiality",
-          "Training and Responsible Use","Policy Violations","No Transfer of Access","Changes to This Policy","Related Policies","Contact Information"
-        ][i]
-      }`
-    }));
+      case "staff":
+        return Array.from({ length: 42 }, (_, i) => ({
+          id: `staff-policy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Who This Policy Applies To","Manage Web","Partner Responsibility","Staff Account Access","Staff Role and Permissions",
+              "Staff Onboarding","Booking Management","Live Bookings","Schedule Bookings","Appointment Status","Staff Assignment","Customer Information",
+              "Customer Privacy","Customer Contact","Customer Service Responsibility","Service Information","Payment Information","Unauthorized Charges",
+              "Manage Web Security","Shared Devices","Unauthorized Access","System Manipulation","Reviews and Ratings","Customer Photos and Media",
+              "Prohibited Conduct","Software and Automation","Staff Offboarding","Lost or Stolen Device","Security Incident Reporting","Monitoring and Audit",
+              "Partner Responsibility for Staff Actions","Account Restrictions","Customer-Salon Disputes","Data Retention","Confidentiality",
+              "Training and Responsible Use","Policy Violations","No Transfer of Access","Changes to This Policy","Related Policies","Contact Information"
+            ][i]
+          }`
+        }));
       
-        case "adminsecurity":
-    return Array.from({ length: 47 }, (_, i) => ({
-      id: `admin-policy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Scope","Authorized Access Only","Admin Account","Role-Based Access Control","Principle of Least Privilege",
-          "Administrator Responsibilities","Password Security","Multi-Factor Authentication","Admin Panel Access From Devices","Network Security",
-          "Customer Data Access","Partner Data Access","Payment and Financial Information","Payment Gateway Access","Refund Access","Booking Management",
-          "Customer Account Management","Partner Account Management","Content and Review Moderation","Admin Action Logging","No Unauthorized Data Export",
-          "Data Minimization","Confidential Information","Admin API and Technical Credentials","Database Access","Production System Access",
-          "Admin Panel Changes","Security Monitoring","Suspicious Activity","Security Incident Response","Lost or Stolen Admin Device",
-          "Admin Account Suspension","Employee and Contractor Offboarding","Third-Party Access","Security of Third-Party Services",
-          "Backups and Recovery","Internal Security Testing","Prohibited Administrative Activities","Conflict of Interest","Internal Communication",
-          "Security Awareness","Policy Violations","Security and Privacy","Changes to This Policy","Related Policies","Contact Information"
-        ][i]
-      }`
-    }));
+      case "adminsecurity":
+        return Array.from({ length: 47 }, (_, i) => ({
+          id: `admin-policy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Scope","Authorized Access Only","Admin Account","Role-Based Access Control","Principle of Least Privilege",
+              "Administrator Responsibilities","Password Security","Multi-Factor Authentication","Admin Panel Access From Devices","Network Security",
+              "Customer Data Access","Partner Data Access","Payment and Financial Information","Payment Gateway Access","Refund Access","Booking Management",
+              "Customer Account Management","Partner Account Management","Content and Review Moderation","Admin Action Logging","No Unauthorized Data Export",
+              "Data Minimization","Confidential Information","Admin API and Technical Credentials","Database Access","Production System Access",
+              "Admin Panel Changes","Security Monitoring","Suspicious Activity","Security Incident Response","Lost or Stolen Admin Device",
+              "Admin Account Suspension","Employee and Contractor Offboarding","Third-Party Access","Security of Third-Party Services",
+              "Backups and Recovery","Internal Security Testing","Prohibited Administrative Activities","Conflict of Interest","Internal Communication",
+              "Security Awareness","Policy Violations","Security and Privacy","Changes to This Policy","Related Policies","Contact Information"
+            ][i]
+          }`
+        }));
       
-        case "dataprotection":
-    return Array.from({ length: 43 }, (_, i) => ({
-      id: `data-policy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Scope","Types of Information",
-          "Data Collection Principles","Data Accuracy","Data Use","Data Protection","Access Control","Customer Data Access","Partner Data Access",
-          "Payment Information","Location Information","Reviews and Ratings","Booking Records","Retention Periods","Account Information",
-          "Account Deletion","Effect of Account Deletion","Information That May Be Retained","Anonymization","Backups","Deletion from Active Systems",
-          "Third-Party Service Providers","Payment Provider Records","Partner Account Deletion","Staff Access Deletion","Data Retention for Disputes","Security Logs",
-          "Administrative Records","Data Deletion Methods","User Deletion Requests","Deletion Request Process","When Deletion May Be Delayed",
-          "Information That Cannot Be Immediately Deleted","Data Sharing","Internal Data Access","Data Security Incidents","User Responsibility",
-          "Children and Age Requirement","International or Cross-Border Processing","Policy Relationship","Policy Changes","Contact Information"
-        ][i]
-      }`
-    }));
-        case "incidentresponse":
-    return Array.from({ length: 47 }, (_, i) => ({
-      id: `sec-policy-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Scope","Security Principles","Access Control","Administrative Access","Account Security","Authentication",
-          "Data Security","Secure Communication","Payment Security","Payment Gateway Credentials","API Security","Database Security",
-          "Application Security","Admin Panel Security","Partner System Security","Staff Security","Security Monitoring","Security Logs","Security Updates",
-          "Vulnerability Management","What Is a Security Incident?","Incident Detection","Incident Reporting","Incident Response Process","Incident Containment",
-          "Account Compromise","Data Security Incident","Customer Notification","Regulatory or Legal Reporting","Payment Security Incidents",
-          "Third-Party Security Incidents","Business Continuity","Backup and Recovery","Post-Incident Review","Employee and Administrator Responsibilities",
-          "Partner Responsibilities","Customer Responsibilities","Prohibited Security Activities","Responsible Security Reporting","Security Research",
-          "Confidentiality During Incidents","Incident Records","No Guarantee of Complete Security","Policy Changes","Related Policies","Contact Information"
-        ][i]
-      }`
-    }));
+      case "dataprotection":
+        return Array.from({ length: 43 }, (_, i) => ({
+          id: `data-policy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Scope","Types of Information",
+              "Data Collection Principles","Data Accuracy","Data Use","Data Protection","Access Control","Customer Data Access","Partner Data Access",
+              "Payment Information","Location Information","Reviews and Ratings","Booking Records","Retention Periods","Account Information",
+              "Account Deletion","Effect of Account Deletion","Information That May Be Retained","Anonymization","Backups","Deletion from Active Systems",
+              "Third-Party Service Providers","Payment Provider Records","Partner Account Deletion","Staff Access Deletion","Data Retention for Disputes","Security Logs",
+              "Administrative Records","Data Deletion Methods","User Deletion Requests","Deletion Request Process","When Deletion May Be Delayed",
+              "Information That Cannot Be Immediately Deleted","Data Sharing","Internal Data Access","Data Security Incidents","User Responsibility",
+              "Children and Age Requirement","International or Cross-Border Processing","Policy Relationship","Policy Changes","Contact Information"
+            ][i]
+          }`
+        }));
+      case "incidentresponse":
+        return Array.from({ length: 47 }, (_, i) => ({
+          id: `sec-policy-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Scope","Security Principles","Access Control","Administrative Access","Account Security","Authentication",
+              "Data Security","Secure Communication","Payment Security","Payment Gateway Credentials","API Security","Database Security",
+              "Application Security","Admin Panel Security","Partner System Security","Staff Security","Security Monitoring","Security Logs","Security Updates",
+              "Vulnerability Management","What Is a Security Incident?","Incident Detection","Incident Reporting","Incident Response Process","Incident Containment",
+              "Account Compromise","Data Security Incident","Customer Notification","Regulatory or Legal Reporting","Payment Security Incidents",
+              "Third-Party Security Incidents","Business Continuity","Backup and Recovery","Post-Incident Review","Employee and Administrator Responsibilities",
+              "Partner Responsibilities","Customer Responsibilities","Prohibited Security Activities","Responsible Security Reporting","Security Research",
+              "Confidentiality During Incidents","Incident Records","No Guarantee of Complete Security","Policy Changes","Related Policies","Contact Information"
+            ][i]
+          }`
+        }));
         
      case "thirdparty":
-    return Array.from({ length: 43 }, (_, i) => ({
-      id: `sec-tp-${i + 1}`,
-      label: `${i + 1}. ${
-        [
-          "Purpose","Scope","Third-Party Service Providers","Payment Provider","Customer Booking Payment","Payment Example",
-          "Payment Gateway Fees","Payment Information","Payment Credentials","Payment Security","Payment Success and Booking Confirmation",
-          "Failed Payments","Pending Payments","Refunds","Refund Processing Time","Payment Reversals","Chargebacks and Disputes","Partner Settlement",
-          "Settlement Delays","Third-Party Terms","Third-Party Data Processing","Cloud and Hosting Providers","Email, SMS and Notification Services",
-          "Maps and Location Services","Analytics and Monitoring","Authentication Services","Third-Party Service Availability","Third-Party Service Changes",
-          "Replacement of Providers","Third-Party Links","Third-Party Security","Third-Party Security Incidents","Payment Fraud Prevention",
-          "Partner Responsibilities","Customer Responsibilities","Administrator Responsibilities","No Guarantee of Third-Party Services",
-          "Data Retention by Third Parties","Privacy","Taxes and Payment Records","Policy Changes","Related Policies","Contact Information"
-        ][i]
-      }`
-    }));
+        return Array.from({ length: 43 }, (_, i) => ({
+          id: `sec-tp-${i + 1}`,
+          label: `${i + 1}. ${
+            [
+              "Purpose","Scope","Third-Party Service Providers","Payment Provider","Customer Booking Payment","Payment Example",
+              "Payment Gateway Fees","Payment Information","Payment Credentials","Payment Security","Payment Success and Booking Confirmation",
+              "Failed Payments","Pending Payments","Refunds","Refund Processing Time","Payment Reversals","Chargebacks and Disputes","Partner Settlement",
+              "Settlement Delays","Third-Party Terms","Third-Party Data Processing","Cloud and Hosting Providers","Email, SMS and Notification Services",
+              "Maps and Location Services","Analytics and Monitoring","Authentication Services","Third-Party Service Availability","Third-Party Service Changes",
+              "Replacement of Providers","Third-Party Links","Third-Party Security","Third-Party Security Incidents","Payment Fraud Prevention",
+              "Partner Responsibilities","Customer Responsibilities","Administrator Responsibilities","No Guarantee of Third-Party Services",
+              "Data Retention by Third Parties","Privacy","Taxes and Payment Records","Policy Changes","Related Policies","Contact Information"
+            ][i]
+          }`
+        }));
       default:
         return [];
     }
@@ -410,10 +415,14 @@ export function PolicyHub() {
 
   const highlights = getHighlights();
 
+  // Attached scroll listener to main container instead of window
   useEffect(() => {
+    const mainElement = mainRef.current;
+    if (!mainElement) return;
+
     const handleScroll = () => {
       const sections = highlights.map(h => document.getElementById(h.id));
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = mainElement.scrollTop + 150;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -424,16 +433,17 @@ export function PolicyHub() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    mainElement.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => mainElement.removeEventListener("scroll", handleScroll);
   }, [activeTab, highlights]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (element && mainRef.current) {
+      const topPos = element.offsetTop - mainRef.current.offsetTop;
+      mainRef.current.scrollTo({ top: topPos - 20, behavior: "smooth" });
       setIsMobileTocOpen(false);
     }
   };
@@ -469,10 +479,10 @@ export function PolicyHub() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans flex flex-col">
+    <div className="h-screen bg-white text-slate-800 font-sans flex flex-col overflow-hidden">
       
       {/* Top Header Navigation Bar */}
-      <div className="border-b border-slate-200 px-4 md:px-6 py-4 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-md z-50 shadow-xs">
+      <div className="border-b border-slate-200 px-4 md:px-6 py-4 flex items-center justify-between shrink-0 bg-white/95 backdrop-blur-md z-50 shadow-xs">
         <div className="flex items-center gap-4">
           <a href="/" className="text-lg md:text-xl font-black tracking-tight text-slate-900 hover:opacity-85 transition-opacity no-underline">
             Digi<span className="text-red-700">Saloon</span> <span className="text-[11px] font-normal text-slate-400 block md:inline">| Policies & Guidelines</span>
@@ -481,8 +491,7 @@ export function PolicyHub() {
       </div>
 
       {/* 📱 Improved Mobile View Controls (Visible only on small screens) */}
-      <div className="block md:hidden bg-slate-50 border-b border-slate-200 p-3 sticky top-[65px] z-40 space-y-2 shadow-sm">
-        {/* Policy Selector Dropdown */}
+      <div className="block md:hidden bg-slate-50 border-b border-slate-200 p-3 shrink-0 space-y-2 shadow-sm z-40">
         <div className="relative">
           <select
             value={activeTab}
@@ -519,7 +528,6 @@ export function PolicyHub() {
           </div>
         </div>
 
-        {/* Mobile Table of Contents Accordion Toggle */}
         <button
           onClick={() => setIsMobileTocOpen(!isMobileTocOpen)}
           className="w-full flex items-center justify-between bg-white border border-slate-300 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 shadow-xs active:scale-[0.99] transition-all"
@@ -530,9 +538,8 @@ export function PolicyHub() {
           {isMobileTocOpen ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
         </button>
 
-        {/* Collapsible Table of Contents List for Mobile */}
         {isMobileTocOpen && (
-          <div className="bg-white border border-slate-200 rounded-xl p-2 max-h-64 overflow-y-auto space-y-1 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="bg-white border border-slate-200 rounded-xl p-2 max-h-48 overflow-y-auto space-y-1 shadow-lg">
             {highlights.map((h) => (
               <button
                 key={h.id}
@@ -550,11 +557,11 @@ export function PolicyHub() {
         )}
       </div>
 
-      {/* Main 3-Column Layout (Left & Right col-span-2, Center col-span-8) */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-12 flex-1">
+      {/* Main 3-Column Layout with App Shell & Independent Scrolling */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-12 flex-1 overflow-hidden">
         
-        {/* 1. Left Sidebar (col-span-2) */}
-        <aside className="hidden md:block md:col-span-2 border-r border-slate-200 p-4 space-y-1.5 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+        {/* 1. Left Sidebar (col-span-2) - Fixed & Independently Scrollable */}
+        <aside className="hidden md:block md:col-span-2 border-r border-slate-200 p-4 space-y-1.5 bg-slate-50/50 h-full overflow-y-auto">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-3 px-2">
             Policies
           </p>
@@ -872,13 +879,13 @@ export function PolicyHub() {
           </button>
         </aside>
 
-        {/* 2. Center Content Area (col-span-8 - Expanded Width) */}
-        <main className="col-span-1 md:col-span-8 p-6 md:p-12">
+        {/* 2. Center Content Area (col-span-8) - Attached ref for independent scroll */}
+        <main ref={mainRef} className="col-span-1 md:col-span-8 p-6 md:p-12 h-full overflow-y-auto">
           {renderPolicyComponent()}
         </main>
 
-        {/* 3. Right Sidebar (col-span-2) */}
-        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-4 space-y-2 bg-slate-50/50 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+        {/* 3. Right Sidebar / TOC (col-span-2) - Fixed & Independently Scrollable */}
+        <aside className="hidden md:block md:col-span-2 border-l border-slate-200 p-4 space-y-2 bg-slate-50/50 h-full overflow-y-auto">
           <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-4 px-2">
             Table of Contents
           </p>
