@@ -322,7 +322,7 @@ export const GuidelinesPolicy: React.FC = () => {
               <p className="text-xs md:text-sm">Customers and partners may contact DigiSaloon regarding complaints, grievances, disputes, account issues, payment concerns, privacy concerns, or other service-related matters.</p>
               <p className="text-xs md:text-sm pt-1">
                 <strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-600 hover:underline">support@digisaloon.in</a><br />
-                <strong>Phone:</strong> <a href="tel:9973499471" className="text-red-600 hover:underline">9973499471</a>
+                <strong>Phone:</strong> <a href="tel:8893588201" className="text-red-600 hover:underline">8893588201</a>
               </p>
             </div>
 
@@ -367,7 +367,7 @@ export const GuidelinesPolicy: React.FC = () => {
           <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-1 text-xs md:text-sm mt-2">
             <p className="font-bold text-slate-800">For assistance:</p>
             <p><strong>Email:</strong> <a href="mailto:support@digisaloon.in" className="text-red-600 hover:underline">support@digisaloon.in</a></p>
-            <p><strong>Phone:</strong> <a href="tel:9973499471" className="text-red-600 hover:underline">9973499471</a></p>
+            <p><strong>Phone:</strong> <a href="tel:8893588201" className="text-red-600 hover:underline">8893588201</a></p>
           </div>
         </section>
 
@@ -431,8 +431,8 @@ export const GuidelinesPolicy: React.FC = () => {
             </p>
             <p>
               <strong>Phone:</strong>{" "}
-              <a href="tel:9973499471" className="text-red-400 hover:underline">
-                9973499471
+              <a href="tel:8893588201" className="text-red-400 hover:underline">
+                8893588201
               </a>
             </p>
             <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>

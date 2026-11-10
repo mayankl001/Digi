@@ -67,7 +67,7 @@ const faqs = [
           </a>
 
           <a 
-            href="tel:+919973499471" 
+            href="tel:+918893588201" 
             className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#991B1B]/30 hover:bg-[#991B1B]/5 transition-colors group/item"
           >
             <div className="w-8 h-8 rounded-lg bg-[#991B1B]/10 text-[#991B1B] flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#991B1B] group-hover/item:text-white transition-colors">

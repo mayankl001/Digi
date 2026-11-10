@@ -69,8 +69,8 @@ export const GrievancePolicy: React.FC = () => {
             </p>
             <p>
               <strong>Phone:</strong>{" "}
-              <a href="tel:9973499471" className="text-red-400 hover:underline">
-                9973499471
+              <a href="tel:8893588201" className="text-red-400 hover:underline">
+                8893588201
               </a>
             </p>
             <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>
@@ -345,8 +345,8 @@ export const GrievancePolicy: React.FC = () => {
             </p>
             <p>
               <strong>Phone:</strong>{" "}
-              <a href="tel:9973499471" className="text-red-400 hover:underline">
-                9973499471
+              <a href="tel:8893588201" className="text-red-400 hover:underline">
+                8893588201
               </a>
             </p>
             <p><strong>Address:</strong> Angara, Ranchi, Jharkhand 835103</p>

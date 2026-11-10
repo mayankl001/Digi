@@ -112,7 +112,7 @@ export function ContactPage() {
                   <div>
                     <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Call Us</h4>
                     <a 
-                      href="tel:+919973499471" 
+                      href="tel:+918893588201" 
                       className="block text-base font-bold text-[#374151] mt-1 transition-colors duration-200 hover:text-[#991B1B] no-underline"
                     >
                       +91 99734 99471
