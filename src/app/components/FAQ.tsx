@@ -75,7 +75,7 @@ const faqs = [
             </div>
             <div className="min-w-0">
               <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Phone Support</p>
-              <p className="text-sm font-medium text-gray-900 truncate">+91 99734 99471</p>
+              <p className="text-sm font-medium text-gray-900 truncate">+91 88935 88201</p>
             </div>
           </a>
         </div>

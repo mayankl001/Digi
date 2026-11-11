@@ -115,7 +115,7 @@ export function ContactPage() {
                       href="tel:+918893588201" 
                       className="block text-base font-bold text-[#374151] mt-1 transition-colors duration-200 hover:text-[#991B1B] no-underline"
                     >
-                      +91 99734 99471
+                      +91 88935 88201
                     </a>
                     <p className="text-xs text-gray-400 mt-0.5">Mon-Sat from 9am to 5pm</p>
                   </div>
